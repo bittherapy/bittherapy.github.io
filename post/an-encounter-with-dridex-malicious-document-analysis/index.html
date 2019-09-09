@@ -9,7 +9,7 @@
 <meta name="description"
     content="Got my hands on a Dridex sample (SKM_C3350160212101601.docm) the other day and I wanted to figure out exactly how it managed to slip by our controls.
 The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.
-Document analysis First thing I need to do is run it through officemalscanner:" />
+Document Analysis First thing I need to do is run it through officemalscanner:" />
 <meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="/post/an-encounter-with-dridex-malicious-document-analysis/" />
@@ -41,7 +41,7 @@ Document analysis First thing I need to do is run it through officemalscanner:" 
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="An Encounter with Dridex - Malicious Document Analysis">
 <meta itemprop="description" content="Got my hands on a Dridex sample (SKM_C3350160212101601.docm) the other day and I wanted to figure out exactly how it managed to slip by our controls.
 The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.
-Document analysis First thing I need to do is run it through officemalscanner:">
+Document Analysis First thing I need to do is run it through officemalscanner:">
 
 
 <meta itemprop="datePublished" content="2016-02-17T13:40:00&#43;00:00" />
@@ -57,7 +57,7 @@ Document analysis First thing I need to do is run it through officemalscanner:">
 <meta name="twitter:title" content="An Encounter with Dridex - Malicious Document Analysis"/>
 <meta name="twitter:description" content="Got my hands on a Dridex sample (SKM_C3350160212101601.docm) the other day and I wanted to figure out exactly how it managed to slip by our controls.
 The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.
-Document analysis First thing I need to do is run it through officemalscanner:"/>
+Document Analysis First thing I need to do is run it through officemalscanner:"/>
 
 
 
@@ -134,7 +134,7 @@ Document analysis First thing I need to do is run it through officemalscanner:"/
 
 <p>The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.</p>
 
-<h3 id="document-analysis">Document analysis</h3>
+<h2 id="document-analysis">Document Analysis</h2>
 
 <p>First thing I need to do is run it through <a href="http://www.reconstructer.org/code.html" target="_blank">officemalscanner</a>:</p>
 
@@ -507,7 +507,7 @@ save_fullname = save_path + &quot;\ladybi.exe&quot;
 <pre><code class="language-vbnet">shellapplication_obj.Open (save_fullname)
 </code></pre>
 
-<h3 id="containment">Containment</h3>
+<h2 id="containment">Containment</h2>
 
 <p>So now that I have an idea of what this document does, I want to make sure I&rsquo;ve recorded all the URLs and any other indicators.</p>
 
@@ -550,7 +550,7 @@ save_fullname = save_path + &quot;\ladybi.exe&quot;
 }
 </code></pre>
 
-<h3 id="iocs">IOCs</h3>
+<h2 id="iocs">IOCs</h2>
 
 <p>After all is said and done, this is what I&rsquo;ve seen in my environment:</p>
 

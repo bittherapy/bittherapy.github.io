@@ -18,7 +18,7 @@
       
       <guid>/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</guid>
       <description>A few days ago I was alerted of a potentially compromised website serving Angler EK: hxxp://www.stadiumseatingcharts.com/rogers-centre/
-The Angler exploit kit will redirect the client to a separate compromised server in order to deliver the exploit and the malware stage. Usually, it accomplishes this using an iframe or an anchor (and calling the click()method for that element), or something similar. The point is, there is some bad JavaScript code leading to some other bad JavaScript code, and it&amp;rsquo;s usually obfuscated.</description>
+The Angler exploit kit will redirect the client to a separate compromised server in order to deliver the exploit and the malware stage. Usually, it accomplishes this using an iframe or an anchor (and calling the click() method for that element), or something similar. The point is, there is some bad JavaScript code leading to some other bad JavaScript code, and it&amp;rsquo;s usually obfuscated.</description>
     </item>
     
   </channel>

