@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>setsebool on { bit.therapy }</title>
-    <link>https://bittherapy.net/categories/setsebool/</link>
+    <link>/categories/setsebool/</link>
     <description>Recent content in setsebool on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Sun, 07 Feb 2016 18:48:00 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/categories/setsebool/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/setsebool/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Out-of-memory Micro Instance Woes: setsebool Killed</title>
-      <link>https://bittherapy.net/post/out-of-memory-micro-instance-woes-setsebool-killed/</link>
+      <link>/post/out-of-memory-micro-instance-woes-setsebool-killed/</link>
       <pubDate>Sun, 07 Feb 2016 18:48:00 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/out-of-memory-micro-instance-woes-setsebool-killed/</guid>
+      <guid>/post/out-of-memory-micro-instance-woes-setsebool-killed/</guid>
       <description>The other day I deployed a micro CentOS instance in Google Cloud&amp;rsquo;s Compute Engine. Normally 600mb of RAM is more than enough to do some light nginx/node.js work for me, but I ran into a bit of an issue when working with setsebool.
 In order to allow nginx to proxy websockets to my upstream node.js server, I have to loosen some SELinux boolean and to make sure this change is permanent.</description>
     </item>

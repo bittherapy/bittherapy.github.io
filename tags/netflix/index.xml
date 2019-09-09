@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Netflix on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/netflix/</link>
+    <link>/tags/netflix/</link>
     <description>Recent content in Netflix on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Wed, 03 Feb 2016 17:25:43 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/netflix/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/netflix/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Creating Your Own US Netflix Proxy with Google Cloud</title>
-      <link>https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/</link>
+      <link>/post/creating-your-own-us-netflix-proxy-with-google-cloud/</link>
       <pubDate>Wed, 03 Feb 2016 17:25:43 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/</guid>
+      <guid>/post/creating-your-own-us-netflix-proxy-with-google-cloud/</guid>
       <description>Say you wanted to create your own Unblock-Us or Tunlr service&amp;hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&amp;rsquo;s easy and fairly cheap.
 The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&amp;rsquo;s GCE.
 GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console.</description>

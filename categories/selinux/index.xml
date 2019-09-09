@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SELinux on { bit.therapy }</title>
-    <link>https://bittherapy.net/categories/selinux/</link>
+    <link>/categories/selinux/</link>
     <description>Recent content in SELinux on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Sun, 07 Feb 2016 18:48:00 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/categories/selinux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/selinux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Out-of-memory Micro Instance Woes: setsebool Killed</title>
-      <link>https://bittherapy.net/post/out-of-memory-micro-instance-woes-setsebool-killed/</link>
+      <link>/post/out-of-memory-micro-instance-woes-setsebool-killed/</link>
       <pubDate>Sun, 07 Feb 2016 18:48:00 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/out-of-memory-micro-instance-woes-setsebool-killed/</guid>
+      <guid>/post/out-of-memory-micro-instance-woes-setsebool-killed/</guid>
       <description>The other day I deployed a micro CentOS instance in Google Cloud&amp;rsquo;s Compute Engine. Normally 600mb of RAM is more than enough to do some light nginx/node.js work for me, but I ran into a bit of an issue when working with setsebool.
 In order to allow nginx to proxy websockets to my upstream node.js server, I have to loosen some SELinux boolean and to make sure this change is permanent.</description>
     </item>
     
     <item>
       <title>SETroubleshoot Email Notification on SELinux Denial</title>
-      <link>https://bittherapy.net/post/setroubleshoot-email-notification-on-selinux-denial/</link>
+      <link>/post/setroubleshoot-email-notification-on-selinux-denial/</link>
       <pubDate>Tue, 07 Apr 2015 13:11:24 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/setroubleshoot-email-notification-on-selinux-denial/</guid>
+      <guid>/post/setroubleshoot-email-notification-on-selinux-denial/</guid>
       <description>I&amp;rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
 SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
 Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
@@ -35,10 +35,10 @@ admin@example.com filter_type=after_first  Note: the after_first filter will pre
     
     <item>
       <title>SELinux’s setroubleshoot Install on a RHEL6 Server</title>
-      <link>https://bittherapy.net/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</link>
+      <link>/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</link>
       <pubDate>Tue, 07 Apr 2015 12:56:50 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</guid>
+      <guid>/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</guid>
       <description>I am planning on using RHEL6 as a web server, primarily for my Mercurial/GIT repositories. This was to replace my current Fedora13 instance. After the initial minimal install, there were a couple of things missing. Mainly setroubleshoot and email notification on AVC denial.
 During my F13 repository setup, I had to turn on a few SELinux booleans in order for HG to successfully serve my repositories. Apache was spitting out forbidden errors, and I suspected SELinux as the culprit.</description>
     </item>

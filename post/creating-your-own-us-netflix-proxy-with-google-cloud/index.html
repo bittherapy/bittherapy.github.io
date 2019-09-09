@@ -12,7 +12,7 @@ The following setup you can accomplish it on your favorite cloud provider. In my
 GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console." />
 <meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/" />
+<link rel="canonical" href="/post/creating-your-own-us-netflix-proxy-with-google-cloud/" />
 
 
 <title>
@@ -28,16 +28,16 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 
 
-<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
-<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
-<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Creating Your Own US Netflix Proxy with Google Cloud">
 <meta itemprop="description" content="Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.
 The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s GCE.
@@ -52,7 +52,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 <meta itemprop="keywords" content="Netflix,Google Cloud,GCE,Google Compute Engine,Tunlr,Unblock-Us,SNI-Proxy,Cord-cutting,American Netflix," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://bittherapy.net"/>
+<meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Creating Your Own US Netflix Proxy with Google Cloud"/>
 <meta name="twitter:description" content="Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.
@@ -85,7 +85,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://bittherapy.net/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -99,7 +99,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="/post/">Posts</a></li>
     </ul>
 </nav>
 
@@ -132,7 +132,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
         </div>
 
         <article>
-            <h2 class="post-title"><a href="https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/">Creating Your Own US Netflix Proxy with Google Cloud</a></h2>
+            <h2 class="post-title"><a href="/post/creating-your-own-us-netflix-proxy-with-google-cloud/">Creating Your Own US Netflix Proxy with Google Cloud</a></h2>
 
             
 
@@ -145,7 +145,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 <p>First thing you wanna do is create a new VM instance:</p>
 
-<p><img src="https://bittherapy.net/images/2016/02/create-instance.png" alt="" /></p>
+<p><img src="/images/2016/02/create-instance.png" alt="" /></p>
 
 <p>Select <strong>Ubuntu 14.04 LTS</strong> as the image with <strong>10gb</strong> of space. There&rsquo;s no need for more than <strong>0.6gb</strong> of ram and <strong>1</strong> shared vCPU.</p>
 
@@ -155,11 +155,11 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 <p>Under the <strong>Management</strong> tab, create a unique tag (<em>sniproxy</em>):</p>
 
-<p><img src="https://bittherapy.net/images/2016/02/expand-management-and-tag-it.png" alt="" /></p>
+<p><img src="/images/2016/02/expand-management-and-tag-it.png" alt="" /></p>
 
 <p>Under the <strong>Networking</strong> tab, select <strong>New static IP address</strong> to create a new External IP. Give the reserved static IP a name for reference and click <strong>Reserve</strong>. Make a note of the IP as we&rsquo;ll need it in the setup later on:</p>
 
-<p><img src="https://bittherapy.net/images/2016/02/new-static-IP.png" alt="" /></p>
+<p><img src="/images/2016/02/new-static-IP.png" alt="" /></p>
 
 <p>At this point, you can add users and SSH keys to the <strong>Access &amp; security</strong> tab if you need to but the defaults should be sufficient.</p>
 
@@ -169,7 +169,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 <p>Navigate to the default network configuration and create a new firewall rule. The important thing here is the IP range should be your external IP address (get it here: <a href="http://myip.dnsomatic.com/" target="_blank">http://myip.dnsomatic.com/</a>) followed by a <strong>/32</strong>. You also have to make sure that the <strong>target tags</strong> is set to the tag you gave the VM (<em>sniproxy</em>).</p>
 
-<p><img src="https://bittherapy.net/images/2016/02/setup-firewall-rule.png" alt="" /></p>
+<p><img src="/images/2016/02/setup-firewall-rule.png" alt="" /></p>
 
 <p>This rule allows only you to use the Netflix proxy, preventing abuse. You will have to modify this value if your IP changes from time to time. It&rsquo;s a bit of an inconvenience, but <strong>very important</strong>.</p>
 
@@ -179,7 +179,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
 <p>Go back to <strong>Compute Engine</strong> and find the VM instance. There will be an SSH connection option (awesome):</p>
 
-<p><img src="https://bittherapy.net/images/2016/02/ssh-to-box.png" alt="" /></p>
+<p><img src="/images/2016/02/ssh-to-box.png" alt="" /></p>
 
 <p>You should now be connected to the shell and ready to begin setup:</p>
 
@@ -382,7 +382,7 @@ COMMIT
 
         <div class="post-info">
   				<p>
-  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/netflix">Netflix</a></span><span class="tag"><a href="https://bittherapy.net/tags/google-cloud">Google Cloud</a></span><span class="tag"><a href="https://bittherapy.net/tags/gce">GCE</a></span><span class="tag"><a href="https://bittherapy.net/tags/google-compute-engine">Google Compute Engine</a></span><span class="tag"><a href="https://bittherapy.net/tags/tunlr">Tunlr</a></span><span class="tag"><a href="https://bittherapy.net/tags/unblock-us">Unblock-Us</a></span><span class="tag"><a href="https://bittherapy.net/tags/sni-proxy">SNI-Proxy</a></span><span class="tag"><a href="https://bittherapy.net/tags/cord-cutting">Cord-cutting</a></span><span class="tag"><a href="https://bittherapy.net/tags/american-netflix">American Netflix</a></span>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/netflix">Netflix</a></span><span class="tag"><a href="/tags/google-cloud">Google Cloud</a></span><span class="tag"><a href="/tags/gce">GCE</a></span><span class="tag"><a href="/tags/google-compute-engine">Google Compute Engine</a></span><span class="tag"><a href="/tags/tunlr">Tunlr</a></span><span class="tag"><a href="/tags/unblock-us">Unblock-Us</a></span><span class="tag"><a href="/tags/sni-proxy">SNI-Proxy</a></span><span class="tag"><a href="/tags/cord-cutting">Cord-cutting</a></span><span class="tag"><a href="/tags/american-netflix">American Netflix</a></span>
   				</p>
   			</div>
 
@@ -397,10 +397,10 @@ COMMIT
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://bittherapy.net">Adrian</a></span>
+                <span><a href="/">Adrian</a></span>
             
             <span>{ bit.therapy }</span>
-            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -423,7 +423,7 @@ COMMIT
 
 
 
-<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 

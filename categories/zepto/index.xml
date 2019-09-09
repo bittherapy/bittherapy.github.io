@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Zepto on { bit.therapy }</title>
-    <link>https://bittherapy.net/categories/zepto/</link>
+    <link>/categories/zepto/</link>
     <description>Recent content in Zepto on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Tue, 16 Aug 2016 12:36:51 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/categories/zepto/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/categories/zepto/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Look at Zepto Ransomware - Payload Delivery Analysis</title>
-      <link>https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</link>
+      <link>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</link>
       <pubDate>Tue, 16 Aug 2016 12:36:51 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</guid>
+      <guid>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</guid>
       <description>It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
 First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.</description>
     </item>

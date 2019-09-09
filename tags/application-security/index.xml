@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>application security on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/application-security/</link>
+    <link>/tags/application-security/</link>
     <description>Recent content in application security on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Wed, 17 Jul 2019 21:33:07 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/application-security/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Hardcoded Credentials in Uniguest Kiosk Software lead to API Compromise</title>
-      <link>https://bittherapy.net/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</link>
+      <link>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</link>
       <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</guid>
+      <guid>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</guid>
       <description>If you&amp;rsquo;ve traveled at all within North America, you&amp;rsquo;ve likely at some point noticed or even used the shared kiosk machines available in hotel lobbies. These are typically running a locked down version of Windows, and chances are they are managed by Uniguest software.
 Uniguest kiosk software will restrict the user to simple tasks, such as maybe browsing the web or printing boarding passes. Uniguest software can be found in other industries, not just hospitality:</description>
     </item>
     
     <item>
       <title>RCE with Arbitrary File Write and XSS in Reprise License Manager (CVE-2018–15573, CVE-2018–15574)</title>
-      <link>https://bittherapy.net/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</link>
+      <link>/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</link>
       <pubDate>Wed, 18 Jul 2018 17:32:04 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</guid>
+      <guid>/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</guid>
       <description>CVE-2018–15573: Arbitrary File Write in Reprise License Manager
 CVE-2018–15574: XSS in Reprise License Manager
 TW-2018-006: Unpatched Remote Code Execution and XSS in Reprise License Manager

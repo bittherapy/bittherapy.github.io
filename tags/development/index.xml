@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Development on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/development/</link>
+    <link>/tags/development/</link>
     <description>Recent content in Development on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Mon, 06 Apr 2015 17:23:40 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/development/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/development/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Identify and block malicious HTTP traffic with IPtables</title>
-      <link>https://bittherapy.net/post/identify-and-block-malicious-http-traffic-with-iptables/</link>
+      <link>/post/identify-and-block-malicious-http-traffic-with-iptables/</link>
       <pubDate>Mon, 06 Apr 2015 17:23:40 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/identify-and-block-malicious-http-traffic-with-iptables/</guid>
+      <guid>/post/identify-and-block-malicious-http-traffic-with-iptables/</guid>
       <description>So I was looking through my httpd access_log files and this popped up every couple of days:
 93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &amp;quot;GET /w00tw00t.</description>
     </item>
     
     <item>
       <title>Force Google Chrome Incognito Mode on Startup</title>
-      <link>https://bittherapy.net/post/force-google-chrome-incognito-mode-on-startup/</link>
+      <link>/post/force-google-chrome-incognito-mode-on-startup/</link>
       <pubDate>Mon, 06 Apr 2015 17:12:19 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/force-google-chrome-incognito-mode-on-startup/</guid>
+      <guid>/post/force-google-chrome-incognito-mode-on-startup/</guid>
       <description>Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
 Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &amp;gt; Run &amp;gt; https://www.</description>
     </item>
     
     <item>
       <title>Drive Backup Over SSH With GZip Compression</title>
-      <link>https://bittherapy.net/post/drive-backup-over-ssh-with-gzip-compression/</link>
+      <link>/post/drive-backup-over-ssh-with-gzip-compression/</link>
       <pubDate>Mon, 06 Apr 2015 17:03:37 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/drive-backup-over-ssh-with-gzip-compression/</guid>
+      <guid>/post/drive-backup-over-ssh-with-gzip-compression/</guid>
       <description>If you&amp;rsquo;ve worked hard to configure your Linux machine and can&amp;rsquo;t afford to lose it, try creating an image of it using dd periodically.
 It wouldn&amp;rsquo;t make much sense to store the image of the drive on the drive itself, but luckily dd is smart and you can combine it with ssh and gzip to store your stuff off-site.
 # dd if=/dev/sda | ssh user@backup.remotehost.com dd of=/backup/drive.img.gz  At this point the drive.</description>
@@ -44,10 +44,10 @@ It wouldn&amp;rsquo;t make much sense to store the image of the drive on the dri
     
     <item>
       <title>Batch file rename with PowerShell and Regular Expressions</title>
-      <link>https://bittherapy.net/post/batch-file-rename-with-powershell-and-regular-expressions/</link>
+      <link>/post/batch-file-rename-with-powershell-and-regular-expressions/</link>
       <pubDate>Mon, 06 Apr 2015 16:54:42 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/batch-file-rename-with-powershell-and-regular-expressions/</guid>
+      <guid>/post/batch-file-rename-with-powershell-and-regular-expressions/</guid>
       <description>There have been a few times in the past where I&amp;rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&amp;rsquo;ve always defaulted to PowerShell.
 Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
 $ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args.</description>
@@ -55,10 +55,10 @@ $ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = 
     
     <item>
       <title>Search Keyword Highlighting with Perl</title>
-      <link>https://bittherapy.net/post/search-keyword-highlighting-with-perl/</link>
+      <link>/post/search-keyword-highlighting-with-perl/</link>
       <pubDate>Mon, 06 Apr 2015 13:01:31 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/search-keyword-highlighting-with-perl/</guid>
+      <guid>/post/search-keyword-highlighting-with-perl/</guid>
       <description>Here&amp;rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
 # user input my $search_string = &amp;quot;I really really need this&amp;quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &amp;gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &amp;quot;|&amp;quot;, sort keys %{{ map { $_ =&amp;gt; 1 } @kw }}; $data =~ s!</description>
     </item>

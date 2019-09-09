@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>OSD on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/osd/</link>
+    <link>/tags/osd/</link>
     <description>Recent content in OSD on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Tue, 07 Apr 2015 13:17:43 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/osd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/osd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>CMTrace in WinPE</title>
-      <link>https://bittherapy.net/post/cmtrace-in-winpe/</link>
+      <link>/post/cmtrace-in-winpe/</link>
       <pubDate>Tue, 07 Apr 2015 13:17:43 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/cmtrace-in-winpe/</guid>
+      <guid>/post/cmtrace-in-winpe/</guid>
       <description>CMTrace is a great tool for troubleshooting deployment issues from within WinPE, no doubt about that. It makes errors and warnings clearly visible in thousands of lines of markup logs.
 Adding CMTrace.exe to your winpe.wim is easy:
 C:\&amp;gt; imagex /mountrw c:\winpe_x86.wim 1 c:mount C:\&amp;gt; copy /y c:\tools\cmtrace.exe c:\mount\windows C:\&amp;gt; imagex /unmount /commit c:\mount  C:\&amp;gt; imagex /mountrw c:\winpe_x64.wim 1 c:mount C:\&amp;gt; copy /y c:\tools\cmtrace.exe c:\mount\windows C:\&amp;gt; imagex /unmount /commit c:\mount  You should also create a package that copies these files to the %SystemRoot%.</description>

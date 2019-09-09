@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CTF on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/ctf/</link>
+    <link>/tags/ctf/</link>
     <description>Recent content in CTF on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Sat, 20 Aug 2016 17:49:03 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>IceCTF: Analyzing PCAPs and Reversing Encryption</title>
-      <link>https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/</link>
+      <link>/post/icectf-analyzing-pcaps-and-reversing-encryption/</link>
       <pubDate>Sat, 20 Aug 2016 17:49:03 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/</guid>
+      <guid>/post/icectf-analyzing-pcaps-and-reversing-encryption/</guid>
       <description>IceCTF started a little while a go and we got a team together to try and grab some of these flags. If you&amp;rsquo;re doing the challenges right now&amp;hellip; well spoiler alert.
 One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.
 ##PCAP Analysis

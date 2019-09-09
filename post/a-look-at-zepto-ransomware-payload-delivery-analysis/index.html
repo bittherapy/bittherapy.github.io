@@ -11,7 +11,7 @@
 First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share." />
 <meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/" />
+<link rel="canonical" href="/post/a-look-at-zepto-ransomware-payload-delivery-analysis/" />
 
 
 <title>
@@ -27,16 +27,16 @@ First thing&amp;rsquo;s first, I need to find all the users actively encrypting 
 
 
 
-<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
-<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
-<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="A Look at Zepto Ransomware - Payload Delivery Analysis">
 <meta itemprop="description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
 First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.">
@@ -50,7 +50,7 @@ First thing&rsquo;s first, I need to find all the users actively encrypting file
 
 <meta itemprop="keywords" content="Malware,Reverse Engineering,Malware Analysis,Zepto,Ransomware," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://bittherapy.net"/>
+<meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="A Look at Zepto Ransomware - Payload Delivery Analysis"/>
 <meta name="twitter:description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
@@ -78,7 +78,7 @@ First thing&rsquo;s first, I need to find all the users actively encrypting file
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://bittherapy.net/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -92,7 +92,7 @@ First thing&rsquo;s first, I need to find all the users actively encrypting file
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="/post/">Posts</a></li>
     </ul>
 </nav>
 
@@ -125,7 +125,7 @@ First thing&rsquo;s first, I need to find all the users actively encrypting file
         </div>
 
         <article>
-            <h2 class="post-title"><a href="https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/">A Look at Zepto Ransomware - Payload Delivery Analysis</a></h2>
+            <h2 class="post-title"><a href="/post/a-look-at-zepto-ransomware-payload-delivery-analysis/">A Look at Zepto Ransomware - Payload Delivery Analysis</a></h2>
 
             
 
@@ -1128,7 +1128,7 @@ var Yz = [&quot;MSXML2.XMLHTTP&quot;, &quot;WinHttp.WinHttpRequest.5.1&quot;];
 
 <p>What I&rsquo;m more interested in is the <code>do{}while();</code> loop just below that, so I&rsquo;ll set a breakpoint in VS:</p>
 
-<p><img src="https://bittherapy.net/images/2016/08/bp1.png" alt="" /></p>
+<p><img src="/images/2016/08/bp1.png" alt="" /></p>
 
 <p>Stepping through the code I can see <code>Lj4</code> being referenced in a GET request and iterated through with the do-while loop:</p>
 
@@ -1148,7 +1148,7 @@ var Yz = [&quot;MSXML2.XMLHTTP&quot;, &quot;WinHttp.WinHttpRequest.5.1&quot;];
 
 <p>Adding the <code>Lj4</code> array to the Watch list, I can view the contents:</p>
 
-<p><img src="https://bittherapy.net/images/2016/08/urls-1.png" alt="" /></p>
+<p><img src="/images/2016/08/urls-1.png" alt="" /></p>
 
 <p>Great, I&rsquo;ll add these to the network block list.</p>
 
@@ -1202,7 +1202,7 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
 </code></pre>
 
 <p>You can see the execution state after the first decryption stage:
-<img src="https://bittherapy.net/images/2016/08/decryption1.PNG" alt="" /></p>
+<img src="/images/2016/08/decryption1.PNG" alt="" /></p>
 
 <p><code>SPz0</code> is the content of the data on disk. In its current state, it is not a valid PE file (notice the lack of <code>MZ</code> magic bytes). Finally the <code>IGi2()</code> local array <code>DAb4</code> is returned and stored in another array with the same name but in the previous scope.</p>
 
@@ -1228,11 +1228,11 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
 
 <p>You can also see the <code>XHw6()</code> function which checks the first two bytes of the decrypted binary against <code>x4D\x5A</code> commonly known as <code>MZ</code>:</p>
 
-<p><img src="https://bittherapy.net/images/2016/08/check_for_MZ.PNG" alt="" /></p>
+<p><img src="/images/2016/08/check_for_MZ.PNG" alt="" /></p>
 
 <p>The next step will call <code>OMb()</code> which in turn will call the final substitution routine <code>St()</code>. It&rsquo;s job is to take another 127 bytes and replace them with hardcoded values stored in the local array <code>HFw3[]</code>:</p>
 
-<p><img src="https://bittherapy.net/images/2016/08/decryption2.PNG" alt="" /></p>
+<p><img src="/images/2016/08/decryption2.PNG" alt="" /></p>
 
 <p>The local array <code>Ww</code> now holds the decrypted binary and is ready to be written to disk:</p>
 
@@ -1317,7 +1317,7 @@ SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZ
 
         <div class="post-info">
   				<p>
-  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/malware">Malware</a></span><span class="tag"><a href="https://bittherapy.net/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="https://bittherapy.net/tags/malware-analysis">Malware Analysis</a></span><span class="tag"><a href="https://bittherapy.net/tags/zepto">Zepto</a></span><span class="tag"><a href="https://bittherapy.net/tags/ransomware">Ransomware</a></span>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/malware">Malware</a></span><span class="tag"><a href="/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="/tags/malware-analysis">Malware Analysis</a></span><span class="tag"><a href="/tags/zepto">Zepto</a></span><span class="tag"><a href="/tags/ransomware">Ransomware</a></span>
   				</p>
   			</div>
 
@@ -1332,10 +1332,10 @@ SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZ
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://bittherapy.net">Adrian</a></span>
+                <span><a href="/">Adrian</a></span>
             
             <span>{ bit.therapy }</span>
-            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -1358,7 +1358,7 @@ SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZ
 
 
 
-<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 

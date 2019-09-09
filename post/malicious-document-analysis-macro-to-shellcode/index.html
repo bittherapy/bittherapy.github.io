@@ -12,7 +12,7 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
 &#39;Run from the noise of the street and the loaded gun Public Declare Function whitworth Lib &amp;quot;kernel32." />
 <meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
 <meta name="robots" content="noodp" />
-<link rel="canonical" href="https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/" />
+<link rel="canonical" href="/post/malicious-document-analysis-macro-to-shellcode/" />
 
 
 <title>
@@ -28,16 +28,16 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
 
 
 
-<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
 
 
 
-<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
-<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
-<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
-<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Malicious Document Analysis – Macro to Shellcode">
 <meta itemprop="description" content="I came across an interesting Word document which at first glance definitely looked malicious. It had everything from random variable names to lyrics from Garbage - Run Baby Run in the comments. It also used an uncommon but very cool method for moving from macro to machine code execution.
 Macro Breakdown The macro starts by creating pointers to DLL exports already loaded in memory by Word:
@@ -52,7 +52,7 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
 
 <meta itemprop="keywords" content="Malware,Debugging,Reverse Engineering,Malware Analysis,IDA Pro,hancitor,chanitor,OllyDbg," />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://bittherapy.net"/>
+<meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Malicious Document Analysis – Macro to Shellcode"/>
 <meta name="twitter:description" content="I came across an interesting Word document which at first glance definitely looked malicious. It had everything from random variable names to lyrics from Garbage - Run Baby Run in the comments. It also used an uncommon but very cool method for moving from macro to machine code execution.
@@ -84,7 +84,7 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
         <div class="container">
             <header class="header">
     <span class="header__inner">
-        <a href="https://bittherapy.net/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none;">
     <div class="logo">
         
             <span class="logo__mark">></span>
@@ -98,7 +98,7 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    <ul class="menu__inner"><li><a href="/post/">Posts</a></li>
     </ul>
 </nav>
 
@@ -131,7 +131,7 @@ Macro Breakdown The macro starts by creating pointers to DLL exports already loa
         </div>
 
         <article>
-            <h2 class="post-title"><a href="https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/">Malicious Document Analysis – Macro to Shellcode</a></h2>
+            <h2 class="post-title"><a href="/post/malicious-document-analysis-macro-to-shellcode/">Malicious Document Analysis – Macro to Shellcode</a></h2>
 
             
 
@@ -183,27 +183,27 @@ Public Declare Function malnourished Lib &quot;kernel32.dll&quot; Alias &quot;Sl
 
 <p>Walking through the macro execution I can see that the value returned by <code>whitworth</code> is a long integer which translates to a location in memory. Specifically, the address returned by <code>VirtualAllocEx</code>:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/macro-code-virtualallocex.png" alt="Macro Code - VirtualAllocEx" /></p>
+<p><img src="/images/2016/11/macro-code-virtualallocex.png" alt="Macro Code - VirtualAllocEx" /></p>
 
 <p>The address will vary but in this case <code>whitworth</code> returned <code>115212288</code>, which translates to <code>0x06DE0000</code>.</p>
 
 <p>Right before calling <code>EnumTimeFormatsW</code> and ultimately transferring control to shellcode, the macro adds an offset of <code>0xE5D</code> to the address:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/macro-code-jump-to-shellcode.png" alt="Macro Code - Jump to Shellcode" /></p>
+<p><img src="/images/2016/11/macro-code-jump-to-shellcode.png" alt="Macro Code - Jump to Shellcode" /></p>
 
 <p>The final value passed as the callback function in my case was <code>115215965</code>, aka <code>0x6DE0E5D</code>.</p>
 
 <p>The allocated memory segment with <code>RWX</code> permissions stands out:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-memory-map-rwx-segment.png" alt="IDA Pro Memory Map - RWX Segment" /></p>
+<p><img src="/images/2016/11/ida-pro-memory-map-rwx-segment.png" alt="IDA Pro Memory Map - RWX Segment" /></p>
 
 <p>This memory block contains some seemingly random data:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-memory-garbage-data.png" alt="IDA Pro Memory Garbage Data" /></p>
+<p><img src="/images/2016/11/ida-pro-memory-garbage-data.png" alt="IDA Pro Memory Garbage Data" /></p>
 
 <p>Since the callback function passes in the <code>0xE5D</code> offset, I can assume at this location there is code and I should be able to disassemble it:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-memory-disassemble-shellcode-entry-point.png" alt="IDA Pro Memory - Disassemble Shellcode Entry Point" /></p>
+<p><img src="/images/2016/11/ida-pro-memory-disassemble-shellcode-entry-point.png" alt="IDA Pro Memory - Disassemble Shellcode Entry Point" /></p>
 
 <p>A breakpoint here will allow me to see what this thing is doing once it transfers control from the macro.</p>
 
@@ -211,21 +211,21 @@ Public Declare Function malnourished Lib &quot;kernel32.dll&quot; Alias &quot;Sl
 
 <p>To make debugging easier, I can save this section of memory to disk and add it to a shellcode harness. Any executable with a section large enough to hold the size of the shellcode (around 12kb) will suffice:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ollydbg-harness-find-large-section.png" alt="OllyDbg Harness - Find Large Section" /></p>
+<p><img src="/images/2016/11/ollydbg-harness-find-large-section.png" alt="OllyDbg Harness - Find Large Section" /></p>
 
 <p>This particular executable (<code>sc.exe</code>) has a <code>.data</code> section large enough to hold the shellcode. I can safely overwrite the whole section with the shellcode and dump the changes using the <code>OllyDumpEx</code> plugin.</p>
 
 <p>The resulting harness executable&rsquo;s <code>.data</code> section should look something like this:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ollydbg-harness-data-section.png" alt="OllyDbg Harness - Data Section" /></p>
+<p><img src="/images/2016/11/ollydbg-harness-data-section.png" alt="OllyDbg Harness - Data Section" /></p>
 
 <p><code>.data</code> can be disassembled and I can see what will become the new entry point for the shellcode harness executable (the location the macro jumps to when transferring control):</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ollydbg-harness-confirm-shellcode-entry-point.png" alt="OllyDbg - Confirm Shellcode Entry Point" /></p>
+<p><img src="/images/2016/11/ollydbg-harness-confirm-shellcode-entry-point.png" alt="OllyDbg - Confirm Shellcode Entry Point" /></p>
 
 <p>The last step is to modify the PE header for the harness executable and make sure the <em>Entry Point</em> offset is set to <code>0x0000CE5D</code>. This should land in the <code>.data</code> section right on the shellcode entry point:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/cff-explorer-modify-entry-point.png" alt="CFF Explorer - Modify Entry Point" /></p>
+<p><img src="/images/2016/11/cff-explorer-modify-entry-point.png" alt="CFF Explorer - Modify Entry Point" /></p>
 
 <p>IDA should now be able to disassemble the shellcode and I can take a closer look.</p>
 
@@ -240,37 +240,37 @@ The first check is at <code>ESI=0x00001000</code> for <code>BULL</code> and the 
 
 <p>I can either add the word in the memory space or set the zero flag after each <code>CMP</code> instruction (<code>EFL=0x00000040</code>):</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-scan-for-bullshit.png" alt="IDA Pro - Scan for BULLSHIT" /></p>
+<p><img src="/images/2016/11/ida-pro-scan-for-bullshit.png" alt="IDA Pro - Scan for BULLSHIT" /></p>
 
 <p>The shellcode continues to laboriously load DLLs, among them <code>urlmon.dll</code>. The <code>URLDownloadToCacheFileA()</code> function from this library is used to download the next stage:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-c2-url-resolved.png" alt="IDA Pro - C2 URL Resolved" /></p>
+<p><img src="/images/2016/11/ida-pro-c2-url-resolved.png" alt="IDA Pro - C2 URL Resolved" /></p>
 
 <p>There is also an operating system architecture check:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-architecture-check.png" alt="IDA Pro - Architecture Check" /></p>
+<p><img src="/images/2016/11/ida-pro-architecture-check.png" alt="IDA Pro - Architecture Check" /></p>
 
 <p>On x64 systems, <code>svchost.exe</code> is executed from the <code>%windir%\SysWow64</code> folder (32-bit). On x86 systems <code>%windir%\explorer.exe</code> is launched instead.</p>
 
 <p>It looks like the process is started with the <code>CREATE_SUSPENDED (0x00000004)</code> flag, followed by a call to <code>NtUnmapViewOfSection()</code>:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-process-hollowing.png" alt="IDA Pro - Process Hollowing" /></p>
+<p><img src="/images/2016/11/ida-pro-process-hollowing.png" alt="IDA Pro - Process Hollowing" /></p>
 
 <p>This appears to be a technique called <a href="https://attack.mitre.org/wiki/Technique/T1093" target="_blank">Process Hollowing</a>, in which a common process is launched in suspended mode and its code replaced by attacker code:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/procexp-svchost-suspended.png" alt="ProcExp - svchost suspended" /></p>
+<p><img src="/images/2016/11/procexp-svchost-suspended.png" alt="ProcExp - svchost suspended" /></p>
 
 <p>In this case more shellcode is injected into the hallowed <code>svchost.exe</code> process. The thread context is adjusted and the thread is resumed, executing malicious code:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-set-thread-context.png" alt="IDA Pro - Set Threat Context" /></p>
+<p><img src="/images/2016/11/ida-pro-set-thread-context.png" alt="IDA Pro - Set Threat Context" /></p>
 
 <p>I can attach to the running but suspended <code>svchost.exe</code> process and look for any segments with <code>RWX</code> permission.</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-svchost-segments.png" alt="IDA Pro - RWX Segments in svchost.exe" /></p>
+<p><img src="/images/2016/11/ida-pro-svchost-segments.png" alt="IDA Pro - RWX Segments in svchost.exe" /></p>
 
 <p>If I set a <code>break-on-access</code> breakpoint on this segment in the hallowed process, I can start the analysis for the next stage of the shellcode and grab more IOCs. Once the <code>WINWORD.exe</code> shellcode completes, the on-access breakpoint in <code>svchost.exe</code> should trigger at <code>0x004020D0</code>:</p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-jump-to-svchost.png" alt="" /></p>
+<p><img src="/images/2016/11/ida-pro-jump-to-svchost.png" alt="" /></p>
 
 <p>&hellip;and the process starts all over again :)</p>
 
@@ -300,12 +300,12 @@ hxxp://forpartinsa.ru/ls5/gate.php
 </code></pre>
 
 <p>Dynamically resolved and loaded DLLs:
-<img src="https://bittherapy.net/images/2016/11/ida-pro-stack-view-resolved-dlls.png" alt="IDA Pro - Stack View - Resolved DLLs" /></p>
+<img src="/images/2016/11/ida-pro-stack-view-resolved-dlls.png" alt="IDA Pro - Stack View - Resolved DLLs" /></p>
 
 <p>Strings of note:
-<img src="https://bittherapy.net/images/2016/11/ida-pro-stack-view-resolved-strings.png" alt="IDA Pro - Stack View - Resolved Strings" /></p>
+<img src="/images/2016/11/ida-pro-stack-view-resolved-strings.png" alt="IDA Pro - Stack View - Resolved Strings" /></p>
 
-<p><img src="https://bittherapy.net/images/2016/11/ida-pro-svchost-resolved-strings.png" alt="" /></p>
+<p><img src="/images/2016/11/ida-pro-svchost-resolved-strings.png" alt="" /></p>
 
 <p><code>usps85902802.doc</code> hashes:</p>
 
@@ -322,7 +322,7 @@ SSDeep: 3072:q2RxSO8YmDd3RJticBrsOmqHQvZ2YftJ+:JxoYmIO9JYF
 
         <div class="post-info">
   				<p>
-  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/malware">Malware</a></span><span class="tag"><a href="https://bittherapy.net/tags/debugging">Debugging</a></span><span class="tag"><a href="https://bittherapy.net/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="https://bittherapy.net/tags/malware-analysis">Malware Analysis</a></span><span class="tag"><a href="https://bittherapy.net/tags/ida-pro">IDA Pro</a></span><span class="tag"><a href="https://bittherapy.net/tags/hancitor">hancitor</a></span><span class="tag"><a href="https://bittherapy.net/tags/chanitor">chanitor</a></span><span class="tag"><a href="https://bittherapy.net/tags/ollydbg">OllyDbg</a></span>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/malware">Malware</a></span><span class="tag"><a href="/tags/debugging">Debugging</a></span><span class="tag"><a href="/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="/tags/malware-analysis">Malware Analysis</a></span><span class="tag"><a href="/tags/ida-pro">IDA Pro</a></span><span class="tag"><a href="/tags/hancitor">hancitor</a></span><span class="tag"><a href="/tags/chanitor">chanitor</a></span><span class="tag"><a href="/tags/ollydbg">OllyDbg</a></span>
   				</p>
   			</div>
 
@@ -337,10 +337,10 @@ SSDeep: 3072:q2RxSO8YmDd3RJticBrsOmqHQvZ2YftJ+:JxoYmIO9JYF
         <div class="footer__content">
             <span>&copy; 2019</span>
             
-                <span><a href="https://bittherapy.net">Adrian</a></span>
+                <span><a href="/">Adrian</a></span>
             
             <span>{ bit.therapy }</span>
-            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
         </div>
     </div>
     <div class="footer__inner">
@@ -363,7 +363,7 @@ SSDeep: 3072:q2RxSO8YmDd3RJticBrsOmqHQvZ2YftJ+:JxoYmIO9JYF
 
 
 
-<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
 
 
 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sandbox on { bit.therapy }</title>
-    <link>https://bittherapy.net/tags/sandbox/</link>
+    <link>/tags/sandbox/</link>
     <description>Recent content in Sandbox on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
     <lastBuildDate>Mon, 01 Feb 2016 15:21:12 +0000</lastBuildDate>
     
-	<atom:link href="https://bittherapy.net/tags/sandbox/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/sandbox/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Transfer Files To and From Sandboxed Guest on Hyper-V</title>
-      <link>https://bittherapy.net/post/transfer-files-to-and-from-guest-on-hyper-v/</link>
+      <link>/post/transfer-files-to-and-from-guest-on-hyper-v/</link>
       <pubDate>Mon, 01 Feb 2016 15:21:12 +0000</pubDate>
       
-      <guid>https://bittherapy.net/post/transfer-files-to-and-from-guest-on-hyper-v/</guid>
+      <guid>/post/transfer-files-to-and-from-guest-on-hyper-v/</guid>
       <description>One of the things I missed after switching from VMware to Hyper-V is the ability to copy-paste files from host to guest via the interface.
 The workaround for Hyper-V (at this time) is to use either RDP or SMB to transfer files. This is just fine for most configurations but for me this would not work.
 I was setting a VM as a sandbox for malware analysis and therefore I would not be able to leverage network based protocols to transfer files.</description>
