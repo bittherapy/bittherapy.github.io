@@ -193,12 +193,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/swf/</loc>
+    <loc>https://bittherapy.net/categories/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/swf/</loc>
+    <loc>https://bittherapy.net/tags/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
@@ -213,22 +213,22 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/ctf/</loc>
-    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bittherapy.net/tags/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/forensics/</loc>
+    <loc>https://bittherapy.net/categories/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bittherapy.net/tags/forensics/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/forensics/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
   </url>
   
@@ -243,12 +243,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/ransomware/</loc>
+    <loc>https://bittherapy.net/categories/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/ransomware/</loc>
+    <loc>https://bittherapy.net/tags/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
@@ -263,12 +263,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/angler-ek/</loc>
+    <loc>https://bittherapy.net/categories/angler-ek/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/angler-ek/</loc>
+    <loc>https://bittherapy.net/tags/angler-ek/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -293,12 +293,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/remnux/</loc>
+    <loc>https://bittherapy.net/tags/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/remnux/</loc>
+    <loc>https://bittherapy.net/categories/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -353,22 +353,22 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/server-2012-r2/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bittherapy.net/categories/server-2012-r2/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/ssl/</loc>
+    <loc>https://bittherapy.net/tags/server-2012-r2/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bittherapy.net/categories/ssl/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -403,22 +403,22 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/centos/</loc>
-    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bittherapy.net/tags/centos/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/linux/</loc>
+    <loc>https://bittherapy.net/categories/centos/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bittherapy.net/categories/linux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/linux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -438,12 +438,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/selinux/</loc>
+    <loc>https://bittherapy.net/categories/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/selinux/</loc>
+    <loc>https://bittherapy.net/tags/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -478,12 +478,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/cord-cutting/</loc>
+    <loc>https://bittherapy.net/tags/cord-cutting/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/cord-cutting/</loc>
+    <loc>https://bittherapy.net/categories/cord-cutting/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -493,22 +493,22 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/gce/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bittherapy.net/categories/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/google-cloud/</loc>
+    <loc>https://bittherapy.net/tags/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://bittherapy.net/tags/google-cloud/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/google-cloud/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -523,12 +523,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/netflix/</loc>
+    <loc>https://bittherapy.net/tags/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/netflix/</loc>
+    <loc>https://bittherapy.net/categories/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -553,12 +553,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/unblock-us/</loc>
+    <loc>https://bittherapy.net/tags/unblock-us/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/unblock-us/</loc>
+    <loc>https://bittherapy.net/categories/unblock-us/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -628,12 +628,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/infrastructure/</loc>
+    <loc>https://bittherapy.net/categories/infrastructure/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/infrastructure/</loc>
+    <loc>https://bittherapy.net/tags/infrastructure/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
@@ -648,12 +648,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/windows/</loc>
+    <loc>https://bittherapy.net/categories/windows/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/windows/</loc>
+    <loc>https://bittherapy.net/tags/windows/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
@@ -678,12 +678,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/rhel/</loc>
+    <loc>https://bittherapy.net/categories/rhel/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/rhel/</loc>
+    <loc>https://bittherapy.net/tags/rhel/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
@@ -718,17 +718,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/bash/</loc>
-    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://bittherapy.net/categories/bash/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/development/</loc>
+    <loc>https://bittherapy.net/tags/bash/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -738,17 +733,22 @@
   </url>
   
   <url>
+    <loc>https://bittherapy.net/categories/development/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://bittherapy.net/post/identify-and-block-malicious-http-traffic-with-iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/iptables/</loc>
+    <loc>https://bittherapy.net/tags/iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/iptables/</loc>
+    <loc>https://bittherapy.net/categories/iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -778,12 +778,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/privacy/</loc>
+    <loc>https://bittherapy.net/tags/privacy/</loc>
     <lastmod>2015-04-06T17:12:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/privacy/</loc>
+    <loc>https://bittherapy.net/categories/privacy/</loc>
     <lastmod>2015-04-06T17:12:19+00:00</lastmod>
   </url>
   
@@ -793,12 +793,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/gzip/</loc>
+    <loc>https://bittherapy.net/tags/gzip/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/gzip/</loc>
+    <loc>https://bittherapy.net/categories/gzip/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
@@ -818,12 +818,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/regex/</loc>
+    <loc>https://bittherapy.net/tags/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/regex/</loc>
+    <loc>https://bittherapy.net/categories/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
@@ -888,12 +888,12 @@
   </url>
   
   <url>
-    <loc>https://bittherapy.net/tags/webdev/</loc>
+    <loc>https://bittherapy.net/categories/webdev/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://bittherapy.net/categories/webdev/</loc>
+    <loc>https://bittherapy.net/tags/webdev/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
