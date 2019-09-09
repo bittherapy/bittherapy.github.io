@@ -243,12 +243,12 @@
   </url>
   
   <url>
-    <loc>/tags/ransomware/</loc>
+    <loc>/categories/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/ransomware/</loc>
+    <loc>/tags/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
@@ -293,22 +293,22 @@
   </url>
   
   <url>
-    <loc>/tags/remnux/</loc>
-    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/revelo/</loc>
+    <loc>/tags/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/revelo/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/revelo/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -333,12 +333,12 @@
   </url>
   
   <url>
-    <loc>/tags/directaccess/</loc>
+    <loc>/categories/directaccess/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/directaccess/</loc>
+    <loc>/tags/directaccess/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -363,22 +363,22 @@
   </url>
   
   <url>
-    <loc>/tags/ssl/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tls/</loc>
+    <loc>/tags/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/tls/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tls/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -393,18 +393,13 @@
   </url>
   
   <url>
-    <loc>/tags/web-application-proxy/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/web-application-proxy/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/centos/</loc>
-    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+    <loc>/tags/web-application-proxy/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
@@ -413,12 +408,17 @@
   </url>
   
   <url>
-    <loc>/categories/linux/</loc>
+    <loc>/tags/centos/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/linux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -493,22 +493,22 @@
   </url>
   
   <url>
-    <loc>/tags/gce/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/google-cloud/</loc>
+    <loc>/tags/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/google-cloud/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/google-cloud/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -523,22 +523,22 @@
   </url>
   
   <url>
-    <loc>/categories/netflix/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/sni-proxy/</loc>
+    <loc>/categories/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/sni-proxy/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/sni-proxy/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -563,12 +563,12 @@
   </url>
   
   <url>
-    <loc>/tags/hyper-v/</loc>
+    <loc>/categories/hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/hyper-v/</loc>
+    <loc>/tags/hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
@@ -638,12 +638,12 @@
   </url>
   
   <url>
-    <loc>/tags/osd/</loc>
+    <loc>/categories/osd/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/osd/</loc>
+    <loc>/tags/osd/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
@@ -678,22 +678,22 @@
   </url>
   
   <url>
-    <loc>/tags/rhel/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/rhel/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/setroubleshoot/</loc>
+    <loc>/tags/rhel/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/setroubleshoot/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/setroubleshoot/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
@@ -708,12 +708,12 @@
   </url>
   
   <url>
-    <loc>/tags/automation/</loc>
+    <loc>/categories/automation/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/automation/</loc>
+    <loc>/tags/automation/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -743,12 +743,12 @@
   </url>
   
   <url>
-    <loc>/categories/iptables/</loc>
+    <loc>/tags/iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/iptables/</loc>
+    <loc>/categories/iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -778,12 +778,12 @@
   </url>
   
   <url>
-    <loc>/categories/privacy/</loc>
+    <loc>/tags/privacy/</loc>
     <lastmod>2015-04-06T17:12:19+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/privacy/</loc>
+    <loc>/categories/privacy/</loc>
     <lastmod>2015-04-06T17:12:19+00:00</lastmod>
   </url>
   
@@ -803,12 +803,12 @@
   </url>
   
   <url>
-    <loc>/categories/ssh/</loc>
+    <loc>/tags/ssh/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ssh/</loc>
+    <loc>/categories/ssh/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
@@ -818,22 +818,22 @@
   </url>
   
   <url>
-    <loc>/categories/regex/</loc>
-    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/regular-expressions/</loc>
+    <loc>/categories/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/regular-expressions/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
@@ -848,12 +848,12 @@
   </url>
   
   <url>
-    <loc>/categories/sccm-2012/</loc>
+    <loc>/tags/sccm-2012/</loc>
     <lastmod>2015-04-06T13:07:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sccm-2012/</loc>
+    <loc>/categories/sccm-2012/</loc>
     <lastmod>2015-04-06T13:07:31+00:00</lastmod>
   </url>
   
@@ -873,12 +873,12 @@
   </url>
   
   <url>
-    <loc>/categories/perl/</loc>
+    <loc>/tags/perl/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/perl/</loc>
+    <loc>/categories/perl/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
