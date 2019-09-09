@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://bittherapy.net/tags/application-security/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/disclosure/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/security-research/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/</loc>
+    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/cve-201815573/</loc>
+    <lastmod>2018-07-18T17:32:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/cve-201815574/</loc>
+    <lastmod>2018-07-18T17:32:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</loc>
+    <lastmod>2018-07-18T17:32:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/github/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/github/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/projects/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/projects/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/projects/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/research/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/research/</loc>
+    <lastmod>2018-06-01T12:46:23+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/chanitor/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/chanitor/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/debugging/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/debugging/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/hancitor/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/hancitor/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ida-pro/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ida-pro/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/malware/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/malware/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/malware-analysis/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/malware-analysis/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ollydbg/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ollydbg/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/reverse-engineering/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/reverse-engineering/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/analyzing-obfuscated-swfs/</loc>
+    <lastmod>2016-10-09T13:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/flash/</loc>
+    <lastmod>2016-10-09T13:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/flash/</loc>
+    <lastmod>2016-10-09T13:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/swf/</loc>
+    <lastmod>2016-10-09T13:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/swf/</loc>
+    <lastmod>2016-10-09T13:18:17+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/cryptography/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/cryptography/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ctf/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ctf/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/forensics/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/forensics/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ransomware/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ransomware/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/zepto/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/zepto/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/angler-ek/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/angler-ek/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/javascript/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/javascript/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/jsdetox/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/jsdetox/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/remnux/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/remnux/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/revelo/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/revelo/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/a-trick-to-bypass-an-xss-filter-and-execute-javascript/</loc>
+    <lastmod>2016-02-19T15:44:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/an-encounter-with-dridex-malicious-document-analysis/</loc>
+    <lastmod>2016-02-17T13:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/changing-the-directaccess-and-web-application-proxy-external-certificate/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/directaccess/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/directaccess/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/security/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/security/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/server-2012-r2/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/server-2012-r2/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ssl/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ssl/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/tls/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/tls/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/vpn/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/vpn/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/web-application-proxy/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/web-application-proxy/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/centos/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/centos/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/linux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/linux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/out-of-memory/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/out-of-memory/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/out-of-memory-micro-instance-woes-setsebool-killed/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/selinux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/selinux/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/setsebool/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/setsebool/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/swap/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/swap/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/american-netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/american-netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/cord-cutting/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/cord-cutting/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/gce/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/gce/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/google-cloud/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/google-cloud/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/google-compute-engine/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/google-compute-engine/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/sni-proxy/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/sni-proxy/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/tunlr/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/tunlr/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/unblock-us/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/unblock-us/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/hyper-v/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/hyper-v/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/powershell/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/powershell/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/sandbox/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/sandbox/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/transfer-files-to-and-from-guest-on-hyper-v/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/windows-server/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/windows-server/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/gdb/</loc>
+    <lastmod>2016-01-29T20:23:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/gdb/</loc>
+    <lastmod>2016-01-29T20:23:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/making-gdb-useful-for-reversing/</loc>
+    <lastmod>2016-01-29T20:23:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/cmtrace-in-winpe/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/infrastructure/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/infrastructure/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/osd/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/osd/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/windows/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/windows/</loc>
+    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/exim/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/exim/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/redhat/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/redhat/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/rhel/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/rhel/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/setroubleshoot/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/setroubleshoot/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/setroubleshoot-email-notification-on-selinux-denial/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</loc>
+    <lastmod>2015-04-07T12:56:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/automation/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/automation/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/bash/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/bash/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/development/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/development/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/identify-and-block-malicious-http-traffic-with-iptables/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/iptables/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/iptables/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/unix/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/unix/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/chrome/</loc>
+    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/chrome/</loc>
+    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/force-google-chrome-incognito-mode-on-startup/</loc>
+    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/privacy/</loc>
+    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/privacy/</loc>
+    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/drive-backup-over-ssh-with-gzip-compression/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/gzip/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/gzip/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/ssh/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/ssh/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/batch-file-rename-with-powershell-and-regular-expressions/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/regex/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/regex/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/regular-expressions/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/regular-expressions/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/https/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/https/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/sccm-2012/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/sccm-2012/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/wsus/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/wsus/</loc>
+    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/perl/</loc>
+    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/perl/</loc>
+    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/post/search-keyword-highlighting-with-perl/</loc>
+    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/tags/webdev/</loc>
+    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://bittherapy.net/categories/webdev/</loc>
+    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+  </url>
+  
+</urlset>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="I&amp;rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
+SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
+Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
+admin@example.com filter_type=after_first  Note: the after_first filter will prevent setroubleshoot from flooding your inbox with the same alert." />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/setroubleshoot-email-notification-on-selinux-denial/" />
+
+
+<title>
+    
+    SETroubleshoot Email Notification on SELinux Denial :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="SETroubleshoot Email Notification on SELinux Denial">
+<meta itemprop="description" content="I&rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
+SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
+Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
+admin@example.com filter_type=after_first  Note: the after_first filter will prevent setroubleshoot from flooding your inbox with the same alert.">
+
+
+<meta itemprop="datePublished" content="2015-04-07T13:11:24&#43;00:00" />
+<meta itemprop="dateModified" content="2015-04-07T13:11:24&#43;00:00" />
+<meta itemprop="wordCount" content="583">
+
+
+
+<meta itemprop="keywords" content="Infrastructure,Exim,Linux,SELinux,RedHat,SETroubleshoot,RHEL," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="SETroubleshoot Email Notification on SELinux Denial"/>
+<meta name="twitter:description" content="I&rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
+SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
+Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
+admin@example.com filter_type=after_first  Note: the after_first filter will prevent setroubleshoot from flooding your inbox with the same alert."/>
+
+
+
+<meta property="article:section" content="Infrastructure" />
+<meta property="article:section" content="Exim" />
+<meta property="article:section" content="Linux" />
+<meta property="article:section" content="SELinux" />
+<meta property="article:section" content="RedHat" />
+<meta property="article:section" content="SETroubleshoot" />
+<meta property="article:section" content="RHEL" />
+
+<meta property="article:published_time" content="2015-04-07 13:11:24 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/setroubleshoot-email-notification-on-selinux-denial/">SETroubleshoot Email Notification on SELinux Denial</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>I&rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.</p>
+
+<p>SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.</p>
+
+<p>Add the recipient email addresses to <code>/var/lib/setroubleshoot/email_alert_recipients</code>:</p>
+
+<pre><code class="language-bash">admin@example.com filter_type=after_first
+</code></pre>
+
+<p><strong>Note:</strong> the <code>after_first</code> filter will prevent setroubleshoot from flooding your inbox with the same alert. There are other filter types, see the man page.</p>
+
+<p>…and finally modify the <code>[email]</code> section in <code>/etc/setroubleshoot/setroubleshoot.cfg</code>:</p>
+
+<pre><code class="language-bash">[email]
+# recipients_filepath: Path name of file with email recipients. One address
+# per line, optionally followed by enable flag. Comment character is #.
+recipients_filepath = /var/lib/setroubleshoot/email_alert_recipients
+
+# smtp_port: The SMTP server port
+smtp_port = 2525
+
+# smtp_host: The SMTP server address
+smtp_host = mail.example.com
+
+# from_address: The From: email header
+from_address = security@demon.local
+</code></pre>
+
+<p>In my case, my MTA is listening on port <code>2525</code> as well as port <code>25</code>, due to most ISPs blocking <code>25</code>. The RHEL server is behind such an ISP and I had to use this as the mail port.</p>
+
+<p>By default, SELinux allows only a short list of ports to be used by the SMTP protocol, and when setroubleshoot tried to send the alert, I saw this in <code>/var/log/messages</code>:</p>
+
+<pre><code class="language-nix">Dec 14 16:41:58 demon setroubleshoot: [avc.ERROR] Plugin Exception httpd_bad_labels #012Traceback (most recent call last):#012 File &quot;/usr/lib/python2.6/site-packages/setroubleshoot/analyze.py&quot;, line 156, in analyze_avc#012 report_receiver.report_problem(report)#012 File &quot;/usr/lib/python2.6/site-packages/setroubleshoot/server.py&quot;, line 195, in report_problem#012 email_alert(siginfo, to_addrs)#012 File &quot;/usr/lib/python2.6/site-packages/setroubleshoot/email_alert.py&quot;, line 77, in email_alert#012 smtp = smtplib.SMTP(smtp_host, smtp_port)#012 File &quot;/usr/lib/python2.6/smtplib.py&quot;, line 239, in __init__#012 (code, msg) = self.connect(host, port)#012 File &quot;/usr/lib/python2.6/smtplib.py&quot;, line 295, in connect#012 self.sock = self._get_socket(host, port, self.timeout)#012 File &quot;/usr/lib/python2.6/smtplib.py&quot;, line 273, in _get_socket#012 return socket.create_connection((port, host), timeout)#012 File &quot;/usr/lib/python2.6/socket.py&quot;, line 514, in create_connection#012 raise error, msg#012error: [Errno 13] Permission denied
+</code></pre>
+
+<p>…which basically means that the <code>email_alert.py</code> setroubleshoot script could not create an SMTP connection to my mail server on the port specified.</p>
+
+<p>On RHEL/CentOS, these are the allowed SMTP ports:</p>
+
+<pre><code class="language-bash">[root@demon ~]# semanage port -l | grep smtp
+smtp_port_t tcp 25, 465, 587
+</code></pre>
+
+<p>In order to allow <code>demon.*</code> to send mail to the remote MTA, I had to:</p>
+
+<pre><code class="language-bash">[root@demon ~]# semanage port -a -t smtp_port_t -p tcp 2525
+[root@demon ~]# semanage port -l | grep smtp
+smtp_port_t tcp 2525, 25, 465, 587
+</code></pre>
+
+<p>And that&rsquo;s it! You can quickly test by generating an SELinux denial and see if you get an email.</p>
+
+<p>In my case, the remote MTA (running Exim) was dropping the messages and <code>setroubleshoot</code> would throw this in <code>/var/log/messages</code>:</p>
+
+<pre><code class="language-bash">Dec 17 09:53:19 demon setroubleshoot: [email.ERROR] email failed: {'admin@example.com': (550, 'Verification failed for &lt;security@demon.local&gt; The mail server could not deliver mail to security@demon.local. The account or domain may not exist, they may be blacklisted, or missing the proper dns entries. Sender verify failed')}
+</code></pre>
+
+<p>This was due to Exim+SpamAssassin performing callbacks or callouts to ensure that the From: email address is valid on the mail server it comes from.</p>
+
+<p>I got around this by adding the RHEL6 server&rsquo;s IP block as a trusted <em>mail provider</em>. In <code>/etc/mailproviders/</code> on the Exim server, I created the following tree:</p>
+
+<pre><code class="language-nix">root@exim [/etc/mailproviders]# tree
+|-- rim
+| `-- ips
+`-- demon
+`-- ips
+
+2 directories, 2 files
+root@exim [/etc/mailproviders]# cat demon/ips
+172.16.1.0/24
+root@exim [/etc/mailproviders]#
+</code></pre>
+
+<p>The <code>ips</code> files contain a list of IP blocks for Exim to trust as <em>mail providers</em> and add to the whitelist. This is probably not the safest solution but it is the quickest.</p>
+
+<p><strong>Warning:</strong> if you don&rsquo;t trust the entire IP block you can open your MTA to unchallenged spam.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/infrastructure">Infrastructure</a></span><span class="tag"><a href="https://bittherapy.net/tags/exim">Exim</a></span><span class="tag"><a href="https://bittherapy.net/tags/linux">Linux</a></span><span class="tag"><a href="https://bittherapy.net/tags/selinux">SELinux</a></span><span class="tag"><a href="https://bittherapy.net/tags/redhat">RedHat</a></span><span class="tag"><a href="https://bittherapy.net/tags/setroubleshoot">SETroubleshoot</a></span><span class="tag"><a href="https://bittherapy.net/tags/rhel">RHEL</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="IceCTF started a little while a go and we got a team together to try and grab some of these flags. If you&amp;rsquo;re doing the challenges right now&amp;hellip; well spoiler alert.
+One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.
+##PCAP Analysis
+Alright, let me open this in Wireshark:
+Interesting&amp;hellip; some IRC chatter. If I right-click and Follow TCP stream I can read the full conversation:" />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/" />
+
+
+<title>
+    
+    IceCTF: Analyzing PCAPs and Reversing Encryption :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="IceCTF: Analyzing PCAPs and Reversing Encryption">
+<meta itemprop="description" content="IceCTF started a little while a go and we got a team together to try and grab some of these flags. If you&rsquo;re doing the challenges right now&hellip; well spoiler alert.
+One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.
+##PCAP Analysis
+Alright, let me open this in Wireshark:
+Interesting&hellip; some IRC chatter. If I right-click and Follow TCP stream I can read the full conversation:">
+
+
+<meta itemprop="datePublished" content="2016-08-20T17:49:03&#43;00:00" />
+<meta itemprop="dateModified" content="2016-08-20T17:49:03&#43;00:00" />
+<meta itemprop="wordCount" content="804">
+
+
+
+<meta itemprop="keywords" content="Reverse Engineering,Forensics,CTF,Cryptography," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="IceCTF: Analyzing PCAPs and Reversing Encryption"/>
+<meta name="twitter:description" content="IceCTF started a little while a go and we got a team together to try and grab some of these flags. If you&rsquo;re doing the challenges right now&hellip; well spoiler alert.
+One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.
+##PCAP Analysis
+Alright, let me open this in Wireshark:
+Interesting&hellip; some IRC chatter. If I right-click and Follow TCP stream I can read the full conversation:"/>
+
+
+
+<meta property="article:section" content="Reverse Engineering" />
+<meta property="article:section" content="Forensics" />
+<meta property="article:section" content="CTF" />
+<meta property="article:section" content="Cryptography" />
+
+<meta property="article:published_time" content="2016-08-20 17:49:03 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/">IceCTF: Analyzing PCAPs and Reversing Encryption</a></h2>
+
+            
+
+            <div class="post-content">
+                <p><a href="https://play.icec.tf/" target="_blank">IceCTF</a> started a little while a go and we got a team together to try and grab some of these flags. If you&rsquo;re doing the challenges right now&hellip; well spoiler alert.</p>
+
+<p>One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.</p>
+
+<p>##PCAP Analysis</p>
+
+<p>Alright, let me open this in Wireshark:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/wireshark_privmsg.PNG" alt="" /></p>
+
+<p>Interesting&hellip; some IRC chatter. If I right-click and <code>Follow TCP stream</code> I can read the full conversation:</p>
+
+<pre><code class="language-javascript">PRIVMSG Cold_Storm :Hi
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :It's not safe here
+PRIVMSG Cold_Storm :What do you mean?
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :Someone is listening
+PRIVMSG Cold_Storm :What?!
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :Yea, someone intercepted our last encounter
+PING LAG1470558285526987
+:irc.glitch.is PONG irc.glitch.is :LAG1470558285526987
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :We need to be careful about what we say on open channels.
+PRIVMSG Cold_Storm :Oh 0k, so what do w3 do?
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :I made som3thing...
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :S0mething that will allow us to exchange s3crets secure1y
+PING LAG1470558315569084
+:irc.glitch.is PONG irc.glitch.is :LAG1470558315569084
+:Cold_Storm!~finalC@localhost PRIVMSG Ice_Venom :.DCC SEND encode.pyc 1494322064 1117 1737.
+PING LAG1470558345608305
+:irc.glitch.is PONG irc.glitch.is :LAG1470558345608305
+PRIVMSG Cold_Storm :Ok
+PING LAG1470558375659432
+:irc.glitch.is PONG irc.glitch.is :LAG1470558375659432
+PRIVMSG Cold_Storm :Wmkvw680HDzDqMK6UBXChDXCtC7CosKmw7R9w7JLwr/CoT44UcKNwp7DllpPwo3DtsOID8OPTcOWwrzDpi3CtMOKw4PColrCpXUYRhXChMK9w6PDhxfDicOdwoAgwpgNw5/Cvw==
+</code></pre>
+
+<p>Looking through there are a bunch of <code>PRIVMSG</code> IRC messages being exchanged which is just a private conversation between two parties.</p>
+
+<p>Towards the end there&rsquo;s a base64 encoded string, presumably generated by one of the parties. If you try to base64 decode the data, it&rsquo;s gibberish.</p>
+
+<pre><code>Wmkvw680HDzDqMK6UBXChDXCtC7CosKmw7R9w7JLwr/CoT4
+4UcKNwp7DllpPwo3DtsOID8OPTcOWwrzDpi3CtMOKw4PColrCp
+XUYRhXChMK9w6PDhxfDicOdwoAgwpgNw5/Cvw==
+</code></pre>
+
+<p>Just before this though, there&rsquo;s a <code>DCC SEND</code> operation of an <code>encode.pyc</code> file. DCC is how the IRC protocol handles client to client data transfer. In this case, a tool that probably generated the encoded message above.</p>
+
+<p>##File carving
+Since I have a packet capture of the whole conversation, I will isolate this file and save it to disk so I can reverse it.</p>
+
+<p>Same as before, right click and follow the TCP stream:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/encode-pyc_data.PNG" alt="" /></p>
+
+<p>Python compiled files have a specific signature, a <code>version number</code> (<code>0x16 0x0d</code>) followed by <code>\r\n</code> (<code>0x0a 0x0d</code>). The first 4 bytes of the file confirm this is indeed a <code>.pyc</code> file (<code>0x16 0x0d 0x0d 0x0a</code>):</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/encode-pyc_magic_bytes.PNG" alt="" /></p>
+
+<p>I&rsquo;m interested in the one way conversation that starts with these bytes. I&rsquo;ll save it as encode.pyc:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/oneway_convo_raw_save_as.PNG" alt="" /></p>
+
+<p>To decompile the pyc and I&rsquo;ll need <a href="https://github.com/rocky/python-uncompyle6" target="_blank">uncompyl6</a>. This tool supports all versions of Python (2.7-&gt;3.6).</p>
+
+<p>I did try <a href="https://github.com/zrax/pycdc" target="_blank">pycdc</a> but in my case, it was decompiling to broken code.</p>
+
+<p><code>encode.pyc</code> -&gt; <code>encode.py</code>:</p>
+
+<pre><code class="language-python"># Python bytecode 3.5 (3350) disassembled from Python 2.7
+# Embedded file name: encode.py
+import random
+import base64
+P = [27, 35, 50, 11, 8, 20, 44, 30, 6, 1, 5, 2, 33, 16, 36, 64, 3, 61, 54, 25, 12, 21, 26, 10, 57, 53, 38, 56, 58, 37, 43, 17, 42, 47, 4, 14, 7, 46, 34, 19, 23, 40, 63, 18, 45, 60, 13, 15, 22, 9, 62, 51, 32, 55, 29, 24, 41, 39, 49, 52, 48, 28, 31, 59]
+S = [68, 172, 225, 210, 148, 172, 72, 38, 208, 227, 0, 240, 193, 67, 122, 108, 252, 57, 174, 197, 83, 236, 16, 226, 133, 94, 104, 228, 135, 251, 150, 52, 85, 56, 174, 105, 215, 251, 111, 77, 44, 116, 128, 196, 43, 210, 214, 203, 109, 65, 157, 222, 93, 74, 209, 50, 11, 172, 247, 111, 80, 143, 70, 89]
+inp = input()
+inp += ''.join((chr(random.randint(0, 47)) for _ in range(64 - len(inp) % 64)))
+ans = ['' for i in range(len(inp))]
+for j in range(0, len(inp), 64):
+    for i in range(64):
+        ans[j + P[i] - 1] = chr((ord(inp[j + i]) + S[i]) % 256)
+
+ans = ''.join(ans)
+print(base64.b64encode(ans.encode('utf8')).decode('utf8'))
+# okay decompiling ../../../encode.pyc
+</code></pre>
+
+<p>##Reversing the Algorithm
+It&rsquo;s a bit convoluted, but basically the algorithm will:</p>
+
+<ul>
+<li>let <code>I</code> represent the user input</li>
+<li>split <code>I</code> into 64 byte chunks</li>
+<li>let <code>c</code> represent each chunk</li>
+<li>let <code>n[0..63]</code> represent each byte in a given chunk</li>
+<li>add <code>S(c+n)</code> to the numeric value of <code>I(c+n)</code>
+
+<ul>
+<li>perform mod 256 operation on the result</li>
+<li>ie: <code>127 % 256 = 127</code>, <code>321 % 256 = 65</code></li>
+</ul></li>
+<li>store the result in the return variable at position <code>c+P(n)-1</code>.</li>
+</ul>
+
+<p>The algorithm takes each character, adds a number from <code>S</code> to it and stores the result in the encrypted string array at an arbitrary position defined by <code>P</code>.</p>
+
+<p>To decrypt the resulting string, I will walk backwards:</p>
+
+<ul>
+<li>iterate through each byte in each 64 byte chunk</li>
+<li>jump to <code>c+P(n)-1</code> and get the numerical value</li>
+<li>subtract <code>S(c+n)</code>
+
+<ul>
+<li>if that number is below <code>0</code>, add <code>256</code> before converting to string</li>
+</ul></li>
+<li>store the result in the return variable at position <code>n</code>.</li>
+</ul>
+
+<p>The decryption algorithm:</p>
+
+<pre><code class="language-python">enc = base64.b64decode(&quot;Wmkvw680HDzDqMK6UBXChDXCtC7CosKmw7R9w7JLwr/CoT44UcKNwp7DllpPwo3DtsOID8OPTcOWwrzDpi3CtMOKw4PColrCpXUYRhXChMK9w6PDhxfDicOdwoAgwpgNw5/Cvw==&quot;).decode('utf8')
+
+dec = ['' for i in range(len(enc))]
+for c in range(0, len(enc), 64):
+    for n in range(64):
+        i = ord(enc[c + P[n] - 1]) - S[n]
+        if i &lt; 0:
+            i += 256
+        dec[c + n] = chr(i)
+
+print ''.join(dec)
+</code></pre>
+
+<p>And the decrypted flag:</p>
+
+<pre><code>IceCTF{4Lw4y5_US3_5s1_AnD_n3VR4r_mAKe_Y0ur_0wN_cRyp70}........'
+</code></pre>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="https://bittherapy.net/tags/forensics">Forensics</a></span><span class="tag"><a href="https://bittherapy.net/tags/ctf">CTF</a></span><span class="tag"><a href="https://bittherapy.net/tags/cryptography">Cryptography</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

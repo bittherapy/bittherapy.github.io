@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debugging on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/debugging/</link>
+    <description>Recent content in Debugging on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Fri, 25 Nov 2016 18:09:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/debugging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Malicious Document Analysis – Macro to Shellcode</title>
+      <link>https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/</guid>
+      <description>I came across an interesting Word document which at first glance definitely looked malicious. It had everything from random variable names to lyrics from Garbage - Run Baby Run in the comments. It also used an uncommon but very cool method for moving from macro to machine code execution.
+Macro Breakdown The macro starts by creating pointers to DLL exports already loaded in memory by Word:
+&#39;Run from the noise of the street and the loaded gun Public Declare Function whitworth Lib &amp;quot;kernel32.</description>
+    </item>
+    
+    <item>
+      <title>Making gdb More Useful For Reversing</title>
+      <link>https://bittherapy.net/post/making-gdb-useful-for-reversing/</link>
+      <pubDate>Fri, 29 Jan 2016 20:23:07 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/making-gdb-useful-for-reversing/</guid>
+      <description>Unless you&amp;rsquo;re using something like DDD or Gdbinit, gdb vanilla is pretty hard to work with when reversing binaries.
+The following is a bunch of display commands that gdb will execute after every &amp;lsquo;step&amp;rsquo;; put them in a file called gdb.cmd somewhere in ~/:
+# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:</description>
+    </item>
+    
+  </channel>
+</rss>

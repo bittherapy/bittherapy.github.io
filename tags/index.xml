@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on { bit.therapy }</title>
+    <link>https://bittherapy.net/tags/</link>
+    <description>Recent content in Tags on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Wed, 17 Jul 2019 21:33:07 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>application security</title>
+      <link>https://bittherapy.net/tags/application-security/</link>
+      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/application-security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>disclosure</title>
+      <link>https://bittherapy.net/tags/disclosure/</link>
+      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/disclosure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security research</title>
+      <link>https://bittherapy.net/tags/security-research/</link>
+      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/security-research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2018–15573</title>
+      <link>https://bittherapy.net/tags/cve-201815573/</link>
+      <pubDate>Wed, 18 Jul 2018 17:32:04 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/cve-201815573/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CVE-2018–15574</title>
+      <link>https://bittherapy.net/tags/cve-201815574/</link>
+      <pubDate>Wed, 18 Jul 2018 17:32:04 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/cve-201815574/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>https://bittherapy.net/tags/github/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://bittherapy.net/tags/projects/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://bittherapy.net/tags/research/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chanitor</title>
+      <link>https://bittherapy.net/tags/chanitor/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/chanitor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debugging</title>
+      <link>https://bittherapy.net/tags/debugging/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/tags/debugging/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

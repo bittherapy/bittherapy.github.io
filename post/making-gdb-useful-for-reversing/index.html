@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="Unless you&amp;rsquo;re using something like DDD or Gdbinit, gdb vanilla is pretty hard to work with when reversing binaries.
+The following is a bunch of display commands that gdb will execute after every &amp;lsquo;step&amp;rsquo;; put them in a file called gdb.cmd somewhere in ~/:
+# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:" />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/making-gdb-useful-for-reversing/" />
+
+
+<title>
+    
+    Making gdb More Useful For Reversing :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Making gdb More Useful For Reversing">
+<meta itemprop="description" content="Unless you&rsquo;re using something like DDD or Gdbinit, gdb vanilla is pretty hard to work with when reversing binaries.
+The following is a bunch of display commands that gdb will execute after every &lsquo;step&rsquo;; put them in a file called gdb.cmd somewhere in ~/:
+# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:">
+
+
+<meta itemprop="datePublished" content="2016-01-29T20:23:07&#43;00:00" />
+<meta itemprop="dateModified" content="2016-01-29T20:23:07&#43;00:00" />
+<meta itemprop="wordCount" content="259">
+
+
+
+<meta itemprop="keywords" content="Security,Reverse Engineering,GDB,Debugging," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="Making gdb More Useful For Reversing"/>
+<meta name="twitter:description" content="Unless you&rsquo;re using something like DDD or Gdbinit, gdb vanilla is pretty hard to work with when reversing binaries.
+The following is a bunch of display commands that gdb will execute after every &lsquo;step&rsquo;; put them in a file called gdb.cmd somewhere in ~/:
+# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:"/>
+
+
+
+<meta property="article:section" content="Security" />
+<meta property="article:section" content="Reverse Engineering" />
+<meta property="article:section" content="GDB" />
+<meta property="article:section" content="Debugging" />
+
+<meta property="article:published_time" content="2016-01-29 20:23:07 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/making-gdb-useful-for-reversing/">Making gdb More Useful For Reversing</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>Unless you&rsquo;re using something like <code>DDD</code> or <a href="https://github.com/gdbinit/Gdbinit" target="_blank">Gdbinit</a>, gdb vanilla is pretty hard to work with when reversing binaries.</p>
+
+<p>The following is a bunch of display commands that gdb will execute after every &lsquo;step&rsquo;; put them in a file called <code>gdb.cmd</code> somewhere in <code>~/</code>:</p>
+
+<pre><code class="language-nix"># cat ~/gdb.cmd 
+set disassembly-flavor intel
+display/10i $eip
+display/x $eax
+display/x $ebx
+display/x $ecx
+display/x $edx
+display/x $edi
+display/x $esi
+display/x $ebp
+display/16xw $esp
+break main
+</code></pre>
+
+<p>Now you can use the <code>-x</code> gdb commandline parameter and running a program with <code>start</code>
+ or <code>run</code> will show the following:</p>
+
+<pre><code class="language-nix"># gdb bomb -x ~/gdb.cmd
+GNU gdb (Debian 7.7.1+dfsg-5) 7.7.1
+...
+Reading symbols from bomb...done.
+Breakpoint 1 at 0x80489b7: file bomb.c, line 36.
+(gdb) r
+Starting program: /root/bomb 
+
+Breakpoint 1, main (argc=1, argv=0xf7faf000) at bomb.c:36
+36	bomb.c: No such file or directory.
+9: x/16xw $esp
+0xffffd440:	0xf7faf000	0xf7ffd000	0xf7ffd938	0xffffd458
+0xffffd450:	0x0804870a	0xf7faf000	0x00000000	0xf7e22a63
+0xffffd460:	0x00000001	0xffffd4f4	0xffffd4fc	0xf7feac7a
+0xffffd470:	0x00000001	0xffffd4f4	0xffffd494	0x0804b55c
+8: /x $ebp = 0xffffd458
+7: /x $esi = 0x0
+6: /x $edi = 0x0
+5: /x $edx = 0xffffd484
+4: /x $ecx = 0x85f15fd7
+3: /x $ebx = 0xf7faf000
+2: /x $eax = 0x1
+1: x/10i $eip
+=&gt; 0x80489b7 &lt;main+7&gt;:	mov    eax,DWORD PTR [ebp+0x8]
+   0x80489ba &lt;main+10&gt;:	mov    ebx,DWORD PTR [ebp+0xc]
+   0x80489bd &lt;main+13&gt;:	cmp    eax,0x1
+   0x80489c0 &lt;main+16&gt;:	jne    0x80489d0 &lt;main+32&gt;
+   0x80489c2 &lt;main+18&gt;:	mov    eax,ds:0x804b648
+   0x80489c7 &lt;main+23&gt;:	mov    ds:0x804b664,eax
+   0x80489cc &lt;main+28&gt;:	jmp    0x8048a30 &lt;main+128&gt;
+   0x80489ce &lt;main+30&gt;:	mov    esi,esi
+   0x80489d0 &lt;main+32&gt;:	cmp    eax,0x2
+   0x80489d3 &lt;main+35&gt;:	jne    0x8048a10 &lt;main+96&gt;
+(gdb) 
+</code></pre>
+
+<p>I prefer <code>intel</code> syntax, but you can set the flavor to <code>att</code> in gdb.cmd (line 1).</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/security">Security</a></span><span class="tag"><a href="https://bittherapy.net/tags/reverse-engineering">Reverse Engineering</a></span><span class="tag"><a href="https://bittherapy.net/tags/gdb">GDB</a></span><span class="tag"><a href="https://bittherapy.net/tags/debugging">Debugging</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

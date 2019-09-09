@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GZip on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/gzip/</link>
+    <description>Recent content in GZip on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Mon, 06 Apr 2015 17:03:37 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/gzip/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Drive Backup Over SSH With GZip Compression</title>
+      <link>https://bittherapy.net/post/drive-backup-over-ssh-with-gzip-compression/</link>
+      <pubDate>Mon, 06 Apr 2015 17:03:37 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/drive-backup-over-ssh-with-gzip-compression/</guid>
+      <description>If you&amp;rsquo;ve worked hard to configure your Linux machine and can&amp;rsquo;t afford to lose it, try creating an image of it using dd periodically.
+It wouldn&amp;rsquo;t make much sense to store the image of the drive on the drive itself, but luckily dd is smart and you can combine it with ssh and gzip to store your stuff off-site.
+# dd if=/dev/sda | ssh user@backup.remotehost.com dd of=/backup/drive.img.gz  At this point the drive.</description>
+    </item>
+    
+  </channel>
+</rss>

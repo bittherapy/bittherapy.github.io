@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/</link>
+    <description>Recent content in Categories on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Fri, 01 Jun 2018 12:46:23 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>github</title>
+      <link>https://bittherapy.net/categories/github/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>https://bittherapy.net/categories/projects/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>https://bittherapy.net/categories/research/</link>
+      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chanitor</title>
+      <link>https://bittherapy.net/categories/chanitor/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/chanitor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debugging</title>
+      <link>https://bittherapy.net/categories/debugging/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/debugging/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hancitor</title>
+      <link>https://bittherapy.net/categories/hancitor/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/hancitor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IDA Pro</title>
+      <link>https://bittherapy.net/categories/ida-pro/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/ida-pro/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Malware</title>
+      <link>https://bittherapy.net/categories/malware/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/malware/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Malware Analysis</title>
+      <link>https://bittherapy.net/categories/malware-analysis/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/malware-analysis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OllyDbg</title>
+      <link>https://bittherapy.net/categories/ollydbg/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/categories/ollydbg/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

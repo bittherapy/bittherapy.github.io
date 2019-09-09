@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/ctf/</link>
+    <description>Recent content in CTF on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Sat, 20 Aug 2016 17:49:03 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>IceCTF: Analyzing PCAPs and Reversing Encryption</title>
+      <link>https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/</link>
+      <pubDate>Sat, 20 Aug 2016 17:49:03 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/icectf-analyzing-pcaps-and-reversing-encryption/</guid>
+      <description>IceCTF started a little while a go and we got a team together to try and grab some of these flags. If you&amp;rsquo;re doing the challenges right now&amp;hellip; well spoiler alert.
+One of the challenges provided a PCAP with a conversation between two parties that contained the flag somewhere.
+##PCAP Analysis
+Alright, let me open this in Wireshark:
+Interesting&amp;hellip; some IRC chatter. If I right-click and Follow TCP stream I can read the full conversation:</description>
+    </item>
+    
+  </channel>
+</rss>

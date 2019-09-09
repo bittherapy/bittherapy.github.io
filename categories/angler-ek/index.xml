@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angler Ek on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/angler-ek/</link>
+    <description>Recent content in Angler Ek on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Mon, 18 Apr 2016 14:28:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/angler-ek/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Walking Through Angler Exploit Kit - Payload Delivery Analysis</title>
+      <link>https://bittherapy.net/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</link>
+      <pubDate>Mon, 18 Apr 2016 14:28:00 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</guid>
+      <description>A few days ago I was alerted of a potentially compromised website serving Angler EK: hxxp://www.stadiumseatingcharts.com/rogers-centre/
+The Angler exploit kit will redirect the client to a separate compromised server in order to deliver the exploit and the malware stage. Usually, it accomplishes this using an iframe or an anchor (and calling the click()method for that element), or something similar. The point is, there is some bad JavaScript code leading to some other bad JavaScript code, and it&amp;rsquo;s usually obfuscated.</description>
+    </item>
+    
+  </channel>
+</rss>

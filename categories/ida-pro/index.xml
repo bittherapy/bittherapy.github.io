@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IDA Pro on { bit.therapy }</title>
+    <link>https://bittherapy.net/categories/ida-pro/</link>
+    <description>Recent content in IDA Pro on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Fri, 25 Nov 2016 18:09:21 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/categories/ida-pro/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Malicious Document Analysis – Macro to Shellcode</title>
+      <link>https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/malicious-document-analysis-macro-to-shellcode/</guid>
+      <description>I came across an interesting Word document which at first glance definitely looked malicious. It had everything from random variable names to lyrics from Garbage - Run Baby Run in the comments. It also used an uncommon but very cool method for moving from macro to machine code execution.
+Macro Breakdown The macro starts by creating pointers to DLL exports already loaded in memory by Word:
+&#39;Run from the noise of the street and the loaded gun Public Declare Function whitworth Lib &amp;quot;kernel32.</description>
+    </item>
+    
+  </channel>
+</rss>

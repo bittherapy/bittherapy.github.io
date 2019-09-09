@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="Say you wanted to create your own Unblock-Us or Tunlr service&amp;hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&amp;rsquo;s easy and fairly cheap.
+The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&amp;rsquo;s GCE.
+GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console." />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/" />
+
+
+<title>
+    
+    Creating Your Own US Netflix Proxy with Google Cloud :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Creating Your Own US Netflix Proxy with Google Cloud">
+<meta itemprop="description" content="Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.
+The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s GCE.
+GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console.">
+
+
+<meta itemprop="datePublished" content="2016-02-03T17:25:43&#43;00:00" />
+<meta itemprop="dateModified" content="2016-02-03T17:25:43&#43;00:00" />
+<meta itemprop="wordCount" content="1209">
+
+
+
+<meta itemprop="keywords" content="Netflix,Google Cloud,GCE,Google Compute Engine,Tunlr,Unblock-Us,SNI-Proxy,Cord-cutting,American Netflix," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="Creating Your Own US Netflix Proxy with Google Cloud"/>
+<meta name="twitter:description" content="Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.
+The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s GCE.
+GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console."/>
+
+
+
+<meta property="article:section" content="Netflix" />
+<meta property="article:section" content="Google Cloud" />
+<meta property="article:section" content="GCE" />
+<meta property="article:section" content="Google Compute Engine" />
+<meta property="article:section" content="Tunlr" />
+<meta property="article:section" content="Unblock-Us" />
+<meta property="article:section" content="SNI-Proxy" />
+<meta property="article:section" content="Cord-cutting" />
+<meta property="article:section" content="American Netflix" />
+
+<meta property="article:published_time" content="2016-02-03 17:25:43 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/creating-your-own-us-netflix-proxy-with-google-cloud/">Creating Your Own US Netflix Proxy with Google Cloud</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.</p>
+
+<p>The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s <a href="https://console.cloud.google.com/compute/" target="_blank">GCE</a>.</p>
+
+<p>GCE does come with a trial (60 days/$300 USD), and you can set that up here: <a href="https://console.cloud.google.com/compute/" target="_blank">https://console.cloud.google.com/compute/</a></p>
+
+<p>First thing you wanna do is create a new VM instance:</p>
+
+<p><img src="https://bittherapy.net/images/2016/02/create-instance.png" alt="" /></p>
+
+<p>Select <strong>Ubuntu 14.04 LTS</strong> as the image with <strong>10gb</strong> of space. There&rsquo;s no need for more than <strong>0.6gb</strong> of ram and <strong>1</strong> shared vCPU.</p>
+
+<p>The zone should be whatever US location is closest you: <strong>us-east</strong>*</p>
+
+<p>At this point, we have to configure some VM settings so click the <strong>Management, disk, networking, access &amp; security options</strong> to expand advanced settings.</p>
+
+<p>Under the <strong>Management</strong> tab, create a unique tag (<em>sniproxy</em>):</p>
+
+<p><img src="https://bittherapy.net/images/2016/02/expand-management-and-tag-it.png" alt="" /></p>
+
+<p>Under the <strong>Networking</strong> tab, select <strong>New static IP address</strong> to create a new External IP. Give the reserved static IP a name for reference and click <strong>Reserve</strong>. Make a note of the IP as we&rsquo;ll need it in the setup later on:</p>
+
+<p><img src="https://bittherapy.net/images/2016/02/new-static-IP.png" alt="" /></p>
+
+<p>At this point, you can add users and SSH keys to the <strong>Access &amp; security</strong> tab if you need to but the defaults should be sufficient.</p>
+
+<p>Go ahead and create the instance. It&rsquo;ll take a couple of minutes, but it should popup under your <strong>VM Instances</strong> when it&rsquo;s ready.</p>
+
+<p>Before we do anything else, it&rsquo;s important to lock down the instance since it is facing the internet. The new instance was added to the <strong>default</strong> network (find this under Google Cloud Networking -&gt; Networks).</p>
+
+<p>Navigate to the default network configuration and create a new firewall rule. The important thing here is the IP range should be your external IP address (get it here: <a href="http://myip.dnsomatic.com/" target="_blank">http://myip.dnsomatic.com/</a>) followed by a <strong>/32</strong>. You also have to make sure that the <strong>target tags</strong> is set to the tag you gave the VM (<em>sniproxy</em>).</p>
+
+<p><img src="https://bittherapy.net/images/2016/02/setup-firewall-rule.png" alt="" /></p>
+
+<p>This rule allows only you to use the Netflix proxy, preventing abuse. You will have to modify this value if your IP changes from time to time. It&rsquo;s a bit of an inconvenience, but <strong>very important</strong>.</p>
+
+<p><strong>Do not leave these ports open for anyone to access.</strong> Bad guys could use your services to launch DDoS attacks (see <a href="http://openresolverproject.org/" target="_blank">Open Resolver Project</a>), or consume resources and balloon your monthly bills.</p>
+
+<p>You can lock down further with IPtables if you wish, but this would become tedious to update if your IP changes frequently.</p>
+
+<p>Go back to <strong>Compute Engine</strong> and find the VM instance. There will be an SSH connection option (awesome):</p>
+
+<p><img src="https://bittherapy.net/images/2016/02/ssh-to-box.png" alt="" /></p>
+
+<p>You should now be connected to the shell and ready to begin setup:</p>
+
+<pre><code class="language-bash">$ sudo su -
+# apt-get update
+# apt-get install dpkg-dev cdbs debhelper dh-autoreconf libev-dev libpcre3-dev pkg-config libudns-dev git
+# apt-get install bind9 vim
+# cd ~
+# git clone http://github.com/dlundquist/sniproxy.git
+# cd sniproxy &amp;&amp; dpkg-buildpackage
+# dpkg -i ~/sniproxy_0.4.0_amd64.deb
+</code></pre>
+
+<p>Configure sni-proxy:</p>
+
+<pre><code class="language-bash"># echo ENABLED=1 &gt; /etc/default/sniproxy
+# cat /etc/sniproxy.conf
+user daemon
+pidfile /var/tmp/sniproxy.pid
+listener 0.0.0.0 80 {
+	proto http
+	access_log {
+		filename /var/log/sniproxy/http_access.log
+		priority notice
+	}
+}
+listener 0.0.0.0 443 {
+	proto tls
+	access_log {
+		filename /var/log/sniproxy/https_access.log
+		priority notice
+	}
+}
+table {
+	(hulu|huluim)\.com *
+	netflix\.com *
+	ip2location\.com *
+}
+error_log {
+	filename /var/log/sniproxy/sniproxy_error.log
+	priority notice
+}
+# service sniproxy start
+# update-rc.d sniproxy defaults
+</code></pre>
+
+<p>Configure bind9 and make sure the various named.conf.* and *.override files look like mine below.</p>
+
+<pre><code class="language-bash"># mkdir /var/log/named &amp;&amp; chown bind /var/log/named &amp;&amp; chgrp bind /var/log/named
+</code></pre>
+
+<p>Pay attention to the <strong>allow-query</strong> and <strong>allow-recursion</strong> values. If you did not restrict access via the GCE firewall rules, you <strong>must</strong> create <a href="http://www.zytrax.com/books/dns/ch9/close.html" target="_blank">a bind ACL</a> with your external IP as the only one allowed to query.</p>
+
+<p><strong>It&rsquo;s a good idea to do both bind ACL and firewall ACL.</strong></p>
+
+<pre><code class="language-bash"># cat /etc/bind/named.conf.options
+options {
+	directory &quot;/var/cache/bind&quot;;
+	dnssec-validation no;
+	auth-nxdomain no; # conform to RFC1035
+	listen-on-v6 { any; };
+	forwarders {
+		8.8.8.8;
+		8.8.4.4;
+	};
+	allow-query { any; }; # create an ACL if you did not firewall port udp/53 tcp/53
+	allow-recursion { any; }; # create an ACL if you did not firewall port udp/53 tcp/53
+	recursion yes;
+	dnssec-enable no;
+};
+# cat /etc/bind/named.conf.local
+include &quot;/etc/bind/rndc.key&quot;;
+include &quot;/etc/bind/zones.override&quot;;
+logging {
+	channel bind_log {
+		file &quot;/var/log/named/named.log&quot; versions 5 size 30m;
+		severity info;
+		print-time yes;
+		print-severity yes;
+		print-category yes;
+	};
+	category default { bind_log; };
+	category queries { bind_log; };
+};
+# cat /etc/bind/zones.override 
+zone &quot;hulu.com.&quot; {
+	type master;
+	file &quot;/etc/bind/db.override&quot;;
+};
+zone &quot;huluim.com.&quot; {
+	type master;
+	file &quot;/etc/bind/db.override&quot;;
+};
+zone &quot;netflix.com.&quot; {
+	type master;
+	file &quot;/etc/bind/db.override&quot;;
+};
+zone &quot;link.theplatform.com.&quot; {
+	type master;
+	file &quot;/etc/bind/db.override&quot;;
+};
+zone &quot;ip2location.com.&quot; {
+	type master;
+	file &quot;/etc/bind/db.override&quot;;
+};
+</code></pre>
+
+<p>In the db.override file replace <strong>VM-EXTERNAL-IP-ADDRESS</strong> with your VM&rsquo;s static external IP address:</p>
+
+<pre><code class="language-bash"># cat /etc/bind/db.override
+; BIND data file for overridden IPs
+;
+$TTL 86400
+@ IN SOA ns1 root (
+        2012100401 ; serial
+        604800 ; refresh 1w
+        86400 ; retry 1d
+        2419200 ; expiry 4w
+        86400 ; minimum TTL 1d
+        )
+; need at least a nameserver
+@ IN NS ns1
+; specify nameserver IP address
+ns1 IN A VM-EXTERNAL-IP-ADDRESS ;external IP created for the VM
+; provide IP address for domain itself
+@ IN A VM-EXTERNAL-IP-ADDRESS ;external IP created for the VM
+; resolve everything with the same IP address as ns1
+* IN A VM-EXTERNAL-IP-ADDRESS ;external IP created for the VM
+</code></pre>
+
+<p>Start the bind9 service:</p>
+
+<pre><code class="language-bash"># service bind9 start
+# update-rc.d bind9 defaults
+</code></pre>
+
+<p>To further lock down the box, a sample <strong>iptables</strong> configuration file (replace HOME-EXTERNAL-IP with your IP address):</p>
+
+<pre><code class="language-bash"># iptables-save
+*raw
+:PREROUTING ACCEPT [50228:66528501]
+:OUTPUT ACCEPT [19020:1901406]
+COMMIT
+
+*nat
+:PREROUTING ACCEPT [93:6171]
+:POSTROUTING ACCEPT [62:4250]
+:OUTPUT ACCEPT [62:4250]
+COMMIT
+
+*filter
+:INPUT DROP [62:3607]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [1060:163175]
+-A INPUT -s HOME-EXTERNAL-IP/32 -p udp -m udp --dport 53 -j ACCEPT
+-A INPUT -s HOME-EXTERNAL-IP/32 -p tcp -m tcp --dport 443 -j ACCEPT
+-A INPUT -s HOME-EXTERNAL-IP/32 -p tcp -m tcp --dport 80 -j ACCEPT
+-A INPUT -s HOME-EXTERNAL-IP/32 -p tcp -m tcp --dport 22 -j ACCEPT
+-A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+COMMIT
+
+*mangle
+:PREROUTING ACCEPT [50228:66528501]
+:INPUT ACCEPT [50228:66528501]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [19021:1902054]
+:POSTROUTING ACCEPT [19021:1902054]
+COMMIT
+</code></pre>
+
+<p>That&rsquo;s it.</p>
+
+<p>You can now set the DNS servers on your device (Nexus Player, Laptop, etc) to the VM&rsquo;s external IP address. You only need to set one DNS server, leave the other blank or the proxy may not work as intended.</p>
+
+<p>To do a quick test, all of the following dig commands should return an A record pointing to your VM&rsquo;s external IP address:</p>
+
+<pre><code class="language-bash"># dig @localhost netflix.com
+# dig @vm-ip netflix.com
+</code></pre>
+
+<p>Timeouts for the localhost command could mean a bind9 configuration problem. Timeouts to the vm-ip (while localhost succeeds) could indicate a network/firewall issue.</p>
+
+<p>If something isn&rsquo;t working, troubleshoot the following log files:</p>
+
+<pre><code class="language-bash"># tailf /var/log/named/named.log
+# tailf /var/log/sniproxy/sniproxy_error.log (or http_access.log/https_access.log)
+</code></pre>
+
+<p>If you don&rsquo;t see any activity in the bind9/sniproxy app logs, it could be a networking issue. Make sure the firewall rules are properly tagged (the target tags contain your VM instance tag).</p>
+
+<p>You can use <strong>netcat</strong> or <strong>tcpdump</strong> to troubleshoot network/firewall problems.</p>
+
+<p>Shout out to <a href="http://www.nakedcleaner.com/2015/04/creating-a-netflix-usa-proxy-on-azure/" target="_blank">NakedCleaner</a> for the Azure version of this setup and to <a href="https://github.com/dlundquist/sniproxy" target="_blank">dlundquist</a> for sni-proxy!</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/netflix">Netflix</a></span><span class="tag"><a href="https://bittherapy.net/tags/google-cloud">Google Cloud</a></span><span class="tag"><a href="https://bittherapy.net/tags/gce">GCE</a></span><span class="tag"><a href="https://bittherapy.net/tags/google-compute-engine">Google Compute Engine</a></span><span class="tag"><a href="https://bittherapy.net/tags/tunlr">Tunlr</a></span><span class="tag"><a href="https://bittherapy.net/tags/unblock-us">Unblock-Us</a></span><span class="tag"><a href="https://bittherapy.net/tags/sni-proxy">SNI-Proxy</a></span><span class="tag"><a href="https://bittherapy.net/tags/cord-cutting">Cord-cutting</a></span><span class="tag"><a href="https://bittherapy.net/tags/american-netflix">American Netflix</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

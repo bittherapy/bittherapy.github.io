@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WSUS on { bit.therapy }</title>
+    <link>https://bittherapy.net/tags/wsus/</link>
+    <description>Recent content in WSUS on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>{ bit.therapy }</copyright>
+    <lastBuildDate>Mon, 06 Apr 2015 13:07:31 +0000</lastBuildDate>
+    
+	<atom:link href="https://bittherapy.net/tags/wsus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SCCM upstream and downstream SUPs fail SSL/TLS negotiation</title>
+      <link>https://bittherapy.net/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</link>
+      <pubDate>Mon, 06 Apr 2015 13:07:31 +0000</pubDate>
+      
+      <guid>https://bittherapy.net/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</guid>
+      <description>I have two SCCM SUP systems, one is the top and the other is downstream. The SCCM infrastructure is operating in Native Mode and all WSUS synchronizations and configurations happen over HTTPS.
+The internal SUP (SKN01) is the site server and has a site system in the DMZ (DMZ01) which it uses as a SUP for external IBCM clients. I had a look at the system status a couple of days ago only to see the SMS_WSUS_CONFIGURATION_MANAGER component had gone critical with this message all over the place:</description>
+    </item>
+    
+  </channel>
+</rss>

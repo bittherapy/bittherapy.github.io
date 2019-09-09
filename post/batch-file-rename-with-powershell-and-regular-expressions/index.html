@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="There have been a few times in the past where I&amp;rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&amp;rsquo;ve always defaulted to PowerShell.
+Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
+$ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args." />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/batch-file-rename-with-powershell-and-regular-expressions/" />
+
+
+<title>
+    
+    Batch file rename with PowerShell and Regular Expressions :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Batch file rename with PowerShell and Regular Expressions">
+<meta itemprop="description" content="There have been a few times in the past where I&rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&rsquo;ve always defaulted to PowerShell.
+Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
+$ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args.">
+
+
+<meta itemprop="datePublished" content="2015-04-06T16:54:42&#43;00:00" />
+<meta itemprop="dateModified" content="2015-04-06T16:54:42&#43;00:00" />
+<meta itemprop="wordCount" content="287">
+
+
+
+<meta itemprop="keywords" content="Development,PowerShell,Regex,Regular Expressions,Automation," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="Batch file rename with PowerShell and Regular Expressions"/>
+<meta name="twitter:description" content="There have been a few times in the past where I&rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&rsquo;ve always defaulted to PowerShell.
+Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
+$ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args."/>
+
+
+
+<meta property="article:section" content="Development" />
+<meta property="article:section" content="PowerShell" />
+<meta property="article:section" content="Regex" />
+<meta property="article:section" content="Regular Expressions" />
+<meta property="article:section" content="Automation" />
+
+<meta property="article:published_time" content="2015-04-06 16:54:42 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/batch-file-rename-with-powershell-and-regular-expressions/">Batch file rename with PowerShell and Regular Expressions</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>There have been a few times in the past where I&rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&rsquo;ve always defaulted to PowerShell.</p>
+
+<p>Piping <code>dir</code> into a where and matching the files I wanted to rename was effective but tedious. Cue the <code>mass_rename.ps1</code> script:</p>
+
+<pre><code class="language-powershell">$ext = $args[0];
+$dir = $args[1];
+$what = $args[2];
+$with = $args[3];
+$whatif = $args[4];
+$count = 0;
+
+if ($args.length -lt 4) {
+    write - host &quot;Invalid parameters&quot; - fore red;
+    &quot;&quot;
+    write - host &quot; .\mass_rename.ps1 &lt;ext&gt; &lt;dir&gt; &lt;what&gt; &lt;with&gt; [-whatif]&quot;;
+    &quot;&quot;
+    write - host &quot; Example (don't do any replacing, -whatif):&quot;;
+    write - host &quot; .\mass_rename.ps1 .docx c:Documents 'version 1.1' 'version 1.2' -whatif&quot;;
+    &quot;&quot;
+    exit 1;
+}
+
+ls - recurse - path $dir | ? {
+    ($_.name.endswith($ext)) -and ($_.name -imatch $what)
+} | %{
+    if ($whatif -eq &quot;-whatif&quot;) {
+        write-host (&quot;whatif: '&quot; + $_.fullname + &quot;' -&gt; '&quot; + ($_.name -ireplace $what, $with) + &quot;'&quot;);
+    } else {
+        $from = $_.fullname;
+        $to = ($_.name -ireplace $what, $with);
+        mv -literalpath $from -destination($_.directoryname + &quot;&quot; + $to) -force;
+        write -host &quot;Renamed '$from' -&gt; '$to'&quot; -fore yellow;
+        $count++;
+    }
+}
+
+write - host &quot;Done. Processed $count files.&quot; - fore green
+</code></pre>
+
+<p>The script will accept 4 parameters with an optional <code>-whatif</code> as the 5th. Fairly self explanatory with one mention: the <code>$what</code> parameter is a regular expression. Keep this in mind when, for example, you are trying to match for a period (.) as you would have to escape it (as per the example usage).</p>
+
+<p>The <code>-whatif</code> parameter will only output the before and after file names without doing any actual renaming.</p>
+
+<p>That&rsquo;s it, set the execution policy and enjoy.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/development">Development</a></span><span class="tag"><a href="https://bittherapy.net/tags/powershell">PowerShell</a></span><span class="tag"><a href="https://bittherapy.net/tags/regex">Regex</a></span><span class="tag"><a href="https://bittherapy.net/tags/regular-expressions">Regular Expressions</a></span><span class="tag"><a href="https://bittherapy.net/tags/automation">Automation</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>

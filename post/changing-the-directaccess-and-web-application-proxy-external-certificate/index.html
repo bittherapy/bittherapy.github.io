@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.
+Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&amp;rsquo;s Remote Access role.
+See: https://technet.microsoft.com/en-us/library/dn383662.aspx
+The rough network path to the lab is as follows:" />
+<meta name="keywords" content="blog,security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://bittherapy.net/post/changing-the-directaccess-and-web-application-proxy-external-certificate/" />
+
+
+<title>
+    
+    Changing the DirectAccess and Web Application Proxy external certificate :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://bittherapy.net/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://bittherapy.net/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://bittherapy.net/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://bittherapy.net/favicon-16x16.png">
+<link rel="manifest" href="https://bittherapy.net/site.webmanifest">
+<link rel="mask-icon" href="https://bittherapy.net/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="https://bittherapy.net/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Changing the DirectAccess and Web Application Proxy external certificate">
+<meta itemprop="description" content="In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.
+Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&rsquo;s Remote Access role.
+See: https://technet.microsoft.com/en-us/library/dn383662.aspx
+The rough network path to the lab is as follows:">
+
+
+<meta itemprop="datePublished" content="2016-02-08T00:46:31&#43;00:00" />
+<meta itemprop="dateModified" content="2016-02-08T00:46:31&#43;00:00" />
+<meta itemprop="wordCount" content="556">
+
+
+
+<meta itemprop="keywords" content="TLS,SSL,Security,VPN,DirectAccess,Web Application Proxy,Server 2012 R2," />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://bittherapy.net"/>
+
+<meta name="twitter:title" content="Changing the DirectAccess and Web Application Proxy external certificate"/>
+<meta name="twitter:description" content="In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.
+Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&rsquo;s Remote Access role.
+See: https://technet.microsoft.com/en-us/library/dn383662.aspx
+The rough network path to the lab is as follows:"/>
+
+
+
+<meta property="article:section" content="TLS" />
+<meta property="article:section" content="SSL" />
+<meta property="article:section" content="Security" />
+<meta property="article:section" content="VPN" />
+<meta property="article:section" content="DirectAccess" />
+<meta property="article:section" content="Web Application Proxy" />
+<meta property="article:section" content="Server 2012 R2" />
+
+<meta property="article:published_time" content="2016-02-08 00:46:31 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://bittherapy.net/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://bittherapy.net/post/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="https://bittherapy.net/post/changing-the-directaccess-and-web-application-proxy-external-certificate/">Changing the DirectAccess and Web Application Proxy external certificate</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.</p>
+
+<p>Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&rsquo;s Remote Access role.</p>
+
+<p>See: <a href="https://technet.microsoft.com/en-us/library/dn383662.aspx" target="_blank">https://technet.microsoft.com/en-us/library/dn383662.aspx</a></p>
+
+<p>The rough network path to the lab is as follows:</p>
+
+<pre><code>[Internet] &lt;-&gt; FW1 &lt;-&gt; [DMZ] &lt;-&gt; FW2 &lt;-&gt; [LAB]
+</code></pre>
+
+<p>The DA server and RD gateway sit inside <code>[LAB]</code>. I have the RD gateway installed elsewhere inside <code>[LAB]</code>. I published the RD Gateway through WAP in order to have both DA and RDG available on the same public IP on port 443.</p>
+
+<p>The beauty of WAP is that it can coexist with DA and VPN features on the same Server 2012 R2 instance. In fact, installing it takes over the 443 port and handles requests accordingly.</p>
+
+<p>Initially, I had setup DirectAccess using a certificate issued by my internal PKI. It wasn&rsquo;t trusted publicly but the machines accessing DA are domain joined so this wasn&rsquo;t an issue.</p>
+
+<p>RDG connections are rejected if the gateway&rsquo;s certificate is not trusted. So if I try to use RDG from a non-domain machine the connection would fail. Unlike direct RDP connections there is no option to &ldquo;connect anyway&rdquo; if there is a certificate issue.</p>
+
+<p>Cue my shiny new <a href="http://StartSSL.com" target="_blank">StartSSL</a> certificate.</p>
+
+<p>I went through the DiretAccess wizard and replaced the IP-HTTPS certificate in <code>Step 2 &gt; Network Adapters</code>, saved and re-applied the configuration. DirectAccess still worked, but it was using the old certificate (??)</p>
+
+<p>I could see the updated certificate when I ran this in PowerShell:</p>
+
+<pre><code class="language-powershell">PS C:\&gt; Get-DaServer
+</code></pre>
+
+<p>IIS is not used as the listening service for 443, so it wasn&rsquo;t obvious why it was still serving the old certificate. The Remote Access GUI had no option (besides the DA wizard) to modify the certificate. WAP only had <code>Publish</code> and <code>Remove</code> functions.</p>
+
+<p>It turns out DA and WAP use <code>HTTP.sys</code> to bind to 443. When I tried to edit a published WAP app (RDG in this case), I could see it using the old certificate.</p>
+
+<p>So I figured, publishing a new app using the new certificate would fix my problem&hellip; Nope. It was still serving the old certificate&hellip;</p>
+
+<p>Alright&hellip; time to dig into SSL bindings:</p>
+
+<pre><code class="language-powershell">PS C:\&gt; netsh http show sslcert
+</code></pre>
+
+<p>What I&rsquo;m looking for here is the binding for <code>0.0.0.0:443</code> (<code>[::]:443</code>) and potentially a <code>[public.host.name]:443</code> as well.</p>
+
+<p>The output confirmed that the bindings for <code>0.0.0.0</code> and <code>[public.host.name]</code> had the old certificate. Curious enough the IPv6 binding <code>[::]:443</code> had the new certificate. (bug?)</p>
+
+<p>I made a note of the <code>Application Id</code> for the <code>0.0.0.0:443</code> binding, as I&rsquo;ll need it later.</p>
+
+<p>First I will remove the bindings for the old certificate and re-bind using the new certificate hash:</p>
+
+<pre><code class="language-powershell">PS C:\&gt; netsh http del sslcert ipport=0.0.0.0:443
+PS C:\&gt; netsh http del sslcert hostname=[public.host.name]:443
+PS C:\&gt; netsh http add sslcert ipport=0.0.0.0:443 certhash=[new certificate hash] appid=&quot;[appid guid]&quot; 
+PS C:\&gt; netsh http add sslcert hostname=[public.host.name]:443 certhash=[new certificate hash] appid=&quot;[appid guid]&quot; certstorename=my 
+</code></pre>
+
+<p>&hellip; and restart relevant services:</p>
+
+<pre><code class="language-powershell">PS C:\&gt; Restart-Service iphlpsvc
+PS C:\&gt; Restart-Service remoteaccess
+</code></pre>
+
+<p>My external certificate finally changed to the new one and DA/WAP/VPN were working just fine. As long as the public.host.name doesn&rsquo;t change, the clients won&rsquo;t notice the swap.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://bittherapy.net/tags/tls">TLS</a></span><span class="tag"><a href="https://bittherapy.net/tags/ssl">SSL</a></span><span class="tag"><a href="https://bittherapy.net/tags/security">Security</a></span><span class="tag"><a href="https://bittherapy.net/tags/vpn">VPN</a></span><span class="tag"><a href="https://bittherapy.net/tags/directaccess">DirectAccess</a></span><span class="tag"><a href="https://bittherapy.net/tags/web-application-proxy">Web Application Proxy</a></span><span class="tag"><a href="https://bittherapy.net/tags/server-2012-r2">Server 2012 R2</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2019</span>
+            
+                <span><a href="https://bittherapy.net">Adrian</a></span>
+            
+            <span>{ bit.therapy }</span>
+            <span> <a href="https://bittherapy.net/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://bittherapy.net/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+
+
+
+    </body>
+</html>
