@@ -12,11 +12,11 @@
     
     
     <item>
-      <title>Projects</title>
-      <link>/projects/</link>
+      <title>Research</title>
+      <link>/research/</link>
       <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
       
-      <guid>/projects/</guid>
+      <guid>/research/</guid>
       <description> Becoming the Hacker - A practical look at attacking web applications
  Echoes Encrypted Messenger - An end-to-end encrypted messenger
  SSL Enforcer - A Chrome extension to force SSL while browsing
