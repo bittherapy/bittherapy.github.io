@@ -4,36 +4,56 @@
   
   <url>
     <loc>/tags/application-security/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cve/</loc>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/disclosure/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/remote-code-execution/</loc>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/security/</loc>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/security-research/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/strapi-framework-remote-code-execution/</loc>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-07-17T21:33:07+00:00</lastmod>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-12-03T15:33:07+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</loc>
     <lastmod>2019-07-17T21:33:07+00:00</lastmod>
   </url>
   
@@ -58,12 +78,12 @@
   </url>
   
   <url>
-    <loc>/categories/github/</loc>
+    <loc>/tags/github/</loc>
     <lastmod>2018-06-01T12:46:23+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/github/</loc>
+    <loc>/categories/github/</loc>
     <lastmod>2018-06-01T12:46:23+00:00</lastmod>
   </url>
   
@@ -93,12 +113,12 @@
   </url>
   
   <url>
-    <loc>/tags/chanitor/</loc>
+    <loc>/categories/chanitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/chanitor/</loc>
+    <loc>/tags/chanitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -113,12 +133,12 @@
   </url>
   
   <url>
-    <loc>/categories/hancitor/</loc>
+    <loc>/tags/hancitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/hancitor/</loc>
+    <loc>/categories/hancitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -148,22 +168,22 @@
   </url>
   
   <url>
-    <loc>/categories/malware-analysis/</loc>
-    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/malware-analysis/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ollydbg/</loc>
+    <loc>/categories/malware-analysis/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/ollydbg/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ollydbg/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -183,12 +203,12 @@
   </url>
   
   <url>
-    <loc>/tags/flash/</loc>
+    <loc>/categories/flash/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/flash/</loc>
+    <loc>/tags/flash/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
@@ -213,12 +233,12 @@
   </url>
   
   <url>
-    <loc>/categories/ctf/</loc>
+    <loc>/tags/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ctf/</loc>
+    <loc>/categories/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
   </url>
   
@@ -243,12 +263,12 @@
   </url>
   
   <url>
-    <loc>/tags/ransomware/</loc>
+    <loc>/categories/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/ransomware/</loc>
+    <loc>/tags/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
   </url>
   
@@ -273,12 +293,12 @@
   </url>
   
   <url>
-    <loc>/categories/javascript/</loc>
+    <loc>/tags/javascript/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/javascript/</loc>
+    <loc>/categories/javascript/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -293,12 +313,12 @@
   </url>
   
   <url>
-    <loc>/tags/remnux/</loc>
+    <loc>/categories/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/remnux/</loc>
+    <loc>/tags/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -348,7 +368,7 @@
   </url>
   
   <url>
-    <loc>/tags/security/</loc>
+    <loc>/tags/server-2012-r2/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -358,7 +378,7 @@
   </url>
   
   <url>
-    <loc>/tags/server-2012-r2/</loc>
+    <loc>/tags/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -368,7 +388,7 @@
   </url>
   
   <url>
-    <loc>/tags/ssl/</loc>
+    <loc>/categories/tls/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -378,17 +398,12 @@
   </url>
   
   <url>
-    <loc>/categories/tls/</loc>
+    <loc>/categories/vpn/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/vpn/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vpn/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -403,12 +418,12 @@
   </url>
   
   <url>
-    <loc>/tags/centos/</loc>
+    <loc>/categories/centos/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/centos/</loc>
+    <loc>/tags/centos/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -438,12 +453,12 @@
   </url>
   
   <url>
-    <loc>/tags/selinux/</loc>
+    <loc>/categories/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/selinux/</loc>
+    <loc>/tags/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -458,22 +473,22 @@
   </url>
   
   <url>
-    <loc>/categories/swap/</loc>
-    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/swap/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/american-netflix/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+    <loc>/categories/swap/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/american-netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/american-netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -493,12 +508,12 @@
   </url>
   
   <url>
-    <loc>/tags/gce/</loc>
+    <loc>/categories/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/gce/</loc>
+    <loc>/tags/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -543,12 +558,12 @@
   </url>
   
   <url>
-    <loc>/categories/tunlr/</loc>
+    <loc>/tags/tunlr/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/tunlr/</loc>
+    <loc>/categories/tunlr/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -583,12 +598,12 @@
   </url>
   
   <url>
-    <loc>/categories/sandbox/</loc>
+    <loc>/tags/sandbox/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sandbox/</loc>
+    <loc>/categories/sandbox/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
@@ -638,12 +653,12 @@
   </url>
   
   <url>
-    <loc>/categories/osd/</loc>
+    <loc>/tags/osd/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/osd/</loc>
+    <loc>/categories/osd/</loc>
     <lastmod>2015-04-07T13:17:43+00:00</lastmod>
   </url>
   
@@ -668,22 +683,22 @@
   </url>
   
   <url>
-    <loc>/tags/redhat/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/redhat/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/rhel/</loc>
+    <loc>/tags/redhat/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/rhel/</loc>
+    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rhel/</loc>
     <lastmod>2015-04-07T13:11:24+00:00</lastmod>
   </url>
   
@@ -728,12 +743,12 @@
   </url>
   
   <url>
-    <loc>/categories/development/</loc>
+    <loc>/tags/development/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/development/</loc>
+    <loc>/categories/development/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -753,12 +768,12 @@
   </url>
   
   <url>
-    <loc>/tags/unix/</loc>
+    <loc>/categories/unix/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/unix/</loc>
+    <loc>/tags/unix/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
@@ -793,22 +808,22 @@
   </url>
   
   <url>
-    <loc>/categories/gzip/</loc>
-    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/gzip/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/ssh/</loc>
+    <loc>/categories/gzip/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/ssh/</loc>
+    <lastmod>2015-04-06T17:03:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ssh/</loc>
     <lastmod>2015-04-06T17:03:37+00:00</lastmod>
   </url>
   
@@ -828,12 +843,12 @@
   </url>
   
   <url>
-    <loc>/categories/regular-expressions/</loc>
+    <loc>/tags/regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/regular-expressions/</loc>
+    <loc>/categories/regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
@@ -873,12 +888,12 @@
   </url>
   
   <url>
-    <loc>/tags/perl/</loc>
+    <loc>/categories/perl/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/perl/</loc>
+    <loc>/tags/perl/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
@@ -888,12 +903,12 @@
   </url>
   
   <url>
-    <loc>/tags/webdev/</loc>
+    <loc>/categories/webdev/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/webdev/</loc>
+    <loc>/tags/webdev/</loc>
     <lastmod>2015-04-06T13:01:31+00:00</lastmod>
   </url>
   

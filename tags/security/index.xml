@@ -6,10 +6,26 @@
     <description>Recent content in Security on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Mon, 08 Feb 2016 00:46:31 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 15:33:07 +0000</lastBuildDate>
     
 	<atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Strapi Framework Vulnerable to Remote Code Execution</title>
+      <link>/post/strapi-framework-remote-code-execution/</link>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
+      
+      <guid>/post/strapi-framework-remote-code-execution/</guid>
+      <description>CVE-2019-XXXX - Reserved
+Vendor: Strapi (https://strapi.io)
+Product: Strapi Framework
+Version Affected: strapi-3.0.0-beta.17.7 and earlier
+Fix PR: https://github.com/strapi/strapi/pull/4636
+Description:
+ &amp;ldquo;Manage your content. Distribute it anywhere. The open source Headless CMS Front-End Developers love.&amp;rdquo;
+ Recently I came across a cool &amp;ldquo;headless&amp;rdquo; CMS called Strapi which makes creating dynamic sites painless. After poking around its code for a bit, I noticed a bit of potentially dangerous code in the plugin installPlugin and uninstallPlugin handler functions for the admin panel (packages/strapi-admin/controllers/Admin.</description>
+    </item>
     
     <item>
       <title>Changing the DirectAccess and Web Application Proxy external certificate</title>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 21:33:07 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 15:33:07 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,25 +14,52 @@
     <item>
       <title>application security</title>
       <link>/tags/application-security/</link>
-      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
       
       <guid>/tags/application-security/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>cve</title>
+      <link>/tags/cve/</link>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
+      
+      <guid>/tags/cve/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>disclosure</title>
       <link>/tags/disclosure/</link>
-      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
       
       <guid>/tags/disclosure/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>remote code execution</title>
+      <link>/tags/remote-code-execution/</link>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
+      
+      <guid>/tags/remote-code-execution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/tags/security/</link>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
+      
+      <guid>/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>security research</title>
       <link>/tags/security-research/</link>
-      <pubDate>Wed, 17 Jul 2019 21:33:07 +0000</pubDate>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
       
       <guid>/tags/security-research/</guid>
       <description></description>
@@ -71,33 +98,6 @@
       <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
       
       <guid>/tags/projects/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>research</title>
-      <link>/tags/research/</link>
-      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
-      
-      <guid>/tags/research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>chanitor</title>
-      <link>/tags/chanitor/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/tags/chanitor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Debugging</title>
-      <link>/tags/debugging/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/tags/debugging/</guid>
       <description></description>
     </item>
     

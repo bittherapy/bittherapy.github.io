@@ -6,10 +6,26 @@
     <description>Recent content in Posts on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Wed, 17 Jul 2019 21:33:07 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 15:33:07 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Strapi Framework Vulnerable to Remote Code Execution</title>
+      <link>/post/strapi-framework-remote-code-execution/</link>
+      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
+      
+      <guid>/post/strapi-framework-remote-code-execution/</guid>
+      <description>CVE-2019-XXXX - Reserved
+Vendor: Strapi (https://strapi.io)
+Product: Strapi Framework
+Version Affected: strapi-3.0.0-beta.17.7 and earlier
+Fix PR: https://github.com/strapi/strapi/pull/4636
+Description:
+ &amp;ldquo;Manage your content. Distribute it anywhere. The open source Headless CMS Front-End Developers love.&amp;rdquo;
+ Recently I came across a cool &amp;ldquo;headless&amp;rdquo; CMS called Strapi which makes creating dynamic sites painless. After poking around its code for a bit, I noticed a bit of potentially dangerous code in the plugin installPlugin and uninstallPlugin handler functions for the admin panel (packages/strapi-admin/controllers/Admin.</description>
+    </item>
     
     <item>
       <title>Hardcoded Credentials in Uniguest Kiosk Software lead to API Compromise</title>
@@ -108,18 +124,6 @@ The Angler exploit kit will redirect the client to a separate compromised server
       <description>Got my hands on a Dridex sample (SKM_C3350160212101601.docm) the other day and I wanted to figure out exactly how it managed to slip by our controls.
 The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.
 Document Analysis First thing I need to do is run it through officemalscanner:</description>
-    </item>
-    
-    <item>
-      <title>Changing the DirectAccess and Web Application Proxy external certificate</title>
-      <link>/post/changing-the-directaccess-and-web-application-proxy-external-certificate/</link>
-      <pubDate>Mon, 08 Feb 2016 00:46:31 +0000</pubDate>
-      
-      <guid>/post/changing-the-directaccess-and-web-application-proxy-external-certificate/</guid>
-      <description>In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.
-Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&amp;rsquo;s Remote Access role.
-See: https://technet.microsoft.com/en-us/library/dn383662.aspx
-The rough network path to the lab is as follows:</description>
     </item>
     
   </channel>
