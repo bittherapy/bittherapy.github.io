@@ -12,12 +12,12 @@
     
     
     <item>
-      <title>Strapi Framework Vulnerable to Remote Code Execution</title>
+      <title>Strapi Framework Vulnerable to Remote Code Execution (CVE-2019-19609)</title>
       <link>/post/strapi-framework-remote-code-execution/</link>
       <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
       
       <guid>/post/strapi-framework-remote-code-execution/</guid>
-      <description>CVE-2019-XXXX - Reserved
+      <description>CVE-2019-19609
 Vendor: Strapi (https://strapi.io)
 Product: Strapi Framework
 Version Affected: strapi-3.0.0-beta.17.7 and earlier
