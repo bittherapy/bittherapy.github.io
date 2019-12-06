@@ -17,7 +17,7 @@
       <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
       
       <guid>/post/strapi-framework-remote-code-execution/</guid>
-      <description>CVE-2019-19609
+      <description>CVE: CVE-2019-19609
 Vendor: Strapi (https://strapi.io)
 Product: Strapi Framework
 Version Affected: strapi-3.0.0-beta.17.7 and earlier
