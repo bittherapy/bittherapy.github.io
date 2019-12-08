@@ -103,12 +103,12 @@
   </url>
   
   <url>
-    <loc>/categories/research/</loc>
+    <loc>/tags/research/</loc>
     <lastmod>2018-06-01T12:46:23+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/research/</loc>
+    <loc>/categories/research/</loc>
     <lastmod>2018-06-01T12:46:23+00:00</lastmod>
   </url>
   
@@ -123,17 +123,12 @@
   </url>
   
   <url>
-    <loc>/tags/debugging/</loc>
-    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/debugging/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/hancitor/</loc>
+    <loc>/tags/debugging/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -143,12 +138,17 @@
   </url>
   
   <url>
-    <loc>/tags/ida-pro/</loc>
+    <loc>/tags/hancitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/ida-pro/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ida-pro/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -178,22 +178,22 @@
   </url>
   
   <url>
-    <loc>/categories/ollydbg/</loc>
-    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/ollydbg/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/reverse-engineering/</loc>
+    <loc>/categories/ollydbg/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/reverse-engineering/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/reverse-engineering/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
   </url>
   
@@ -213,12 +213,12 @@
   </url>
   
   <url>
-    <loc>/tags/swf/</loc>
+    <loc>/categories/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/swf/</loc>
+    <loc>/tags/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
   </url>
   
@@ -313,22 +313,22 @@
   </url>
   
   <url>
-    <loc>/categories/remnux/</loc>
-    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/revelo/</loc>
+    <loc>/categories/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/revelo/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/revelo/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
   </url>
   
@@ -378,17 +378,12 @@
   </url>
   
   <url>
-    <loc>/tags/ssl/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/tls/</loc>
+    <loc>/tags/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -398,12 +393,17 @@
   </url>
   
   <url>
-    <loc>/categories/vpn/</loc>
+    <loc>/categories/tls/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/vpn/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/vpn/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url>
   
@@ -453,22 +453,22 @@
   </url>
   
   <url>
-    <loc>/tags/selinux/</loc>
-    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/setsebool/</loc>
+    <loc>/tags/selinux/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/categories/setsebool/</loc>
+    <lastmod>2016-02-07T18:48:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/setsebool/</loc>
     <lastmod>2016-02-07T18:48:00+00:00</lastmod>
   </url>
   
@@ -483,12 +483,12 @@
   </url>
   
   <url>
-    <loc>/categories/american-netflix/</loc>
+    <loc>/tags/american-netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/american-netflix/</loc>
+    <loc>/categories/american-netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -508,12 +508,12 @@
   </url>
   
   <url>
-    <loc>/tags/gce/</loc>
+    <loc>/categories/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/gce/</loc>
+    <loc>/tags/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -548,12 +548,12 @@
   </url>
   
   <url>
-    <loc>/categories/sni-proxy/</loc>
+    <loc>/tags/sni-proxy/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/sni-proxy/</loc>
+    <loc>/categories/sni-proxy/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
   </url>
   
@@ -588,17 +588,12 @@
   </url>
   
   <url>
-    <loc>/categories/powershell/</loc>
-    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/powershell/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/sandbox/</loc>
+    <loc>/categories/powershell/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
@@ -608,12 +603,12 @@
   </url>
   
   <url>
-    <loc>/post/transfer-files-to-and-from-guest-on-hyper-v/</loc>
+    <loc>/categories/sandbox/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/windows-server/</loc>
+    <loc>/post/transfer-files-to-and-from-guest-on-hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
@@ -623,8 +618,8 @@
   </url>
   
   <url>
-    <loc>/tags/gdb/</loc>
-    <lastmod>2016-01-29T20:23:07+00:00</lastmod>
+    <loc>/tags/windows-server/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
   </url>
   
   <url>
@@ -633,93 +628,13 @@
   </url>
   
   <url>
-    <loc>/post/making-gdb-useful-for-reversing/</loc>
+    <loc>/tags/gdb/</loc>
     <lastmod>2016-01-29T20:23:07+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/post/cmtrace-in-winpe/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/infrastructure/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/infrastructure/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/osd/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/osd/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/windows/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/windows/</loc>
-    <lastmod>2015-04-07T13:17:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/exim/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/exim/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/redhat/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/redhat/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/rhel/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/rhel/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/setroubleshoot/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/setroubleshoot/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/setroubleshoot-email-notification-on-selinux-denial/</loc>
-    <lastmod>2015-04-07T13:11:24+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</loc>
-    <lastmod>2015-04-07T12:56:50+00:00</lastmod>
+    <loc>/post/making-gdb-useful-for-reversing/</loc>
+    <lastmod>2016-01-29T20:23:07+00:00</lastmod>
   </url>
   
   <url>
@@ -758,6 +673,16 @@
   </url>
   
   <url>
+    <loc>/categories/infrastructure/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/infrastructure/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/categories/iptables/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
@@ -768,38 +693,13 @@
   </url>
   
   <url>
-    <loc>/categories/unix/</loc>
-    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/unix/</loc>
     <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/chrome/</loc>
-    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/chrome/</loc>
-    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/force-google-chrome-incognito-mode-on-startup/</loc>
-    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/privacy/</loc>
-    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/privacy/</loc>
-    <lastmod>2015-04-06T17:12:19+00:00</lastmod>
+    <loc>/categories/unix/</loc>
+    <lastmod>2015-04-06T17:23:40+00:00</lastmod>
   </url>
   
   <url>
@@ -833,17 +733,12 @@
   </url>
   
   <url>
-    <loc>/categories/regex/</loc>
-    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/regular-expressions/</loc>
+    <loc>/categories/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
@@ -853,63 +748,8 @@
   </url>
   
   <url>
-    <loc>/tags/https/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/https/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/sccm-2012/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/sccm-2012/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/wsus/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/wsus/</loc>
-    <lastmod>2015-04-06T13:07:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/perl/</loc>
-    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/perl/</loc>
-    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/search-keyword-highlighting-with-perl/</loc>
-    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/webdev/</loc>
-    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/webdev/</loc>
-    <lastmod>2015-04-06T13:01:31+00:00</lastmod>
+    <loc>/categories/regular-expressions/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
   
 </urlset>

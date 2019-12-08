@@ -6,33 +6,10 @@
     <description>Recent content in Infrastructure on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Tue, 07 Apr 2015 13:17:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2015 17:23:40 +0000</lastBuildDate>
     
 	<atom:link href="/tags/infrastructure/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>CMTrace in WinPE</title>
-      <link>/post/cmtrace-in-winpe/</link>
-      <pubDate>Tue, 07 Apr 2015 13:17:43 +0000</pubDate>
-      
-      <guid>/post/cmtrace-in-winpe/</guid>
-      <description>CMTrace is a great tool for troubleshooting deployment issues from within WinPE, no doubt about that. It makes errors and warnings clearly visible in thousands of lines of markup logs.
-Adding CMTrace.exe to your winpe.wim is easy:
-C:\&amp;gt; imagex /mountrw c:\winpe_x86.wim 1 c:mount C:\&amp;gt; copy /y c:\tools\cmtrace.exe c:\mount\windows C:\&amp;gt; imagex /unmount /commit c:\mount  C:\&amp;gt; imagex /mountrw c:\winpe_x64.wim 1 c:mount C:\&amp;gt; copy /y c:\tools\cmtrace.exe c:\mount\windows C:\&amp;gt; imagex /unmount /commit c:\mount  You should also create a package that copies these files to the %SystemRoot%.</description>
-    </item>
-    
-    <item>
-      <title>SETroubleshoot Email Notification on SELinux Denial</title>
-      <link>/post/setroubleshoot-email-notification-on-selinux-denial/</link>
-      <pubDate>Tue, 07 Apr 2015 13:11:24 +0000</pubDate>
-      
-      <guid>/post/setroubleshoot-email-notification-on-selinux-denial/</guid>
-      <description>I&amp;rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
-SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
-Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
-admin@example.com filter_type=after_first  Note: the after_first filter will prevent setroubleshoot from flooding your inbox with the same alert.</description>
-    </item>
     
     <item>
       <title>Identify and block malicious HTTP traffic with IPtables</title>
@@ -42,16 +19,6 @@ admin@example.com filter_type=after_first  Note: the after_first filter will pre
       <guid>/post/identify-and-block-malicious-http-traffic-with-iptables/</guid>
       <description>So I was looking through my httpd access_log files and this popped up every couple of days:
 93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &amp;quot;GET /w00tw00t.</description>
-    </item>
-    
-    <item>
-      <title>SCCM upstream and downstream SUPs fail SSL/TLS negotiation</title>
-      <link>/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</link>
-      <pubDate>Mon, 06 Apr 2015 13:07:31 +0000</pubDate>
-      
-      <guid>/post/sccm-upstream-and-downstream-sups-fail-ssltls-negotiation/</guid>
-      <description>I have two SCCM SUP systems, one is the top and the other is downstream. The SCCM infrastructure is operating in Native Mode and all WSUS synchronizations and configurations happen over HTTPS.
-The internal SUP (SKN01) is the site server and has a site system in the DMZ (DMZ01) which it uses as a SUP for external IBCM clients. I had a look at the system status a couple of days ago only to see the SMS_WSUS_CONFIGURATION_MANAGER component had gone critical with this message all over the place:</description>
     </item>
     
   </channel>

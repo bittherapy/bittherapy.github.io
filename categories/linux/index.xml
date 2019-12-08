@@ -22,28 +22,6 @@ In order to allow nginx to proxy websockets to my upstream node.js server, I hav
     </item>
     
     <item>
-      <title>SETroubleshoot Email Notification on SELinux Denial</title>
-      <link>/post/setroubleshoot-email-notification-on-selinux-denial/</link>
-      <pubDate>Tue, 07 Apr 2015 13:11:24 +0000</pubDate>
-      
-      <guid>/post/setroubleshoot-email-notification-on-selinux-denial/</guid>
-      <description>I&amp;rsquo;ve recently installed setroubleshoot-server on my RHEL6 server to help diagnose various SELinux denials as I attempt to secure the box.
-SETroubleshoot also has an email notification system that is really easy to implement. There are a couple of things that you should consider before going forward.
-Add the recipient email addresses to /var/lib/setroubleshoot/email_alert_recipients:
-admin@example.com filter_type=after_first  Note: the after_first filter will prevent setroubleshoot from flooding your inbox with the same alert.</description>
-    </item>
-    
-    <item>
-      <title>SELinux’s setroubleshoot Install on a RHEL6 Server</title>
-      <link>/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</link>
-      <pubDate>Tue, 07 Apr 2015 12:56:50 +0000</pubDate>
-      
-      <guid>/post/selinuxs-setroubleshoot-install-on-a-rhel6-server/</guid>
-      <description>I am planning on using RHEL6 as a web server, primarily for my Mercurial/GIT repositories. This was to replace my current Fedora13 instance. After the initial minimal install, there were a couple of things missing. Mainly setroubleshoot and email notification on AVC denial.
-During my F13 repository setup, I had to turn on a few SELinux booleans in order for HG to successfully serve my repositories. Apache was spitting out forbidden errors, and I suspected SELinux as the culprit.</description>
-    </item>
-    
-    <item>
       <title>Identify and block malicious HTTP traffic with IPtables</title>
       <link>/post/identify-and-block-malicious-http-traffic-with-iptables/</link>
       <pubDate>Mon, 06 Apr 2015 17:23:40 +0000</pubDate>

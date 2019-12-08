@@ -22,16 +22,6 @@
     </item>
     
     <item>
-      <title>Force Google Chrome Incognito Mode on Startup</title>
-      <link>/post/force-google-chrome-incognito-mode-on-startup/</link>
-      <pubDate>Mon, 06 Apr 2015 17:12:19 +0000</pubDate>
-      
-      <guid>/post/force-google-chrome-incognito-mode-on-startup/</guid>
-      <description>Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
-Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &amp;gt; Run &amp;gt; https://www.</description>
-    </item>
-    
-    <item>
       <title>Drive Backup Over SSH With GZip Compression</title>
       <link>/post/drive-backup-over-ssh-with-gzip-compression/</link>
       <pubDate>Mon, 06 Apr 2015 17:03:37 +0000</pubDate>
@@ -51,16 +41,6 @@ It wouldn&amp;rsquo;t make much sense to store the image of the drive on the dri
       <description>There have been a few times in the past where I&amp;rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&amp;rsquo;ve always defaulted to PowerShell.
 Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
 $ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args.</description>
-    </item>
-    
-    <item>
-      <title>Search Keyword Highlighting with Perl</title>
-      <link>/post/search-keyword-highlighting-with-perl/</link>
-      <pubDate>Mon, 06 Apr 2015 13:01:31 +0000</pubDate>
-      
-      <guid>/post/search-keyword-highlighting-with-perl/</guid>
-      <description>Here&amp;rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
-# user input my $search_string = &amp;quot;I really really need this&amp;quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &amp;gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &amp;quot;|&amp;quot;, sort keys %{{ map { $_ =&amp;gt; 1 } @kw }}; $data =~ s!</description>
     </item>
     
   </channel>
