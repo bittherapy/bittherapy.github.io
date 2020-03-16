@@ -5,11 +5,27 @@
     <link>/tags/cve/</link>
     <description>Recent content in cve on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Tue, 03 Dec 2019 15:33:07 +0000</lastBuildDate>
+    <copyright>_</copyright>
+    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="/tags/cve/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DotNetNuke Directory Traversal Vulnerability (CVE-2020-8593)</title>
+      <link>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 -0500</pubDate>
+      
+      <guid>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</guid>
+      <description>CVE: CVE-2020-8593
+Vendor: DNN Software (https://www.dnnsoftware.com/, https://dnncommunity.org/)
+Product: DotNetNuke, DNN Platform
+Version Affected: &amp;lt;= 9.4.x
+Fixed Version: 9.5.0
+Description:
+ &amp;ldquo;The DNN Platform is a free and open source product you can download today and create powerful websites with.&amp;rdquo;
+ The DNN Platform&amp;rsquo;s administrative panel provides a File Manager component which is vulnerable to directory traversal. Attackers can upload a specially crafted zip file which when extracted, allows navigation outside of the File Manager defined Root.</description>
+    </item>
     
     <item>
       <title>Strapi Framework Vulnerable to Remote Code Execution (CVE-2019-19609)</title>

@@ -5,32 +5,11 @@
     <link>/categories/automation/</link>
     <description>Recent content in Automation on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Mon, 06 Apr 2015 17:23:40 +0000</lastBuildDate>
+    <copyright>_</copyright>
+    <lastBuildDate>Mon, 06 Apr 2015 16:54:42 +0000</lastBuildDate>
     
 	<atom:link href="/categories/automation/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Identify and block malicious HTTP traffic with IPtables</title>
-      <link>/post/identify-and-block-malicious-http-traffic-with-iptables/</link>
-      <pubDate>Mon, 06 Apr 2015 17:23:40 +0000</pubDate>
-      
-      <guid>/post/identify-and-block-malicious-http-traffic-with-iptables/</guid>
-      <description>So I was looking through my httpd access_log files and this popped up every couple of days:
-93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &amp;quot;GET /w00tw00t.</description>
-    </item>
-    
-    <item>
-      <title>Drive Backup Over SSH With GZip Compression</title>
-      <link>/post/drive-backup-over-ssh-with-gzip-compression/</link>
-      <pubDate>Mon, 06 Apr 2015 17:03:37 +0000</pubDate>
-      
-      <guid>/post/drive-backup-over-ssh-with-gzip-compression/</guid>
-      <description>If you&amp;rsquo;ve worked hard to configure your Linux machine and can&amp;rsquo;t afford to lose it, try creating an image of it using dd periodically.
-It wouldn&amp;rsquo;t make much sense to store the image of the drive on the drive itself, but luckily dd is smart and you can combine it with ssh and gzip to store your stuff off-site.
-# dd if=/dev/sda | ssh user@backup.remotehost.com dd of=/backup/drive.img.gz  At this point the drive.</description>
-    </item>
     
     <item>
       <title>Batch file rename with PowerShell and Regular Expressions</title>

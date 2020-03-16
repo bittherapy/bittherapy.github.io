@@ -5,8 +5,8 @@
     <link>/categories/</link>
     <description>Recent content in Categories on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Fri, 01 Jun 2018 12:46:23 +0000</lastBuildDate>
+    <copyright>_</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 12:46:23 +0000</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>github</title>
       <link>/categories/github/</link>
-      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
       
       <guid>/categories/github/</guid>
       <description></description>
@@ -23,7 +23,7 @@
     <item>
       <title>projects</title>
       <link>/categories/projects/</link>
-      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
       
       <guid>/categories/projects/</guid>
       <description></description>
@@ -32,7 +32,7 @@
     <item>
       <title>research</title>
       <link>/categories/research/</link>
-      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
       
       <guid>/categories/research/</guid>
       <description></description>

@@ -5,8 +5,8 @@
     <link>/categories/github/</link>
     <description>Recent content in github on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Fri, 01 Jun 2018 12:46:23 +0000</lastBuildDate>
+    <copyright>_</copyright>
+    <lastBuildDate>Sat, 01 Jun 2019 12:46:23 +0000</lastBuildDate>
     
 	<atom:link href="/categories/github/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>Research</title>
       <link>/research/</link>
-      <pubDate>Fri, 01 Jun 2018 12:46:23 +0000</pubDate>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
       
       <guid>/research/</guid>
       <description> Becoming the Hacker - A practical look at attacking web applications
