@@ -6,26 +6,10 @@
     <description>Recent content in Posts on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 03 Dec 2019 15:33:07 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>DotNetNuke Directory Traversal Vulnerability (CVE-2020-8593)</title>
-      <link>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</link>
-      <pubDate>Mon, 03 Feb 2020 00:00:00 -0500</pubDate>
-      
-      <guid>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</guid>
-      <description>CVE: CVE-2020-8593
-Vendor: DNN Software (https://www.dnnsoftware.com/, https://dnncommunity.org/)
-Product: DotNetNuke, DNN Platform
-Version Affected: &amp;lt;= 9.4.x
-Fixed Version: 9.5.0
-Description:
- &amp;ldquo;The DNN Platform is a free and open source product you can download today and create powerful websites with.&amp;rdquo;
- The DNN Platform&amp;rsquo;s administrative panel provides a File Manager component which is vulnerable to directory traversal. Attackers can upload a specially crafted zip file which when extracted, allows navigation outside of the File Manager defined Root.</description>
-    </item>
     
     <item>
       <title>Strapi Framework Vulnerable to Remote Code Execution (CVE-2019-19609)</title>
@@ -130,6 +114,17 @@ The Angler exploit kit will redirect the client to a separate compromised server
       <guid>/post/a-trick-to-bypass-an-xss-filter-and-execute-javascript/</guid>
       <description>I&amp;rsquo;ve recently come across an application which had a very simple XSS filter. If the input contained the following chars, the application would throw an error:
 ( ) &amp;lt; &amp;gt;  Simple, but annoying. I found a stored XSS vulnerability and I could not get the PoC to go off. The stored value was being returned by the server in an input but the filter was getting in the way.</description>
+    </item>
+    
+    <item>
+      <title>An Encounter with Dridex - Malicious Document Analysis</title>
+      <link>/post/an-encounter-with-dridex-malicious-document-analysis/</link>
+      <pubDate>Wed, 17 Feb 2016 13:40:00 +0000</pubDate>
+      
+      <guid>/post/an-encounter-with-dridex-malicious-document-analysis/</guid>
+      <description>Got my hands on a Dridex sample (SKM_C3350160212101601.docm) the other day and I wanted to figure out exactly how it managed to slip by our controls.
+The binary dropped did get intercepted by AV but considering the initial phish document did not, I wanted to take a closer look ad make sure nothing else slipped under the radar.
+Document Analysis First thing I need to do is run it through officemalscanner:</description>
     </item>
     
   </channel>
