@@ -6,7 +6,7 @@
     <description>Recent content in path traversal on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Mon, 03 Feb 2020 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/tags/path-traversal/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>DotNetNuke Directory Traversal Vulnerability (CVE-2020-8593)</title>
       <link>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</link>
-      <pubDate>Mon, 03 Feb 2020 00:00:00 -0500</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
       
       <guid>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</guid>
       <description>CVE: CVE-2020-8593
