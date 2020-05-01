@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Security on { bit.therapy }</title>
+    <title>security on { bit.therapy }</title>
     <link>/tags/security/</link>
-    <description>Recent content in Security on { bit.therapy }</description>
+    <description>Recent content in security on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
     <lastBuildDate>Wed, 08 Apr 2020 00:00:00 -0400</lastBuildDate>
