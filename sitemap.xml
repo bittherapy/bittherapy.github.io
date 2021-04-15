@@ -1,645 +1,389 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/tags/application-security/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cve/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cve-2020-8593/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/directory-traversal/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/disclosure/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/path-traversal/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/security/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/security-research/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/</loc>
     <lastmod>2020-04-08T00:00:00-04:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cve-2019-19609/</loc>
     <lastmod>2019-12-03T15:33:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/remote-code-execution/</loc>
     <lastmod>2019-12-03T15:33:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/strapi-framework-remote-code-execution/</loc>
     <lastmod>2019-12-03T15:33:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</loc>
     <lastmod>2019-07-17T21:33:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/github/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/github/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/projects/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/projects/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/research/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/research/</loc>
-    <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/research/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/research/</loc>
+    <lastmod>2019-06-01T12:46:23+00:00</lastmod>
+  </url><url>
     <loc>/tags/cve-201815573/</loc>
     <lastmod>2018-07-18T17:32:04+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cve-201815574/</loc>
     <lastmod>2018-07-18T17:32:04+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/rce-with-arbitrary-file-write-and-xss-in-reprise-license-manager/</loc>
     <lastmod>2018-07-18T17:32:04+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/chanitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/chanitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/debugging/</loc>
-    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/debugging/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/debugging/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url><url>
     <loc>/tags/hancitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/hancitor/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ida-pro/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/ida-pro/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/malicious-document-analysis-macro-to-shellcode/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/malware/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/malware/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/malware-analysis/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/malware-analysis/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/ollydbg/</loc>
-    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ollydbg/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/ollydbg/</loc>
+    <lastmod>2016-11-25T18:09:21+00:00</lastmod>
+  </url><url>
     <loc>/tags/reverse-engineering/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/reverse-engineering/</loc>
     <lastmod>2016-11-25T18:09:21+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/analyzing-obfuscated-swfs/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/flash/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/flash/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/swf/</loc>
     <lastmod>2016-10-09T13:18:17+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/cryptography/</loc>
-    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/cryptography/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/cryptography/</loc>
+    <lastmod>2016-08-20T17:49:03+00:00</lastmod>
+  </url><url>
     <loc>/tags/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/ctf/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/forensics/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/forensics/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/icectf-analyzing-pcaps-and-reversing-encryption/</loc>
     <lastmod>2016-08-20T17:49:03+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/ransomware/</loc>
-    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ransomware/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/ransomware/</loc>
+    <lastmod>2016-08-16T12:36:51+00:00</lastmod>
+  </url><url>
     <loc>/tags/zepto/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/zepto/</loc>
     <lastmod>2016-08-16T12:36:51+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/angler-ek/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/angler-ek/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/javascript/</loc>
-    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/javascript/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/jsdetox/</loc>
+  </url><url>
+    <loc>/categories/javascript/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/jsdetox/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/remnux/</loc>
+  </url><url>
+    <loc>/categories/jsdetox/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/revelo/</loc>
+  </url><url>
+    <loc>/categories/remnux/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/revelo/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/revelo/</loc>
+    <lastmod>2016-04-18T14:28:00+00:00</lastmod>
+  </url><url>
     <loc>/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</loc>
     <lastmod>2016-04-18T14:28:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/a-trick-to-bypass-an-xss-filter-and-execute-javascript/</loc>
     <lastmod>2016-02-19T15:44:39+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/an-encounter-with-dridex-malicious-document-analysis/</loc>
     <lastmod>2016-02-17T13:40:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/changing-the-directaccess-and-web-application-proxy-external-certificate/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/directaccess/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/directaccess/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/directaccess/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url><url>
     <loc>/categories/security/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/server-2012-r2/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/server-2012-r2/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/ssl/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/ssl/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/ssl/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url><url>
     <loc>/tags/tls/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/tls/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/vpn/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/vpn/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/web-application-proxy/</loc>
+  </url><url>
+    <loc>/categories/vpn/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/web-application-proxy/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/american-netflix/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/web-application-proxy/</loc>
+    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
+  </url><url>
     <loc>/tags/american-netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/american-netflix/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url><url>
     <loc>/tags/cord-cutting/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/cord-cutting/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/creating-your-own-us-netflix-proxy-with-google-cloud/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/gce/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/google-cloud/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/google-cloud/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/google-compute-engine/</loc>
-    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/google-compute-engine/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/netflix/</loc>
+  </url><url>
+    <loc>/categories/google-compute-engine/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/sni-proxy/</loc>
+  </url><url>
+    <loc>/categories/netflix/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/sni-proxy/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/tunlr/</loc>
+  </url><url>
+    <loc>/categories/sni-proxy/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/tunlr/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/unblock-us/</loc>
+  </url><url>
+    <loc>/categories/tunlr/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/unblock-us/</loc>
     <lastmod>2016-02-03T17:25:43+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/hyper-v/</loc>
-    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/unblock-us/</loc>
+    <lastmod>2016-02-03T17:25:43+00:00</lastmod>
+  </url><url>
     <loc>/tags/hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/powershell/</loc>
+  </url><url>
+    <loc>/categories/hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/powershell/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/sandbox/</loc>
+  </url><url>
+    <loc>/categories/powershell/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/sandbox/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/sandbox/</loc>
+    <lastmod>2016-02-01T15:21:12+00:00</lastmod>
+  </url><url>
     <loc>/post/transfer-files-to-and-from-guest-on-hyper-v/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/windows-server/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/windows-server/</loc>
     <lastmod>2016-02-01T15:21:12+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/gdb/</loc>
     <lastmod>2016-01-29T20:23:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/gdb/</loc>
     <lastmod>2016-01-29T20:23:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/making-gdb-useful-for-reversing/</loc>
     <lastmod>2016-01-29T20:23:07+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/automation/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/automation/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/post/batch-file-rename-with-powershell-and-regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/development/</loc>
-    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/development/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>/categories/development/</loc>
+    <lastmod>2015-04-06T16:54:42+00:00</lastmod>
+  </url><url>
     <loc>/tags/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/regex/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/regular-expressions/</loc>
     <lastmod>2015-04-06T16:54:42+00:00</lastmod>
   </url>
-  
 </urlset>

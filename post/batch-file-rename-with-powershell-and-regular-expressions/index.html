@@ -41,17 +41,10 @@ $ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = 
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Batch file rename with PowerShell and Regular Expressions">
 <meta itemprop="description" content="There have been a few times in the past where I&rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&rsquo;ve always defaulted to PowerShell.
 Piping dir into a where and matching the files I wanted to rename was effective but tedious. Cue the mass_rename.ps1 script:
-$ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args.">
-
-
-<meta itemprop="datePublished" content="2015-04-06T16:54:42&#43;00:00" />
+$ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = $args[4]; $count = 0; if ($args."><meta itemprop="datePublished" content="2015-04-06T16:54:42&#43;00:00" />
 <meta itemprop="dateModified" content="2015-04-06T16:54:42&#43;00:00" />
-<meta itemprop="wordCount" content="287">
-
-
-
-<meta itemprop="keywords" content="Development,PowerShell,Regex,Regular Expressions,Automation," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="287"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Development,PowerShell,Regex,Regular Expressions,Automation," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Batch file rename with PowerShell and Regular Expressions"/>
@@ -134,9 +127,7 @@ $ext = $args[0]; $dir = $args[1]; $what = $args[2]; $with = $args[3]; $whatif = 
 
             <div class="post-content">
                 <p>There have been a few times in the past where I&rsquo;ve had to rename a large number of files for various reasons (ie: remove a common piece of text from the name) and I&rsquo;ve always defaulted to PowerShell.</p>
-
 <p>Piping <code>dir</code> into a where and matching the files I wanted to rename was effective but tedious. Cue the <code>mass_rename.ps1</code> script:</p>
-
 <pre><code class="language-powershell">$ext = $args[0];
 $dir = $args[1];
 $what = $args[2];
@@ -171,11 +162,8 @@ ls - recurse - path $dir | ? {
 
 write - host &quot;Done. Processed $count files.&quot; - fore green
 </code></pre>
-
 <p>The script will accept 4 parameters with an optional <code>-whatif</code> as the 5th. Fairly self explanatory with one mention: the <code>$what</code> parameter is a regular expression. Keep this in mind when, for example, you are trying to match for a period (.) as you would have to escape it (as per the example usage).</p>
-
 <p>The <code>-whatif</code> parameter will only output the before and after file names without doing any actual renaming.</p>
-
 <p>That&rsquo;s it, set the execution policy and enjoy.</p>
 
             </div>
@@ -198,7 +186,7 @@ write - host &quot;Done. Processed $count files.&quot; - fore green
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -226,7 +214,7 @@ write - host &quot;Done. Processed $count files.&quot; - fore green
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

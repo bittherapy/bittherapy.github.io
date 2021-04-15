@@ -41,17 +41,10 @@ I was setting a VM as a sandbox for malware analysis and therefore I would not b
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Transfer Files To and From Sandboxed Guest on Hyper-V">
 <meta itemprop="description" content="One of the things I missed after switching from VMware to Hyper-V is the ability to copy-paste files from host to guest via the interface.
 The workaround for Hyper-V (at this time) is to use either RDP or SMB to transfer files. This is just fine for most configurations but for me this would not work.
-I was setting a VM as a sandbox for malware analysis and therefore I would not be able to leverage network based protocols to transfer files.">
-
-
-<meta itemprop="datePublished" content="2016-02-01T15:21:12&#43;00:00" />
+I was setting a VM as a sandbox for malware analysis and therefore I would not be able to leverage network based protocols to transfer files."><meta itemprop="datePublished" content="2016-02-01T15:21:12&#43;00:00" />
 <meta itemprop="dateModified" content="2016-02-01T15:21:12&#43;00:00" />
-<meta itemprop="wordCount" content="347">
-
-
-
-<meta itemprop="keywords" content="PowerShell,Hyper-V,Malware Analysis,Sandbox,Windows Server," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="347"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="PowerShell,Hyper-V,Malware Analysis,Sandbox,Windows Server," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Transfer Files To and From Sandboxed Guest on Hyper-V"/>
@@ -134,19 +127,12 @@ I was setting a VM as a sandbox for malware analysis and therefore I would not b
 
             <div class="post-content">
                 <p>One of the things I missed after switching from VMware to Hyper-V is the ability to copy-paste files from host to guest via the interface.</p>
-
 <p>The workaround for Hyper-V (at this time) is to use either <code>RDP</code> or <code>SMB</code> to transfer files. This is just fine for most configurations but for me this would not work.</p>
-
 <p>I was setting a VM as a sandbox for malware analysis and therefore I would not be able to leverage network based protocols to transfer files.</p>
-
 <p>The only other safe option was to use the Hyper-V SCSI controller on the VM and attach/detach a <code>VHDX</code> (a simple NTFS volume) as needed. This can be done while the VM is running so it makes for an acceptable workaround in my case.</p>
-
 <p>I would mount the VHDX on the host, put whatever malware samples on there, dismount and attach the disk file as a hard drive on the VM&rsquo;s SCSI controller.</p>
-
 <p>I wrote the following PowerShell script to automate this process, since I&rsquo;d be doing it a lot.</p>
-
 <p><code>damdaa.ps1:</code></p>
-
 <pre><code class="language-powershell">param (
     [string] $action, # 'DAM' - Detach and Mount | 'DAA' - Dismount and Attach
     [string] $vhd, # Full path to the file transfer VHDX
@@ -164,19 +150,13 @@ switch ($action) {
     }
 }
 </code></pre>
-
 <p>It&rsquo;s ugly but it&rsquo;s works.</p>
-
 <p>When you want to copy files from the host to the VM, you will <em>Detach and Mount</em> (action: <code>DAM</code>) the VHDX to the host:</p>
-
 <pre><code class="language-powershell">PS C:\Scripts&gt; .\damdaa.ps1 -action DAM -vhd C:\VHD\FileTransfer.vhdx -vmname SKN-SANDBOX2
 </code></pre>
-
 <p>You should now see your VHDX mounted on the host. Copy whatever you need to this  HDD and proceed with a <em>Dismount and Attach</em> (action: <code>DAA</code>):</p>
-
 <pre><code class="language-powershell">PS C:\Scripts&gt; .\damdaa.ps1 -action DAA -vhd C:\VHD\FileTransfer.vhdx -vmname SKN-SANDBOX2
 </code></pre>
-
 <p>The VHDX will dismount from the host and attach itself to the VM&rsquo;s SCSI controller. You should now see another hard disk popup in the sandbox VM containing your files.</p>
 
             </div>
@@ -199,7 +179,7 @@ switch ($action) {
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -227,7 +207,7 @@ switch ($action) {
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

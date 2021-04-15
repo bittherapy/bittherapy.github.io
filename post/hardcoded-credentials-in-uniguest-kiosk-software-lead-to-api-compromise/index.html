@@ -39,17 +39,10 @@ Uniguest kiosk software will restrict the user to simple tasks, such as maybe br
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Hardcoded Credentials in Uniguest Kiosk Software lead to API Compromise">
 <meta itemprop="description" content="If you&rsquo;ve traveled at all within North America, you&rsquo;ve likely at some point noticed or even used the shared kiosk machines available in hotel lobbies. These are typically running a locked down version of Windows, and chances are they are managed by Uniguest software.
-Uniguest kiosk software will restrict the user to simple tasks, such as maybe browsing the web or printing boarding passes. Uniguest software can be found in other industries, not just hospitality:">
-
-
-<meta itemprop="datePublished" content="2019-07-17T21:33:07&#43;00:00" />
+Uniguest kiosk software will restrict the user to simple tasks, such as maybe browsing the web or printing boarding passes. Uniguest software can be found in other industries, not just hospitality:"><meta itemprop="datePublished" content="2019-07-17T21:33:07&#43;00:00" />
 <meta itemprop="dateModified" content="2019-07-17T21:33:07&#43;00:00" />
-<meta itemprop="wordCount" content="1165">
-
-
-
-<meta itemprop="keywords" content="security research,application security,disclosure," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="1165"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="security research,application security,disclosure," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Hardcoded Credentials in Uniguest Kiosk Software lead to API Compromise"/>
@@ -125,94 +118,52 @@ Uniguest kiosk software will restrict the user to simple tasks, such as maybe br
             
 
             <div class="post-content">
-                
-
-<p>If you&rsquo;ve traveled at all within North America, you&rsquo;ve likely at some point noticed or even used the shared kiosk machines available in hotel lobbies. These are typically running a locked down version of Windows, and chances are they are managed by Uniguest software.</p>
-
+                <p>If you&rsquo;ve traveled at all within North America, you&rsquo;ve likely at some point noticed or even used the shared kiosk machines available in hotel lobbies. These are typically running a locked down version of Windows, and chances are they are managed by Uniguest software.</p>
 <p>Uniguest kiosk software will restrict the user to simple tasks, such as maybe browsing the web or printing boarding passes. Uniguest software can be found in other industries, not just hospitality:</p>
-
 <blockquote>
 <p>&ldquo;Uniguest is the global leader in providing highly secure, fully managed customer-facing technology solutions on an outsourced basis to the hospitality, senior living, specialty retail, education and corporate sectors. Our suite of turnkey consumer-facing technology solutions includes hardware and software solution packages, system implementation, and 24/7/365 multi-lingual support for public space kiosks, purpose-built kiosks (PC, iMac, tablet), digital signs, tablets, remote printing and more – all designed to deliver a consistent and safe experience to our clients’ customers.&rdquo;</p>
 </blockquote>
-
 <p>Based on the way their infrastructure setup, it appears Uniguest actually manages the machines and not the hotel or whatever other business employs Uniguest software.</p>
-
 <p>With a quick Google search, I noticed that Uniguest had exposed a website publically (<strong>ucrew.uniguest.com</strong>) which appeared to contain all the tools their technicians would need to deploy or manage a kiosk on location:</p>
-
-<p><img src="/images/2019/02/ucrew.png" alt="ucrew" /></p>
-
-<p>There was no authentication required, and among the pre-packaged kiosk software and manuals, <strong>SystemSleuth</strong> stood out. SystemSleuth is written in C# and is therefore trivially decompiled back to source code using something like <a href="https://github.com/0xd4d/dnSpy" target="_blank">dnSpy</a>.</p>
-
+<p><img src="/images/2019/02/ucrew.png" alt="ucrew"></p>
+<p>There was no authentication required, and among the pre-packaged kiosk software and manuals, <strong>SystemSleuth</strong> stood out. SystemSleuth is written in C# and is therefore trivially decompiled back to source code using something like <a href="https://github.com/0xd4d/dnSpy">dnSpy</a>.</p>
 <h4 id="static-analysis">Static Analysis</h4>
-
 <p>SystemSleuth is an application that is deployed to all of their kiosks and its purpose appears to be the collection of kiosk (asset) information such as product keys, asset tags, passwords and various other data. The data is sent up to a Salesforce API and of course, with the C# decompiler, it didn&rsquo;t take long to find the API credentials, hardcoded within the application:</p>
-
-<p><img src="/images/2019/02/api-key.png" alt="api-key" /></p>
-
-<p>The Salesforce API is accessible via the SOAP protocol and we can use the open source <a href="https://www.soapui.org/downloads/soapui.html" target="_blank">SoapUI</a> tool to run some test queries.</p>
-
+<p><img src="/images/2019/02/api-key.png" alt="api-key"></p>
+<p>The Salesforce API is accessible via the SOAP protocol and we can use the open source <a href="https://www.soapui.org/downloads/soapui.html">SoapUI</a> tool to run some test queries.</p>
 <p>First we need a session ID issued by authenticating to the Salesforce SOAP API. The server responds with a session key which we can use in subsequent requests:</p>
-
-<p><img src="/images/2019/02/salesforce-api-login-success.png" alt="salesforce-api-login-success" /></p>
-
+<p><img src="/images/2019/02/salesforce-api-login-success.png" alt="salesforce-api-login-success"></p>
 <p>We can now dump all the data in the Uniguest cloud database, which includes admin, router and BIOS passwords, product keys and various other sensitive information, for what looked like <em>all</em> of Uniguest&rsquo;s customers.</p>
-
-<p><img src="/images/2019/02/salesforce-api-dump-creds.png" alt="salesforce-api-dump-creds" /></p>
-
+<p><img src="/images/2019/02/salesforce-api-dump-creds.png" alt="salesforce-api-dump-creds"></p>
 <p>With this information in hand, adversaries could deploy keyloggers, remote access trojans and various other forms of malware, attacking hotel guests or business patrons just passing through.</p>
-
 <p>Uniguest has been contacted and have since placed the <strong>ucrew.uniguest.com</strong> site behind an authentication portal, but it&rsquo;s important to remember that <strong>SystemSleuth</strong> and the API credentials (albeit disabled) may still be found on their managed systems, until Uniguest can go and reimage them all.</p>
-
 <p>Locking down a Windows machine enough that it can be trusted in a public setting such as a hotel lobby, is a daunting task. Restrictions imposed by Active Directory Group Policy Objects (AD GPOs) or custom Explorer shells are often trivial to bypass, giving attackers access to the whole system.</p>
-
 <p>The following is an example of a successful sandbox escape in one of Uniguest&rsquo;s kiosks, revealing <em>SystemSleuth.exe</em> on the disk, ready to be exfiltrated and analyzed:</p>
-
-<p><img src="/images/2019/07/sandbox-escape-example.png" alt="sandbox-escape-example" /></p>
-
+<p><img src="/images/2019/07/sandbox-escape-example.png" alt="sandbox-escape-example"></p>
 <h4 id="additional-findings">Additional Findings</h4>
-
 <p>Following responsible disclosure policies, these issues were reported to Uniguest who was quick in their response. However after I went back to verify their fixes, I found more issues.</p>
-
 <p>An older version of the <strong>SystemSleuth</strong> binary had referenced <em>another</em> account for the Salesforce API and also contained a reference to an open API used to gather asset inventory data. Both of these were still functional.</p>
-
-<p><img src="/images/2019/05/open-api.png" alt="open-api" /></p>
-
-<p>The <strong>assetbyid.php</strong> tool (<a href="http://connect.uniguest.com/api/firstrun/assetbyid.php" target="_blank">http://connect.uniguest.com/api/firstrun/assetbyid.php</a>) also exists and allows query by asset ID. Serial or Asset ID may be printed on the kiosk and could also be somewhere in the system info (hostname, or system data stored in WMI). These values could also be guessed through bruteforcing, but may be more difficult to do without some knowledge of how the values are generated.</p>
-
+<p><img src="/images/2019/05/open-api.png" alt="open-api"></p>
+<p>The <strong>assetbyid.php</strong> tool (<a href="http://connect.uniguest.com/api/firstrun/assetbyid.php">http://connect.uniguest.com/api/firstrun/assetbyid.php</a>) also exists and allows query by asset ID. Serial or Asset ID may be printed on the kiosk and could also be somewhere in the system info (hostname, or system data stored in WMI). These values could also be guessed through bruteforcing, but may be more difficult to do without some knowledge of how the values are generated.</p>
 <p>An unauthenticated GET request to this open API using an asset ID returns information to the public:</p>
-
-<p><img src="/images/2019/05/open-api-query.png" alt="open-api-query" /></p>
-
+<p><img src="/images/2019/05/open-api-query.png" alt="open-api-query"></p>
 <h3 id="lessons-learned">Lessons Learned</h3>
-
 <p>If you&rsquo;re thinking about using a SystemSleuth-like application in your deployments, don&rsquo;t, but if you insist, consider the following tweaks:</p>
-
 <ul>
 <li>Use a <em>write-only</em> API key</li>
 <li>Deploy <em>per-customer</em> databases</li>
 <li>Do NOT reuse API keys or credentials between customer deployments</li>
 </ul>
-
-<p>Developers may consider a code obfuscator for .NET like <a href="https://yck1509.github.io/ConfuserEx/" target="_blank">ConfuserEx</a> in an attempt to secure their C# binary. I advise against this move as it does not stop attackers, but merely slow them down. Sometimes not even by that much.</p>
-
+<p>Developers may consider a code obfuscator for .NET like <a href="https://yck1509.github.io/ConfuserEx/">ConfuserEx</a> in an attempt to secure their C# binary. I advise against this move as it does not stop attackers, but merely slow them down. Sometimes not even by that much.</p>
 <p>I should also note that while the amazing <em>dnSpy</em> made analysis a breeze in this instance, hardcoding credentials in a native C++ application would lead to the same outcome. Obfuscating source code or the binary would not stop a determined attacker.</p>
-
 <p>For most threat models, <em>The best solution is to never hardcode sensitive information in applications.</em> but, of course, your situation may be different.</p>
-
-<p>A potential alternative to SystemSleuth and the API is to manage these assets using something like Microsoft&rsquo;s <a href="https://www.microsoft.com/en-ca/cloud-platform/microsoft-intune" target="_blank">Intune</a> and segregating these environments on a per-customer basis.</p>
-
-<p>Intune has a <a href="https://docs.microsoft.com/en-us/intune/kiosk-settings" target="_blank">Kiosk</a> feature, which may work better than custom GPOs and Explorer shells.</p>
-
+<p>A potential alternative to SystemSleuth and the API is to manage these assets using something like Microsoft&rsquo;s <a href="https://www.microsoft.com/en-ca/cloud-platform/microsoft-intune">Intune</a> and segregating these environments on a per-customer basis.</p>
+<p>Intune has a <a href="https://docs.microsoft.com/en-us/intune/kiosk-settings">Kiosk</a> feature, which may work better than custom GPOs and Explorer shells.</p>
 <p>There are certainly more secure ways to manage Windows assets, but they may come at an increased cost to businesses. The simple answer is to dispose of applications like SystemSleuth and the Salesforce API. This may sound like an expensive endeavor but a compromise of all client data and machines could be much more impactful to the bottom-line than any IT project.</p>
-
 <h4 id="disclosure-process">Disclosure Process</h4>
-
 <p>Uniguest worked closely with the us throughout the process both during the first findings and with the second round of findings. They&rsquo;ve remediated the issues by deprecating the <strong>SystemSleuth</strong> application as well as removing access to the embedded credentials, however they do not believe the open &ldquo;Connect&rdquo; API is a vulnerability.</p>
-
 <p>All software has vulnerabilities to a greater or lesser degree. A good judge of the security posture of any vendor is not if there are vulnerabilities are found in their products, but how quickly and seriously the vendor addresses those vulnerabilities. It will come as no surprise for anyone that has worked with responsible disclosure that many vendors respond to vulnerability notifications from third party researchers with either silence or with even open hostility. Compared to other vendors Uniguest was a pleasure to work with during the disclosure process. They took the reports seriously, worked hard to address the issues on legacy products and had have taken steps like incorporating application and physical penetration testing to their product development lifecycle.</p>
-
 <h4 id="disclosure-timeline">Disclosure timeline</h4>
-
 <ul>
 <li>2019-01-09 - Issue disclosed to Uniguest</li>
 <li>2019-02-08 - Uniguest investigates the issue internally</li>
@@ -243,7 +194,7 @@ Uniguest kiosk software will restrict the user to simple tasks, such as maybe br
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -271,7 +222,7 @@ Uniguest kiosk software will restrict the user to simple tasks, such as maybe br
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

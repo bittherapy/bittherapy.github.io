@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ransomware on { bit.therapy }</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Ransomware on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Tue, 16 Aug 2016 12:36:51 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/ransomware/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 16 Aug 2016 12:36:51 +0000</lastBuildDate><atom:link href="/categories/ransomware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>A Look at Zepto Ransomware - Payload Delivery Analysis</title>
       <link>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</link>
@@ -18,7 +14,8 @@
       
       <guid>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</guid>
       <description>It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
-First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.</description>
+First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.
+Zepto creates a help file in all of the directories it attacks.</description>
     </item>
     
   </channel>

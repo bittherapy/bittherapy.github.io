@@ -43,17 +43,10 @@ The rough network path to the lab is as follows:" />
 <meta itemprop="description" content="In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.
 Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&rsquo;s Remote Access role.
 See: https://technet.microsoft.com/en-us/library/dn383662.aspx
-The rough network path to the lab is as follows:">
-
-
-<meta itemprop="datePublished" content="2016-02-08T00:46:31&#43;00:00" />
+The rough network path to the lab is as follows:"><meta itemprop="datePublished" content="2016-02-08T00:46:31&#43;00:00" />
 <meta itemprop="dateModified" content="2016-02-08T00:46:31&#43;00:00" />
-<meta itemprop="wordCount" content="558">
-
-
-
-<meta itemprop="keywords" content="TLS,SSL,Security,VPN,DirectAccess,Web Application Proxy,Server 2012 R2," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="558"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="TLS,SSL,Security,VPN,DirectAccess,Web Application Proxy,Server 2012 R2," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Changing the DirectAccess and Web Application Proxy external certificate"/>
@@ -139,64 +132,39 @@ The rough network path to the lab is as follows:"/>
 
             <div class="post-content">
                 <p>In my lab I have a gateway server that is responsible for both DirectAccess and RD Gateway operations.</p>
-
 <p>Since I only have one external IP, I sit behind a NAT (or two). In order to be able to do both DirectAccess (DA) and RD Gateway (RDG), I need to use the Web Application Proxy (WAP) feature from Server 2012 R2&rsquo;s Remote Access role.</p>
-
-<p>See: <a href="https://technet.microsoft.com/en-us/library/dn383662.aspx" target="_blank">https://technet.microsoft.com/en-us/library/dn383662.aspx</a></p>
-
+<p>See: <a href="https://technet.microsoft.com/en-us/library/dn383662.aspx">https://technet.microsoft.com/en-us/library/dn383662.aspx</a></p>
 <p>The rough network path to the lab is as follows:</p>
-
 <pre><code>[Internet] &lt;-&gt; FW1 &lt;-&gt; [DMZ] &lt;-&gt; FW2 &lt;-&gt; [LAB]
 </code></pre>
-
 <p>The DA server and RD gateway sit inside <code>[LAB]</code>. I have the RD gateway installed elsewhere inside <code>[LAB]</code>. I published the RD Gateway through WAP in order to have both DA and RDG available on the same public IP on port 443.</p>
-
 <p>The beauty of WAP is that it can coexist with DA and VPN features on the same Server 2012 R2 instance. In fact, installing it takes over the 443 port and handles requests accordingly.</p>
-
 <p>Initially, I had setup DirectAccess using a certificate issued by my internal PKI. It wasn&rsquo;t trusted publicly but the machines accessing DA are domain joined so this wasn&rsquo;t an issue.</p>
-
 <p>RDG connections are rejected if the gateway&rsquo;s certificate is not trusted. So if I try to use RDG from a non-domain machine the connection would fail. Unlike direct RDP connections there is no option to &ldquo;connect anyway&rdquo; if there is a certificate issue.</p>
-
-<p>Cue my shiny new <del>StartSSL</del> <a href="https://letsencrypt.org/" target="_blank">Let&rsquo;s Encrypt</a> certificate.</p>
-
+<p>Cue my shiny new <del>StartSSL</del> <a href="https://letsencrypt.org/">Let&rsquo;s Encrypt</a> certificate.</p>
 <p>I went through the DiretAccess wizard and replaced the IP-HTTPS certificate in <code>Step 2 &gt; Network Adapters</code>, saved and re-applied the configuration. DirectAccess still worked, but it was using the old certificate (??)</p>
-
 <p>I could see the updated certificate when I ran this in PowerShell:</p>
-
 <pre><code class="language-powershell">PS C:\&gt; Get-DaServer
 </code></pre>
-
 <p>IIS is not used as the listening service for 443, so it wasn&rsquo;t obvious why it was still serving the old certificate. The Remote Access GUI had no option (besides the DA wizard) to modify the certificate. WAP only had <code>Publish</code> and <code>Remove</code> functions.</p>
-
 <p>It turns out DA and WAP use <code>HTTP.sys</code> to bind to 443. When I tried to edit a published WAP app (RDG in this case), I could see it using the old certificate.</p>
-
 <p>So I figured, publishing a new app using the new certificate would fix my problem&hellip; Nope. It was still serving the old certificate&hellip;</p>
-
 <p>Alright&hellip; time to dig into SSL bindings:</p>
-
 <pre><code class="language-powershell">PS C:\&gt; netsh http show sslcert
 </code></pre>
-
 <p>What I&rsquo;m looking for here is the binding for <code>0.0.0.0:443</code> (<code>[::]:443</code>) and potentially a <code>[public.host.name]:443</code> as well.</p>
-
 <p>The output confirmed that the bindings for <code>0.0.0.0</code> and <code>[public.host.name]</code> had the old certificate. Curious enough the IPv6 binding <code>[::]:443</code> had the new certificate. (bug?)</p>
-
 <p>I made a note of the <code>Application Id</code> for the <code>0.0.0.0:443</code> binding, as I&rsquo;ll need it later.</p>
-
 <p>First I will remove the bindings for the old certificate and re-bind using the new certificate hash:</p>
-
 <pre><code class="language-powershell">PS C:\&gt; netsh http del sslcert ipport=0.0.0.0:443
 PS C:\&gt; netsh http del sslcert hostname=[public.host.name]:443
 PS C:\&gt; netsh http add sslcert ipport=0.0.0.0:443 certhash=[new certificate hash] appid=&quot;[appid guid]&quot; 
 PS C:\&gt; netsh http add sslcert hostname=[public.host.name]:443 certhash=[new certificate hash] appid=&quot;[appid guid]&quot; certstorename=my 
 </code></pre>
-
 <p>&hellip; and restart relevant services:</p>
-
 <pre><code class="language-powershell">PS C:\&gt; Restart-Service iphlpsvc
 PS C:\&gt; Restart-Service remoteaccess
 </code></pre>
-
 <p>My external certificate finally changed to the new one and DA/WAP/VPN were working just fine. As long as the public.host.name doesn&rsquo;t change, the clients won&rsquo;t notice the swap.</p>
 
             </div>
@@ -219,7 +187,7 @@ PS C:\&gt; Restart-Service remoteaccess
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -247,7 +215,7 @@ PS C:\&gt; Restart-Service remoteaccess
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

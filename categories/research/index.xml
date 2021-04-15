@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>research on { bit.therapy }</title>
@@ -6,21 +6,17 @@
     <description>Recent content in research on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 12:46:23 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/research/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 01 Jun 2019 12:46:23 +0000</lastBuildDate><atom:link href="/categories/research/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Research</title>
       <link>/research/</link>
       <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
       
       <guid>/research/</guid>
-      <description> Becoming the Hacker - A practical look at attacking web applications
- Echoes Encrypted Messenger - An end-to-end encrypted messenger
- SSL Enforcer - A Chrome extension to force SSL while browsing
- GitHub - Other projects
+      <description>  Becoming the Hacker - A practical look at attacking web applications
+  Echoes Encrypted Messenger - An end-to-end encrypted messenger
+  SSL Enforcer - A Chrome extension to force SSL while browsing
+  GitHub - Other projects
   </description>
     </item>
     

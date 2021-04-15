@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Development on { bit.therapy }</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Development on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Mon, 06 Apr 2015 16:54:42 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/development/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 06 Apr 2015 16:54:42 +0000</lastBuildDate><atom:link href="/tags/development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Batch file rename with PowerShell and Regular Expressions</title>
       <link>/post/batch-file-rename-with-powershell-and-regular-expressions/</link>

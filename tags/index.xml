@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on { bit.therapy }</title>
@@ -6,11 +6,7 @@
     <description>Recent content in Tags on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 -0400</lastBuildDate>
-    
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 -0400</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>application security</title>
       <link>/tags/application-security/</link>
@@ -66,7 +62,7 @@
     </item>
     
     <item>
-      <title>security</title>
+      <title>Security</title>
       <link>/tags/security/</link>
       <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
       

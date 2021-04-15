@@ -41,17 +41,10 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Creating Your Own US Netflix Proxy with Google Cloud">
 <meta itemprop="description" content="Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.
 The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s GCE.
-GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console.">
-
-
-<meta itemprop="datePublished" content="2016-02-03T17:25:43&#43;00:00" />
+GCE does come with a trial (60 days/$300 USD), and you can set that up here: https://console."><meta itemprop="datePublished" content="2016-02-03T17:25:43&#43;00:00" />
 <meta itemprop="dateModified" content="2016-02-03T17:25:43&#43;00:00" />
-<meta itemprop="wordCount" content="1209">
-
-
-
-<meta itemprop="keywords" content="Netflix,Google Cloud,GCE,Google Compute Engine,Tunlr,Unblock-Us,SNI-Proxy,Cord-cutting,American Netflix," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="1209"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Netflix,Google Cloud,GCE,Google Compute Engine,Tunlr,Unblock-Us,SNI-Proxy,Cord-cutting,American Netflix," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Creating Your Own US Netflix Proxy with Google Cloud"/>
@@ -138,51 +131,28 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 
             <div class="post-content">
                 <p>Say you wanted to create your own Unblock-Us or Tunlr service&hellip; maybe for educational purposes or maybe because Netflix is starting to block access from VPN providers used by people for region-restriction bypass. Either way, with cloud computing it&rsquo;s easy and fairly cheap.</p>
-
-<p>The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s <a href="https://console.cloud.google.com/compute/" target="_blank">GCE</a>.</p>
-
-<p>GCE does come with a trial (60 days/$300 USD), and you can set that up here: <a href="https://console.cloud.google.com/compute/" target="_blank">https://console.cloud.google.com/compute/</a></p>
-
+<p>The following setup you can accomplish it on your favorite cloud provider. In my case: Google Cloud&rsquo;s <a href="https://console.cloud.google.com/compute/">GCE</a>.</p>
+<p>GCE does come with a trial (60 days/$300 USD), and you can set that up here: <a href="https://console.cloud.google.com/compute/">https://console.cloud.google.com/compute/</a></p>
 <p>First thing you wanna do is create a new VM instance:</p>
-
-<p><img src="/images/2016/02/create-instance.png" alt="" /></p>
-
+<p><img src="/images/2016/02/create-instance.png" alt=""></p>
 <p>Select <strong>Ubuntu 14.04 LTS</strong> as the image with <strong>10gb</strong> of space. There&rsquo;s no need for more than <strong>0.6gb</strong> of ram and <strong>1</strong> shared vCPU.</p>
-
 <p>The zone should be whatever US location is closest you: <strong>us-east</strong>*</p>
-
 <p>At this point, we have to configure some VM settings so click the <strong>Management, disk, networking, access &amp; security options</strong> to expand advanced settings.</p>
-
 <p>Under the <strong>Management</strong> tab, create a unique tag (<em>sniproxy</em>):</p>
-
-<p><img src="/images/2016/02/expand-management-and-tag-it.png" alt="" /></p>
-
+<p><img src="/images/2016/02/expand-management-and-tag-it.png" alt=""></p>
 <p>Under the <strong>Networking</strong> tab, select <strong>New static IP address</strong> to create a new External IP. Give the reserved static IP a name for reference and click <strong>Reserve</strong>. Make a note of the IP as we&rsquo;ll need it in the setup later on:</p>
-
-<p><img src="/images/2016/02/new-static-IP.png" alt="" /></p>
-
+<p><img src="/images/2016/02/new-static-IP.png" alt=""></p>
 <p>At this point, you can add users and SSH keys to the <strong>Access &amp; security</strong> tab if you need to but the defaults should be sufficient.</p>
-
 <p>Go ahead and create the instance. It&rsquo;ll take a couple of minutes, but it should popup under your <strong>VM Instances</strong> when it&rsquo;s ready.</p>
-
 <p>Before we do anything else, it&rsquo;s important to lock down the instance since it is facing the internet. The new instance was added to the <strong>default</strong> network (find this under Google Cloud Networking -&gt; Networks).</p>
-
-<p>Navigate to the default network configuration and create a new firewall rule. The important thing here is the IP range should be your external IP address (get it here: <a href="http://myip.dnsomatic.com/" target="_blank">http://myip.dnsomatic.com/</a>) followed by a <strong>/32</strong>. You also have to make sure that the <strong>target tags</strong> is set to the tag you gave the VM (<em>sniproxy</em>).</p>
-
-<p><img src="/images/2016/02/setup-firewall-rule.png" alt="" /></p>
-
+<p>Navigate to the default network configuration and create a new firewall rule. The important thing here is the IP range should be your external IP address (get it here: <a href="http://myip.dnsomatic.com/">http://myip.dnsomatic.com/</a>) followed by a <strong>/32</strong>. You also have to make sure that the <strong>target tags</strong> is set to the tag you gave the VM (<em>sniproxy</em>).</p>
+<p><img src="/images/2016/02/setup-firewall-rule.png" alt=""></p>
 <p>This rule allows only you to use the Netflix proxy, preventing abuse. You will have to modify this value if your IP changes from time to time. It&rsquo;s a bit of an inconvenience, but <strong>very important</strong>.</p>
-
-<p><strong>Do not leave these ports open for anyone to access.</strong> Bad guys could use your services to launch DDoS attacks (see <a href="http://openresolverproject.org/" target="_blank">Open Resolver Project</a>), or consume resources and balloon your monthly bills.</p>
-
+<p><strong>Do not leave these ports open for anyone to access.</strong> Bad guys could use your services to launch DDoS attacks (see <a href="http://openresolverproject.org/">Open Resolver Project</a>), or consume resources and balloon your monthly bills.</p>
 <p>You can lock down further with IPtables if you wish, but this would become tedious to update if your IP changes frequently.</p>
-
 <p>Go back to <strong>Compute Engine</strong> and find the VM instance. There will be an SSH connection option (awesome):</p>
-
-<p><img src="/images/2016/02/ssh-to-box.png" alt="" /></p>
-
+<p><img src="/images/2016/02/ssh-to-box.png" alt=""></p>
 <p>You should now be connected to the shell and ready to begin setup:</p>
-
 <pre><code class="language-bash">$ sudo su -
 # apt-get update
 # apt-get install dpkg-dev cdbs debhelper dh-autoreconf libev-dev libpcre3-dev pkg-config libudns-dev git
@@ -192,9 +162,7 @@ GCE does come with a trial (60 days/$300 USD), and you can set that up here: htt
 # cd sniproxy &amp;&amp; dpkg-buildpackage
 # dpkg -i ~/sniproxy_0.4.0_amd64.deb
 </code></pre>
-
 <p>Configure sni-proxy:</p>
-
 <pre><code class="language-bash"># echo ENABLED=1 &gt; /etc/default/sniproxy
 # cat /etc/sniproxy.conf
 user daemon
@@ -225,16 +193,11 @@ error_log {
 # service sniproxy start
 # update-rc.d sniproxy defaults
 </code></pre>
-
 <p>Configure bind9 and make sure the various named.conf.* and *.override files look like mine below.</p>
-
 <pre><code class="language-bash"># mkdir /var/log/named &amp;&amp; chown bind /var/log/named &amp;&amp; chgrp bind /var/log/named
 </code></pre>
-
-<p>Pay attention to the <strong>allow-query</strong> and <strong>allow-recursion</strong> values. If you did not restrict access via the GCE firewall rules, you <strong>must</strong> create <a href="http://www.zytrax.com/books/dns/ch9/close.html" target="_blank">a bind ACL</a> with your external IP as the only one allowed to query.</p>
-
+<p>Pay attention to the <strong>allow-query</strong> and <strong>allow-recursion</strong> values. If you did not restrict access via the GCE firewall rules, you <strong>must</strong> create <a href="http://www.zytrax.com/books/dns/ch9/close.html">a bind ACL</a> with your external IP as the only one allowed to query.</p>
 <p><strong>It&rsquo;s a good idea to do both bind ACL and firewall ACL.</strong></p>
-
 <pre><code class="language-bash"># cat /etc/bind/named.conf.options
 options {
 	directory &quot;/var/cache/bind&quot;;
@@ -286,9 +249,7 @@ zone &quot;ip2location.com.&quot; {
 	file &quot;/etc/bind/db.override&quot;;
 };
 </code></pre>
-
 <p>In the db.override file replace <strong>VM-EXTERNAL-IP-ADDRESS</strong> with your VM&rsquo;s static external IP address:</p>
-
 <pre><code class="language-bash"># cat /etc/bind/db.override
 ; BIND data file for overridden IPs
 ;
@@ -309,15 +270,11 @@ ns1 IN A VM-EXTERNAL-IP-ADDRESS ;external IP created for the VM
 ; resolve everything with the same IP address as ns1
 * IN A VM-EXTERNAL-IP-ADDRESS ;external IP created for the VM
 </code></pre>
-
 <p>Start the bind9 service:</p>
-
 <pre><code class="language-bash"># service bind9 start
 # update-rc.d bind9 defaults
 </code></pre>
-
 <p>To further lock down the box, a sample <strong>iptables</strong> configuration file (replace HOME-EXTERNAL-IP with your IP address):</p>
-
 <pre><code class="language-bash"># iptables-save
 *raw
 :PREROUTING ACCEPT [50228:66528501]
@@ -350,30 +307,20 @@ COMMIT
 :POSTROUTING ACCEPT [19021:1902054]
 COMMIT
 </code></pre>
-
 <p>That&rsquo;s it.</p>
-
 <p>You can now set the DNS servers on your device (Nexus Player, Laptop, etc) to the VM&rsquo;s external IP address. You only need to set one DNS server, leave the other blank or the proxy may not work as intended.</p>
-
 <p>To do a quick test, all of the following dig commands should return an A record pointing to your VM&rsquo;s external IP address:</p>
-
 <pre><code class="language-bash"># dig @localhost netflix.com
 # dig @vm-ip netflix.com
 </code></pre>
-
 <p>Timeouts for the localhost command could mean a bind9 configuration problem. Timeouts to the vm-ip (while localhost succeeds) could indicate a network/firewall issue.</p>
-
 <p>If something isn&rsquo;t working, troubleshoot the following log files:</p>
-
 <pre><code class="language-bash"># tailf /var/log/named/named.log
 # tailf /var/log/sniproxy/sniproxy_error.log (or http_access.log/https_access.log)
 </code></pre>
-
 <p>If you don&rsquo;t see any activity in the bind9/sniproxy app logs, it could be a networking issue. Make sure the firewall rules are properly tagged (the target tags contain your VM instance tag).</p>
-
 <p>You can use <strong>netcat</strong> or <strong>tcpdump</strong> to troubleshoot network/firewall problems.</p>
-
-<p>Shout out to <a href="http://www.nakedcleaner.com/2015/04/creating-a-netflix-usa-proxy-on-azure/" target="_blank">NakedCleaner</a> for the Azure version of this setup and to <a href="https://github.com/dlundquist/sniproxy" target="_blank">dlundquist</a> for sni-proxy!</p>
+<p>Shout out to <a href="http://www.nakedcleaner.com/2015/04/creating-a-netflix-usa-proxy-on-azure/">NakedCleaner</a> for the Azure version of this setup and to <a href="https://github.com/dlundquist/sniproxy">dlundquist</a> for sni-proxy!</p>
 
             </div>
         </article>
@@ -395,7 +342,7 @@ COMMIT
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -423,7 +370,7 @@ COMMIT
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

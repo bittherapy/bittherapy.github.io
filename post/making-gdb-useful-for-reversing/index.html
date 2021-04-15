@@ -41,17 +41,10 @@ The following is a bunch of display commands that gdb will execute after every &
 <meta name="theme-color" content="#252627"><meta itemprop="name" content="Making gdb More Useful For Reversing">
 <meta itemprop="description" content="Unless you&rsquo;re using something like DDD or Gdbinit, gdb vanilla is pretty hard to work with when reversing binaries.
 The following is a bunch of display commands that gdb will execute after every &lsquo;step&rsquo;; put them in a file called gdb.cmd somewhere in ~/:
-# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:">
-
-
-<meta itemprop="datePublished" content="2016-01-29T20:23:07&#43;00:00" />
+# cat ~/gdb.cmd set disassembly-flavor intel display/10i $eip display/x $eax display/x $ebx display/x $ecx display/x $edx display/x $edi display/x $esi display/x $ebp display/16xw $esp break main  Now you can use the -x gdb commandline parameter and running a program with start or run will show the following:"><meta itemprop="datePublished" content="2016-01-29T20:23:07&#43;00:00" />
 <meta itemprop="dateModified" content="2016-01-29T20:23:07&#43;00:00" />
-<meta itemprop="wordCount" content="259">
-
-
-
-<meta itemprop="keywords" content="Security,Reverse Engineering,GDB,Debugging," />
-<meta name="twitter:card" content="summary_large_image"/>
+<meta itemprop="wordCount" content="259"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Security,Reverse Engineering,GDB,Debugging," /><meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="/"/>
 
 <meta name="twitter:title" content="Making gdb More Useful For Reversing"/>
@@ -132,10 +125,8 @@ The following is a bunch of display commands that gdb will execute after every &
             
 
             <div class="post-content">
-                <p>Unless you&rsquo;re using something like <code>DDD</code> or <a href="https://github.com/gdbinit/Gdbinit" target="_blank">Gdbinit</a>, gdb vanilla is pretty hard to work with when reversing binaries.</p>
-
+                <p>Unless you&rsquo;re using something like <code>DDD</code> or <a href="https://github.com/gdbinit/Gdbinit">Gdbinit</a>, gdb vanilla is pretty hard to work with when reversing binaries.</p>
 <p>The following is a bunch of display commands that gdb will execute after every &lsquo;step&rsquo;; put them in a file called <code>gdb.cmd</code> somewhere in <code>~/</code>:</p>
-
 <pre><code class="language-nix"># cat ~/gdb.cmd 
 set disassembly-flavor intel
 display/10i $eip
@@ -149,10 +140,8 @@ display/x $ebp
 display/16xw $esp
 break main
 </code></pre>
-
 <p>Now you can use the <code>-x</code> gdb commandline parameter and running a program with <code>start</code>
- or <code>run</code> will show the following:</p>
-
+or <code>run</code> will show the following:</p>
 <pre><code class="language-nix"># gdb bomb -x ~/gdb.cmd
 GNU gdb (Debian 7.7.1+dfsg-5) 7.7.1
 ...
@@ -188,7 +177,6 @@ Breakpoint 1, main (argc=1, argv=0xf7faf000) at bomb.c:36
    0x80489d3 &lt;main+35&gt;:	jne    0x8048a10 &lt;main+96&gt;
 (gdb) 
 </code></pre>
-
 <p>I prefer <code>intel</code> syntax, but you can set the flavor to <code>att</code> in gdb.cmd (line 1).</p>
 
             </div>
@@ -211,7 +199,7 @@ Breakpoint 1, main (argc=1, argv=0xf7faf000) at bomb.c:36
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2021</span>
             
                 <span><a href="/">Bit Therapy</a></span>
             
@@ -239,7 +227,7 @@ Breakpoint 1, main (argc=1, argv=0xf7faf000) at bomb.c:36
 
 
 
-<script type="text/javascript" src="/bundle.min.4c3fb12a087ceed4a52cb5d57068a9795c7069617a01ca70f788052ad66e1791779e6c72686e1dc0ca13dc03b0203204b6566bb0dd1ee80de2b7ff4d8fe53db2.js" integrity="sha512-TD&#43;xKgh87tSlLLXVcGipeVxwaWF6Acpw94gFKtZuF5F3nmxyaG4dwMoT3AOwIDIEtlZrsN0e6A3it/9Nj&#43;U9sg=="></script>
+<script type="text/javascript" src="/bundle.min.766584e6ea536f54faf86b018d73f719fc520199a6c4d32cbd959eb87634c11b380ac646d80d67304313aac0f5f05e6715221bd99a619bbc905365b55f78147f.js" integrity="sha512-dmWE5upTb1T6&#43;GsBjXP3GfxSAZmmxNMsvZWeuHY0wRs4CsZG2A1nMEMTqsD18F5nFSIb2Zphm7yQU2W1X3gUfw=="></script>
 
 
 
