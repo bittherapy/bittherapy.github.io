@@ -6,17 +6,7 @@
     <description>Recent content in Posts on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Fri, 08 Apr 2022 15:48:46 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Symfony Fragment RCE</title>
-      <link>/post/_drafts/symfony-fragment-rce/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/post/_drafts/symfony-fragment-rce/</guid>
-      <description>There&amp;rsquo;s a couple of issues with the Symfony framework which can lead to remote code execution.
-Symfony Profiler (/_profiler route)  Allows debug access to all requests sent to the framework, including GETs, POSTs and more importantly POST data. Leaks server environment variables used to configure the application. It also lists the APP_SECRET variable which is needed for the Fragment remote code execution issue. It also runs phpinfo(); which can also leak environment variables and other server configuration information.</description>
-    </item>
-    
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Root Pixel4a and Trust Burp Again</title>
       <link>/post/root-pixel4a-and-trust-burp-again/</link>
@@ -132,6 +122,16 @@ Interesting&amp;hellip; some IRC chatter. If I right-click and Follow TCP stream
       <description>It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
 First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.
 Zepto creates a help file in all of the directories it attacks.</description>
+    </item>
+    
+    <item>
+      <title>Walking Through Angler Exploit Kit - Payload Delivery Analysis</title>
+      <link>/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</link>
+      <pubDate>Mon, 18 Apr 2016 14:28:00 +0000</pubDate>
+      
+      <guid>/post/walking-through-angler-exploit-kit-payload-delivery-analysis/</guid>
+      <description>A few days ago I was alerted of a potentially compromised website serving Angler EK: hxxp://www.stadiumseatingcharts.com/rogers-centre/
+The Angler exploit kit will redirect the client to a separate compromised server in order to deliver the exploit and the malware stage. Usually, it accomplishes this using an iframe or an anchor (and calling the click() method for that element), or something similar. The point is, there is some bad JavaScript code leading to some other bad JavaScript code, and it&amp;rsquo;s usually obfuscated.</description>
     </item>
     
   </channel>

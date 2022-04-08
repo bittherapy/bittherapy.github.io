@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>security on { bit.therapy }</title>
+    <title>Security on { bit.therapy }</title>
     <link>/tags/security/</link>
-    <description>Recent content in security on { bit.therapy }</description>
+    <description>Recent content in Security on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Fri, 08 Apr 2022 15:48:46 +0000</lastBuildDate><atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Symfony Fragment RCE</title>
-      <link>/post/_drafts/symfony-fragment-rce/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/post/_drafts/symfony-fragment-rce/</guid>
-      <description>There&amp;rsquo;s a couple of issues with the Symfony framework which can lead to remote code execution.
-Symfony Profiler (/_profiler route)  Allows debug access to all requests sent to the framework, including GETs, POSTs and more importantly POST data. Leaks server environment variables used to configure the application. It also lists the APP_SECRET variable which is needed for the Fragment remote code execution issue. It also runs phpinfo(); which can also leak environment variables and other server configuration information.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DotNetNuke Directory Traversal Vulnerability (CVE-2020-8593)</title>
       <link>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</link>

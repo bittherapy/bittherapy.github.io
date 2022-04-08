@@ -6,61 +6,7 @@
     <description>Recent content in Categories on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Fri, 08 Apr 2022 15:48:46 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>appsec</title>
-      <link>/categories/appsec/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/appsec/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>exploit</title>
-      <link>/categories/exploit/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/exploit/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>rce</title>
-      <link>/categories/rce/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/rce/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security</title>
-      <link>/categories/security/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>symfony</title>
-      <link>/categories/symfony/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/symfony/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>webapp</title>
-      <link>/categories/webapp/</link>
-      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
-      
-      <guid>/categories/webapp/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>android</title>
       <link>/categories/android/</link>
@@ -94,6 +40,60 @@
       <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
       
       <guid>/categories/pixel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>root</title>
+      <link>/categories/root/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/root/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/categories/security/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github</title>
+      <link>/categories/github/</link>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
+      
+      <guid>/categories/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>projects</title>
+      <link>/categories/projects/</link>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
+      
+      <guid>/categories/projects/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>research</title>
+      <link>/categories/research/</link>
+      <pubDate>Sat, 01 Jun 2019 12:46:23 +0000</pubDate>
+      
+      <guid>/categories/research/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>chanitor</title>
+      <link>/categories/chanitor/</link>
+      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
+      
+      <guid>/categories/chanitor/</guid>
       <description></description>
     </item>
     
