@@ -6,7 +6,17 @@
     <description>Recent content on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 08 Apr 2022 15:48:46 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Symfony Fragment RCE</title>
+      <link>/post/_drafts/symfony-fragment-rce/</link>
+      <pubDate>Fri, 08 Apr 2022 15:48:46 +0000</pubDate>
+      
+      <guid>/post/_drafts/symfony-fragment-rce/</guid>
+      <description>There&amp;rsquo;s a couple of issues with the Symfony framework which can lead to remote code execution.
+Symfony Profiler (/_profiler route)  Allows debug access to all requests sent to the framework, including GETs, POSTs and more importantly POST data. Leaks server environment variables used to configure the application. It also lists the APP_SECRET variable which is needed for the Fragment remote code execution issue. It also runs phpinfo(); which can also leak environment variables and other server configuration information.</description>
+    </item>
+    
     <item>
       <title>Root Pixel4a and Trust Burp Again</title>
       <link>/post/root-pixel4a-and-trust-burp-again/</link>
@@ -124,17 +134,6 @@ One of the challenges provided a PCAP with a conversation between two parties th
 ##PCAP Analysis
 Alright, let me open this in Wireshark:
 Interesting&amp;hellip; some IRC chatter. If I right-click and Follow TCP stream I can read the full conversation:</description>
-    </item>
-    
-    <item>
-      <title>A Look at Zepto Ransomware - Payload Delivery Analysis</title>
-      <link>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</link>
-      <pubDate>Tue, 16 Aug 2016 12:36:51 +0000</pubDate>
-      
-      <guid>/post/a-look-at-zepto-ransomware-payload-delivery-analysis/</guid>
-      <description>It&amp;rsquo;s another quiet Friday when we are alerted of bunch of files with the .zepto extension being created all over the place. It seems that a Zepto sample that worked its way through our network. AV was mostly useless and the ransomware managed to encrypt a few thousand files on a particular share.
-First thing&amp;rsquo;s first, I need to find all the users actively encrypting files on this share.
-Zepto creates a help file in all of the directories it attacks.</description>
     </item>
     
   </channel>
