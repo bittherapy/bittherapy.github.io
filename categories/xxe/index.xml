@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>XXE on { bit.therapy }</title>
+    <link>/categories/xxe/</link>
+    <description>Recent content in XXE on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>_</copyright>
+    <lastBuildDate>Mon, 23 May 2016 18:29:33 +0000</lastBuildDate><atom:link href="/categories/xxe/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fun with XML External Entities</title>
+      <link>/post/_drafts/fun-with-xml-external-entities/</link>
+      <pubDate>Mon, 23 May 2016 18:29:33 +0000</pubDate>
+      
+      <guid>/post/_drafts/fun-with-xml-external-entities/</guid>
+      <description>On a recent assessment I was alerted by my Burp Collaborator server of a potential XXE (XML External Entity) vulnerability in the application.
+Burp noticed that the application server performed a DNS lookup on an host that it had previously injected.
+With XXE, you would hope to declare an external entity and have the server reflect the value back, thus allowing you to read any file that the application server has access to.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>certificates on { bit.therapy }</title>
+    <link>/tags/certificates/</link>
+    <description>Recent content in certificates on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>_</copyright>
+    <lastBuildDate>Thu, 12 Jan 2017 15:48:46 +0000</lastBuildDate><atom:link href="/tags/certificates/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let&#39;s Let&#39;s Encrypt and get some free certificates</title>
+      <link>/post/_drafts/lets-lets-encrypt-and-get-some-free-certificates/</link>
+      <pubDate>Thu, 12 Jan 2017 15:48:46 +0000</pubDate>
+      
+      <guid>/post/_drafts/lets-lets-encrypt-and-get-some-free-certificates/</guid>
+      <description>apt-get install letsencrypt -t jessie-backports  certbot certonly --webroot -w /var/www/letsencrypt -d bittherapy.net -d www.bittherapy.net  certbot renew --dry-run  /etc/letsencrypt/live/bittherapy.net/fullchain.pem /etc/letsencrypt/live/bittherapy.net/privkey.pem  ssl_certificate /etc/letsencrypt/live/bittherapy.net/fullchain.pem; ssl_certificate_key /etc/letsencrypt/live/bittherapy.net/privkey.pem;  location ~ .well-known/acme-challenge/ { root /var/www/letsencrypt; default_type text/plain; }  </description>
+    </item>
+    
+  </channel>
+</rss>

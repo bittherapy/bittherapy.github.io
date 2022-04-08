@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="Here&amp;rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
+# user input my $search_string = &amp;quot;I really really need this&amp;quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &amp;gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &amp;quot;|&amp;quot;, sort keys %{{ map { $_ =&amp;gt; 1 } @kw }}; $data =~ s!" />
+<meta name="keywords" content="security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis,blog,consulting,cyber" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/_drafts/search-keyword-highlighting-with-perl/" />
+
+
+<title>
+    
+    Search Keyword Highlighting with Perl :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Search Keyword Highlighting with Perl">
+<meta itemprop="description" content="Here&rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
+# user input my $search_string = &quot;I really really need this&quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &quot;|&quot;, sort keys %{{ map { $_ =&gt; 1 } @kw }}; $data =~ s!"><meta itemprop="datePublished" content="2015-04-06T13:01:31+00:00" />
+<meta itemprop="dateModified" content="2015-04-06T13:01:31+00:00" />
+<meta itemprop="wordCount" content="166"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Perl,Development,Webdev," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Search Keyword Highlighting with Perl"/>
+<meta name="twitter:description" content="Here&rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
+# user input my $search_string = &quot;I really really need this&quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &quot;|&quot;, sort keys %{{ map { $_ =&gt; 1 } @kw }}; $data =~ s!"/>
+
+
+
+<meta property="article:section" content="Perl" />
+<meta property="article:section" content="Development" />
+<meta property="article:section" content="Webdev" />
+
+<meta property="article:published_time" content="2015-04-06 13:01:31 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/post">Blog</a></li><li><a href="/research">Research</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/post/_drafts/search-keyword-highlighting-with-perl/">Search Keyword Highlighting with Perl</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>Here&rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:</p>
+<pre><code class="language-perl"># user input
+my $search_string = &quot;I really really need this&quot;;
+
+# highlighting, get the s _uniq_ keyword
+# use grep() to make sure we skip short keywords
+my @kw = grep {length($_) &gt; 2} split /[^w]/,$search_string;
+
+# expected output: keyword1|keyword2|keyword3
+my $regex_keys = join &quot;|&quot;, sort keys %{{ map { $_ =&gt; 1 } @kw }};
+
+$data =~ s!($regex_keys)!&lt;span class=&quot;kw&quot;&gt;1&lt;/span&gt;!ig;
+
+print $data;
+</code></pre>
+<p>Here, <em>$data</em> is a hash of stuff from a database of some sort.</p>
+<p>The interesting part is:</p>
+<pre><code class="language-perl">my $regex_keys = join &quot;|&quot;, sort keys %{{ map { $_ =&gt; 1 } @kw }};
+</code></pre>
+<p>This line creates an anonymous hash with all the elements of the array as keys with a dummy 1 value. The keys sub in turn returns the keys and since map would&rsquo;ve overwritten any duplicate keys, they are now unique!</p>
+<p>Make sure that <em>$regex_keys</em> is sanitized before going to production with something like this.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/perl">Perl</a></span><span class="tag"><a href="/tags/development">Development</a></span><span class="tag"><a href="/tags/webdev">Webdev</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="/">Bit Therapy</a></span>
+            
+            <span>_</span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.b451c608405c4d803b31b374c75850bfed317347d57c45dbf264ec1eea06e5fe2d994d95207e867a76d9a379f93d55ab089fbe270a665505573263b31bc92978.js" integrity="sha512-tFHGCEBcTYA7MbN0x1hQv&#43;0xc0fVfEXb8mTsHuoG5f4tmU2VIH6GenbZo3n5PVWrCJ&#43;&#43;JwpmVQVXMmOzG8kpeA=="></script>
+
+
+
+    </body>
+</html>

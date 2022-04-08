@@ -6,7 +6,61 @@
     <description>Recent content in Categories on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Sat, 01 Jun 2019 12:46:23 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android</title>
+      <link>/categories/android/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jailbreak</title>
+      <link>/categories/jailbreak/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/jailbreak/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>magisk</title>
+      <link>/categories/magisk/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/magisk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pixel</title>
+      <link>/categories/pixel/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/pixel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>root</title>
+      <link>/categories/root/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/root/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>/categories/security/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/categories/security/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>github</title>
       <link>/categories/github/</link>
@@ -40,60 +94,6 @@
       <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
       
       <guid>/categories/chanitor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Debugging</title>
-      <link>/categories/debugging/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/debugging/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hancitor</title>
-      <link>/categories/hancitor/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/hancitor/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>IDA Pro</title>
-      <link>/categories/ida-pro/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/ida-pro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Malware</title>
-      <link>/categories/malware/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/malware/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Malware Analysis</title>
-      <link>/categories/malware-analysis/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/malware-analysis/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OllyDbg</title>
-      <link>/categories/ollydbg/</link>
-      <pubDate>Fri, 25 Nov 2016 18:09:21 +0000</pubDate>
-      
-      <guid>/categories/ollydbg/</guid>
       <description></description>
     </item>
     

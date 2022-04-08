@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openvpn on { bit.therapy }</title>
+    <link>/tags/openvpn/</link>
+    <description>Recent content in openvpn on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>_</copyright>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/openvpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a FreeBSD OpenVPN Router with PF</title>
+      <link>/post/freebsd-openvpn-router/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/freebsd-openvpn-router/</guid>
+      <description>FreeBSD 12.1
+# pkg update # pkg install openvpn screen bash tinyproxy tor curl  pf.conf:
+int=&amp;quot;hn0&amp;quot; tun=&amp;quot;tun0&amp;quot; tcp_state=&amp;quot;flags S/SAFR modulate state&amp;quot; udp_state=&amp;quot;keep state&amp;quot; icmp_types=&amp;quot;icmp-type echoreq&amp;quot; set block-policy drop # timeout options set optimization normal set timeout { tcp.established 360, tcp.closing 60 } set skip on lo0 nat on $tun from $int:network to any -&amp;gt; ($tun:0) #rdr on $int proto { tcp udp } from $int:network to ! $int:0 port 53 -&amp;gt; $int:0 block in log all pass out all keep state #antispoof log quick for $int inet #antispoof log quick for $tun inet #match out on $ext from $tun:network to any nat-to $ext:0 pass in on $int from $int:network pass in on $int inet proto tcp from any to $int:0 port 22 $tcp_state #pass in on $tun from any to any #pass from $tun:network to any keep state  rc.</description>
+    </item>
+    
+  </channel>
+</rss>

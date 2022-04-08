@@ -6,7 +6,22 @@
     <description>Recent content in Security on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Mon, 08 Feb 2016 00:46:31 +0000</lastBuildDate><atom:link href="/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Root Pixel4a and Trust Burp Again</title>
+      <link>/post/root-pixel4a-and-trust-burp-again/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/post/root-pixel4a-and-trust-burp-again/</guid>
+      <description>Unlock flashing capabilities on the phone:
+adb reboot bootloader fastboot flashing unlock  Confirm unlock when prompted and boot.
+Install latest Magisk apk (https://magiskmanager.com/downloading-magisk-manager):
+adb install magisk.apk  Download matching Settings &amp;gt; About &amp;gt; Build number image (RQ1A.201205.008 or similar) from https://developers.google.com/android/images#sunfish
+Extract boot.img from zip within zip and push it:
+adb push boot.img /sdcard/Download/boot.img  Use magisk to patch boot.img and download it from the phone:
+adb pull /sdcard/Download/magisk-modified-boot.img  Reboot back into fastboot:</description>
+    </item>
+    
     <item>
       <title>Changing the DirectAccess and Web Application Proxy external certificate</title>
       <link>/post/changing-the-directaccess-and-web-application-proxy-external-certificate/</link>

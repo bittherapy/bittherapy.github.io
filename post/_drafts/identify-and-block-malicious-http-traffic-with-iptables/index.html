@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="So I was looking through my httpd access_log files and this popped up every couple of days:
+93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &amp;quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&amp;quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &amp;quot;GET /w00tw00t." />
+<meta name="keywords" content="security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis,blog,consulting,cyber" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/_drafts/identify-and-block-malicious-http-traffic-with-iptables/" />
+
+
+<title>
+    
+    Identify and block malicious HTTP traffic with IPtables :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Identify and block malicious HTTP traffic with IPtables">
+<meta itemprop="description" content="So I was looking through my httpd access_log files and this popped up every couple of days:
+93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &quot;GET /w00tw00t."><meta itemprop="datePublished" content="2010-04-06T17:23:40+00:00" />
+<meta itemprop="dateModified" content="2010-04-06T17:23:40+00:00" />
+<meta itemprop="wordCount" content="704"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Infrastructure,Development,Automation,Security,Bash,IPTables,Linux,Unix," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Identify and block malicious HTTP traffic with IPtables"/>
+<meta name="twitter:description" content="So I was looking through my httpd access_log files and this popped up every couple of days:
+93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13 74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &quot;GET /w00tw00t."/>
+
+
+
+<meta property="article:section" content="Infrastructure" />
+<meta property="article:section" content="Development" />
+<meta property="article:section" content="Automation" />
+<meta property="article:section" content="Security" />
+<meta property="article:section" content="Bash" />
+<meta property="article:section" content="IPTables" />
+<meta property="article:section" content="Linux" />
+<meta property="article:section" content="Unix" />
+
+<meta property="article:published_time" content="2010-04-06 17:23:40 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/post">Blog</a></li><li><a href="/research">Research</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/post/_drafts/identify-and-block-malicious-http-traffic-with-iptables/">Identify and block malicious HTTP traffic with IPtables</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>So I was looking through my httpd <code>access_log</code> files and this popped up every couple of days:</p>
+<pre><code class="language-nix">93.157.0.142 - - [14/Dec/2010:16:01:19 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+72.167.164.72 - - [17/Dec/2010:02:02:54 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+74.55.205.98 - - [18/Dec/2010:03:06:49 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+150.217.19.5 - - [19/Dec/2010:14:36:52 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+173.201.39.105 - - [21/Dec/2010:08:16:35 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+74.55.205.98 - - [24/Dec/2010:14:43:28 -0500] &quot;GET /w00tw00t.at.blackhats.romanian.anti-sec:) HTTP/1.1&quot; 404 13
+</code></pre>
+<p>This is a truncated list, but each one of these Romanian blackhats would attempt a few other directories as well. This is not really evidence of successful intrusion, but it does highlight drones that scan the Internet for potential security holes in webservers. I don&rsquo;t want these hosts to access my server in any way. I could blocked each one of those IPs manually but I decided instead to script and crontab it.</p>
+<p>The first thing I needed is a chain that would handle all of these bad IP addresses:</p>
+<pre><code class="language-bash">[root@demon ~]# iptables -N bad_traffic
+[root@demon ~]# iptables -A INPUT -j bad_traffic
+[root@demon ~]# iptables -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+</code></pre>
+<p>The two rules should be applied in the order specified above. You want to <code>DROP</code> bad traffic before you <code>ACCEPT</code> any web connection.</p>
+<p>This script will add a rule for each IP with the <code>DROP</code> target in the bad_traffic chain, if it is not already in the chain:</p>
+<pre><code class="language-perl">#!/usr/bin/env perl
+# badht - Bad HTTP Traffic blocker
+#
+# Scans an Apache access log file for bad
+# requests and blocks the IP responsible
+#
+# Usage: badht &lt; access_log &gt; [iptables_chain]
+#
+#. /badht /var/log/httpd/access_log bad_traffic
+#
+# badht will use the chain 'bad_traffic' unless
+# otherwise specified
+use strict;
+use warnings;
+use POSIX qw(strftime);
+
+die(&quot;Usage: $0 &lt;/var/log/httpd/access_log&gt; [iptables_chain]&quot;) if !$ARGV[0];
+
+my $log = $ARGV[0];
+my $chain = ($ARGV[1] ? $ARGV[1] : &quot;bad_traffic&quot;);
+my@ bad = `grep w00tw00t $log | cut -f1 -d &quot; &quot; | sort -u`;
+my@ ablk = `/sbin/iptables -S $chain | grep DROP | awk '{print $4}' | cut -d &quot;/&quot; -f1`;
+foreach my $ip(@bad) {
+    if (!grep $_ eq $ip, @ablk) {
+        chomp $ip;`
+        /sbin/iptables -A $chain -s $ip -j DROP`;
+
+        print strftime(&quot;%b %d %T&quot;, localtime(time)). &quot; badht: blocked bad HTTP traffic from: $ipn&quot;;
+    }
+}
+</code></pre>
+<p>By the way, it&rsquo;s a good idea to block ALL incoming traffic (line 29) coming from these IP addresses because chances are they have already attempted to brute-force your SSH service:</p>
+<pre><code class="language-nix">[root@demon admin]# grep -E &quot;sshd.*Failed password for.*from ([0-9]+.[0-9]+.[0-9]+.[0-9]+)&quot; /var/log/secure|wc -l
+103
+[root@demon admin]#
+</code></pre>
+<p>Within just 7 days of bringing <code>demon.*</code> online! These packets are just wasted CPU cycles from compromised hosts and they should be dropped before they get to any of my services.</p>
+<p>When I execute <code>badht</code> I get this output:</p>
+<pre><code class="language-nix">[root@demon admin]# ./badht /var/log/httpd/access_log bad_traffic
+Dec 25 15:56:44 badht: blocked bad HTTP traffic from: 150.217.19.5
+Dec 25 15:56:44 badht: blocked bad HTTP traffic from: 173.201.39.105
+Dec 25 15:56:44 badht: blocked bad HTTP traffic from: 72.167.164.72
+Dec 25 15:56:44 badht: blocked bad HTTP traffic from: 74.55.205.98
+Dec 25 15:56:44 badht: blocked bad HTTP traffic from: 93.157.0.142
+[root@demon admin]# ./badht /var/log/httpd/access_log bad_traffic
+[root@demon admin]# iptables -L bad_traffic -n
+Chain bad_traffic (1 references)
+target prot opt source destination
+DROP all -- 150.217.19.5 0.0.0.0/0
+DROP all -- 173.201.39.105 0.0.0.0/0
+DROP all -- 72.167.164.72 0.0.0.0/0
+DROP all -- 74.55.205.98 0.0.0.0/0
+DROP all -- 93.157.0.142 0.0.0.0/0
+[root@demon admin]#
+</code></pre>
+<p>As you can see the second time I ran the script it skipped the already-blocked IPs and said nothing.</p>
+<p>I don’t want to run this manually, so I’ll let <code>crontab</code> handle it:</p>
+<pre><code class="language-nix">[root@demon ~]# crontab -lu root
+*/30 * * * * ~/admin/badht /var/log/httpd/access_log bad_traffic &amp;gt;&amp;gt; /var/log/bad_traffic 2&amp;gt;&amp;amp;1
+[root@demon ~]#
+</code></pre>
+<p>This will run twice an hour and send all output to <code>/var/log/bad_traffic</code>. You can increase the frequency but you should keep in mind that this may slow the system down on large <code>access_log</code> files.</p>
+<p><strong>Note:</strong> The rules created by <code>badht</code> are temporary and will be lost on system reboot or when the <code>iptables</code> service is restarted. Remember to periodically save the <code>iptables</code> rules, or at least the <code>bad_traffic</code> chain. Since the <code>crontab</code> is persistant, <code>badht</code> will recreate all the rules the next time it runs.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/infrastructure">Infrastructure</a></span><span class="tag"><a href="/tags/development">Development</a></span><span class="tag"><a href="/tags/automation">Automation</a></span><span class="tag"><a href="/tags/security">Security</a></span><span class="tag"><a href="/tags/bash">Bash</a></span><span class="tag"><a href="/tags/iptables">IPTables</a></span><span class="tag"><a href="/tags/linux">Linux</a></span><span class="tag"><a href="/tags/unix">Unix</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="/">Bit Therapy</a></span>
+            
+            <span>_</span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.b451c608405c4d803b31b374c75850bfed317347d57c45dbf264ec1eea06e5fe2d994d95207e867a76d9a379f93d55ab089fbe270a665505573263b31bc92978.js" integrity="sha512-tFHGCEBcTYA7MbN0x1hQv&#43;0xc0fVfEXb8mTsHuoG5f4tmU2VIH6GenbZo3n5PVWrCJ&#43;&#43;JwpmVQVXMmOzG8kpeA=="></script>
+
+
+
+    </body>
+</html>

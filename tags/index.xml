@@ -6,11 +6,56 @@
     <description>Recent content in Tags on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>_</copyright>
-    <lastBuildDate>Wed, 08 Apr 2020 00:00:00 -0400</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>android</title>
+      <link>/tags/android/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jailbreak</title>
+      <link>/tags/jailbreak/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/tags/jailbreak/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>magisk</title>
+      <link>/tags/magisk/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/tags/magisk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pixel</title>
+      <link>/tags/pixel/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/tags/pixel/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>root</title>
+      <link>/tags/root/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/tags/root/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>application security</title>
       <link>/tags/application-security/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/application-security/</guid>
       <description></description>
@@ -19,7 +64,7 @@
     <item>
       <title>cve</title>
       <link>/tags/cve/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/cve/</guid>
       <description></description>
@@ -28,7 +73,7 @@
     <item>
       <title>CVE-2020-8593</title>
       <link>/tags/cve-2020-8593/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/cve-2020-8593/</guid>
       <description></description>
@@ -37,7 +82,7 @@
     <item>
       <title>directory traversal</title>
       <link>/tags/directory-traversal/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/directory-traversal/</guid>
       <description></description>
@@ -46,54 +91,9 @@
     <item>
       <title>disclosure</title>
       <link>/tags/disclosure/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
+      <pubDate>Wed, 08 Apr 2020 00:00:00 +0000</pubDate>
       
       <guid>/tags/disclosure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>path traversal</title>
-      <link>/tags/path-traversal/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
-      
-      <guid>/tags/path-traversal/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Security</title>
-      <link>/tags/security/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
-      
-      <guid>/tags/security/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>security research</title>
-      <link>/tags/security-research/</link>
-      <pubDate>Wed, 08 Apr 2020 00:00:00 -0400</pubDate>
-      
-      <guid>/tags/security-research/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CVE-2019-19609</title>
-      <link>/tags/cve-2019-19609/</link>
-      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
-      
-      <guid>/tags/cve-2019-19609/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>remote code execution</title>
-      <link>/tags/remote-code-execution/</link>
-      <pubDate>Tue, 03 Dec 2019 15:33:07 +0000</pubDate>
-      
-      <guid>/tags/remote-code-execution/</guid>
       <description></description>
     </item>
     

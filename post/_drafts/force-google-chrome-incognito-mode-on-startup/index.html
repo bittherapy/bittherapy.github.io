@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+    content="Adrian">
+<meta name="description"
+    content="Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
+Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &amp;gt; Run &amp;gt; https://www." />
+<meta name="keywords" content="security,research,vulnerabilities,cve,malware,reverse engineering,malware analysis,blog,consulting,cyber" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/post/_drafts/force-google-chrome-incognito-mode-on-startup/" />
+
+
+<title>
+    
+    Force Google Chrome Incognito Mode on Startup :: { bit.therapy } 
+    
+</title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.7bfbbe12786fa0ded4b4c0d792cbb36a5bd0bdb0b856dde57aa7b1f6fe0f2b87.css">
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+<link rel="shortcut icon" href="/favicon.ico">
+<meta name="theme-color" content="#252627"><meta itemprop="name" content="Force Google Chrome Incognito Mode on Startup">
+<meta itemprop="description" content="Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
+Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &gt; Run &gt; https://www."><meta itemprop="datePublished" content="2015-04-06T17:12:19+00:00" />
+<meta itemprop="dateModified" content="2015-04-06T17:12:19+00:00" />
+<meta itemprop="wordCount" content="395"><meta itemprop="image" content="/"/>
+<meta itemprop="keywords" content="Development,Security,Privacy,Chrome," /><meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/"/>
+
+<meta name="twitter:title" content="Force Google Chrome Incognito Mode on Startup"/>
+<meta name="twitter:description" content="Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
+Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &gt; Run &gt; https://www."/>
+
+
+
+<meta property="article:section" content="Development" />
+<meta property="article:section" content="Security" />
+<meta property="article:section" content="Privacy" />
+<meta property="article:section" content="Chrome" />
+
+<meta property="article:published_time" content="2015-04-06 17:12:19 &#43;0000 UTC" />
+
+
+
+
+
+
+
+    </head>
+
+    <body class="dark-theme">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">{ bit.therapy }</span>
+            <span class="logo__cursor"></span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="/post">Blog</a></li><li><a href="/research">Research</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            
+            </p>
+        </div>
+
+        <article>
+            <h2 class="post-title"><a href="/post/_drafts/force-google-chrome-incognito-mode-on-startup/">Force Google Chrome Incognito Mode on Startup</a></h2>
+
+            
+
+            <div class="post-content">
+                <p>Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.</p>
+<p>Yes you can change the shortcut on your desktop and add the <code>-incognito</code> switch but this is not always invoked. If Chrome is your default browser <code>Start &gt; Run &gt; https://www.google.com</code> will <em>not</em> launch it in Incognito Mode. If any applications start the browser without using the shortcut (through protocol or file associations) the browser will start in normal mode.</p>
+<p>There is no <code>.conf</code> or <code>.ini</code> or <code>.json</code> file you can edit to tell Chrome to always start in Incognito Mode, which seems like a strange omission. By altering a few default settings, FF and IE can be told to remove all traces of browser data upon exiting. The only thing in Chrome that comes close is under <code>Privacy &gt; Cookies</code> section. You can remove all cookies and &ldquo;other site data&rdquo; when exiting the browser but this is not true Incognito.</p>
+<p>What we can do is modify some registry settings and tell Windows to start a batch file instead of the <code>chrome.exe</code> main application. When Chrome is made the default browser it modifies a few registry keys to tell Windows where to go when associating a protocol with an application (in our case: HTTP and HTTPS).</p>
+<p>So let&rsquo;s tell it to use <code>chrome.cmd</code> instead of <code>chrome.exe</code>:</p>
+<pre><code class="language-batch">Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\ChromeHTML\shell\open\command]
+@=&quot;\&quot;V:\\Tools\\start_chrome_incognito.cmd\&quot; -- \&quot;%1\&quot;&quot;
+
+[HKEY_CLASSES_ROOT\http\shell\open\command]
+@=&quot;\&quot;V:\\Tools\\start_chrome_incognito.cmd\&quot; -- \&quot;%1\&quot;&quot;
+
+[HKEY_CLASSES_ROOT\https\shell\open\command]
+@=&quot;\&quot;V:\\Tools\\start_chrome_incognito.cmd\&quot; -- \&quot;%1\&quot;
+
+[HKEY_CLASSES_ROOT\htmlfile\shell\open\command]
+@=&quot;\&quot;V:\\Tools\\start_chrome_incognito.cmd\&quot;&quot;
+
+[HKEY_CLASSES_ROOT\htmlfile\shell\opennew\command]
+@=&quot;\&quot;V:\\Tools\\start_chrome_incognito.cmd\&quot;&quot;
+</code></pre>
+<p>Save this as <code>chrome_file_association_fix.reg</code> and run it.</p>
+<p>You cannot add the switches (<code>-incognito</code>) directly to the registry key. This would be more convenient since it wouldn&rsquo;t require a separate batch file to maintain, but this breaks the host process that attempts to start the application.</p>
+<p>Create a <code>start_chrome_incognito.cmd</code> in your <code>C:\Tools</code> folder and put this into it:</p>
+<pre><code class="language-batch">@echo off
+start /D&quot;%LocalAppData%\Google\Chrome\Application&quot; chrome.exe -incognito --purge-memory-button --memory-model=low %*
+:: for XP use the following
+:: start /D&quot;%AppData%\Google\Chrome\Application&quot; chrome.exe -incognito --purge-memory-button --memory-model=low %*
+</code></pre>
+<p>Add whatever options you want before <code>%*</code> and you should be good to go.</p>
+<p>Now, when you start Chrome using something like <code>Start &gt; Run &gt; https://www.google.com</code> you will be browsing in Incognito mode.</p>
+<p>Hacky but it works.</p>
+<p>Google, please add an option to do this natively thanks.</p>
+
+            </div>
+        </article>
+
+        <hr />
+
+        <div class="post-info">
+  				<p>
+  					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="/tags/development">Development</a></span><span class="tag"><a href="/tags/security">Security</a></span><span class="tag"><a href="/tags/privacy">Privacy</a></span><span class="tag"><a href="/tags/chrome">Chrome</a></span>
+  				</p>
+  			</div>
+
+        
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2022</span>
+            
+                <span><a href="/">Bit Therapy</a></span>
+            
+            <span>_</span>
+            <span> <a href="/post/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            ...
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="/bundle.min.b451c608405c4d803b31b374c75850bfed317347d57c45dbf264ec1eea06e5fe2d994d95207e867a76d9a379f93d55ab089fbe270a665505573263b31bc92978.js" integrity="sha512-tFHGCEBcTYA7MbN0x1hQv&#43;0xc0fVfEXb8mTsHuoG5f4tmU2VIH6GenbZo3n5PVWrCJ&#43;&#43;JwpmVQVXMmOzG8kpeA=="></script>
+
+
+
+    </body>
+</html>

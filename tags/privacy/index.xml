@@ -1,22 +1,29 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Privacy on { bit.therapy }</title>
     <link>/tags/privacy/</link>
     <description>Recent content in Privacy on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Mon, 06 Apr 2015 17:12:19 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
-    
+    <copyright>_</copyright>
+    <lastBuildDate>Fri, 01 May 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying a FreeBSD OpenVPN Router with PF</title>
+      <link>/post/freebsd-openvpn-router/</link>
+      <pubDate>Fri, 01 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/post/freebsd-openvpn-router/</guid>
+      <description>FreeBSD 12.1
+# pkg update # pkg install openvpn screen bash tinyproxy tor curl  pf.conf:
+int=&amp;quot;hn0&amp;quot; tun=&amp;quot;tun0&amp;quot; tcp_state=&amp;quot;flags S/SAFR modulate state&amp;quot; udp_state=&amp;quot;keep state&amp;quot; icmp_types=&amp;quot;icmp-type echoreq&amp;quot; set block-policy drop # timeout options set optimization normal set timeout { tcp.established 360, tcp.closing 60 } set skip on lo0 nat on $tun from $int:network to any -&amp;gt; ($tun:0) #rdr on $int proto { tcp udp } from $int:network to ! $int:0 port 53 -&amp;gt; $int:0 block in log all pass out all keep state #antispoof log quick for $int inet #antispoof log quick for $tun inet #match out on $ext from $tun:network to any nat-to $ext:0 pass in on $int from $int:network pass in on $int inet proto tcp from any to $int:0 port 22 $tcp_state #pass in on $tun from any to any #pass from $tun:network to any keep state  rc.</description>
+    </item>
     
     <item>
       <title>Force Google Chrome Incognito Mode on Startup</title>
-      <link>/post/force-google-chrome-incognito-mode-on-startup/</link>
+      <link>/post/_drafts/force-google-chrome-incognito-mode-on-startup/</link>
       <pubDate>Mon, 06 Apr 2015 17:12:19 +0000</pubDate>
       
-      <guid>/post/force-google-chrome-incognito-mode-on-startup/</guid>
+      <guid>/post/_drafts/force-google-chrome-incognito-mode-on-startup/</guid>
       <description>Much like its competitors, Chrome allows an Incognito mode which will discard any browser data after the session ends. This is great however there is no way (that I could find) to tell Chrome to always start in this mode.
 Yes you can change the shortcut on your desktop and add the -incognito switch but this is not always invoked. If Chrome is your default browser Start &amp;gt; Run &amp;gt; https://www.</description>
     </item>

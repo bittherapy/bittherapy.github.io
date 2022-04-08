@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magisk on { bit.therapy }</title>
+    <link>/categories/magisk/</link>
+    <description>Recent content in magisk on { bit.therapy }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>_</copyright>
+    <lastBuildDate>Thu, 15 Apr 2021 15:48:46 +0000</lastBuildDate><atom:link href="/categories/magisk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Root Pixel4a and Trust Burp Again</title>
+      <link>/post/root-pixel4a-and-trust-burp-again/</link>
+      <pubDate>Thu, 15 Apr 2021 15:48:46 +0000</pubDate>
+      
+      <guid>/post/root-pixel4a-and-trust-burp-again/</guid>
+      <description>Unlock flashing capabilities on the phone:
+adb reboot bootloader fastboot flashing unlock  Confirm unlock when prompted and boot.
+Install latest Magisk apk (https://magiskmanager.com/downloading-magisk-manager):
+adb install magisk.apk  Download matching Settings &amp;gt; About &amp;gt; Build number image (RQ1A.201205.008 or similar) from https://developers.google.com/android/images#sunfish
+Extract boot.img from zip within zip and push it:
+adb push boot.img /sdcard/Download/boot.img  Use magisk to patch boot.img and download it from the phone:
+adb pull /sdcard/Download/magisk-modified-boot.img  Reboot back into fastboot:</description>
+    </item>
+    
+  </channel>
+</rss>

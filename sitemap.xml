@@ -2,41 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/tags/application-security/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/tags/android/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/cve/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/categories/android/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/cve-2020-8593/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/categories/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/directory-traversal/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/tags/jailbreak/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/disclosure/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/categories/jailbreak/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/tags/magisk/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/path-traversal/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/categories/magisk/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
+  </url><url>
+    <loc>/tags/pixel/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
+  </url><url>
+    <loc>/categories/pixel/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
     <loc>/post/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/security/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/tags/root/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
-    <loc>/tags/security-research/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <loc>/categories/root/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
+  </url><url>
+    <loc>/post/root-pixel4a-and-trust-burp-again/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
+  </url><url>
+    <loc>/categories/security/</loc>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2020-04-08T00:00:00-04:00</lastmod>
+    <lastmod>2021-04-15T15:48:46+00:00</lastmod>
+  </url><url>
+    <loc>/tags/application-security/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cve/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cve-2020-8593/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/directory-traversal/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/disclosure/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/dotnetnuke-directory-traversal-vulnerability-cve-2020-8593/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/path-traversal/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/security/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/security-research/</loc>
+    <lastmod>2020-04-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/cve-2019-19609/</loc>
     <lastmod>2019-12-03T15:33:07+00:00</lastmod>
@@ -49,9 +88,6 @@
   </url><url>
     <loc>/post/hardcoded-credentials-in-uniguest-kiosk-software-lead-to-api-compromise/</loc>
     <lastmod>2019-07-17T21:33:07+00:00</lastmod>
-  </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2019-06-01T12:46:23+00:00</lastmod>
   </url><url>
     <loc>/tags/github/</loc>
     <lastmod>2019-06-01T12:46:23+00:00</lastmod>
@@ -231,9 +267,6 @@
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url><url>
     <loc>/categories/directaccess/</loc>
-    <lastmod>2016-02-08T00:46:31+00:00</lastmod>
-  </url><url>
-    <loc>/categories/security/</loc>
     <lastmod>2016-02-08T00:46:31+00:00</lastmod>
   </url><url>
     <loc>/tags/server-2012-r2/</loc>

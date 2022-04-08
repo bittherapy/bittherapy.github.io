@@ -1,22 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Webdev on { bit.therapy }</title>
     <link>/tags/webdev/</link>
     <description>Recent content in Webdev on { bit.therapy }</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>{ bit.therapy }</copyright>
-    <lastBuildDate>Mon, 06 Apr 2015 13:01:31 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/webdev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>_</copyright>
+    <lastBuildDate>Mon, 06 Apr 2015 13:01:31 +0000</lastBuildDate><atom:link href="/tags/webdev/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Search Keyword Highlighting with Perl</title>
-      <link>/post/search-keyword-highlighting-with-perl/</link>
+      <link>/post/_drafts/search-keyword-highlighting-with-perl/</link>
       <pubDate>Mon, 06 Apr 2015 13:01:31 +0000</pubDate>
       
-      <guid>/post/search-keyword-highlighting-with-perl/</guid>
+      <guid>/post/_drafts/search-keyword-highlighting-with-perl/</guid>
       <description>Here&amp;rsquo;s how to break down a search string into uniq keywords and highlight them using HTML:
 # user input my $search_string = &amp;quot;I really really need this&amp;quot;; # highlighting, get the s _uniq_ keyword # use grep() to make sure we skip short keywords my @kw = grep {length($_) &amp;gt; 2} split /[^w]/,$search_string; # expected output: keyword1|keyword2|keyword3 my $regex_keys = join &amp;quot;|&amp;quot;, sort keys %{{ map { $_ =&amp;gt; 1 } @kw }}; $data =~ s!</description>
     </item>
